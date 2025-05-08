@@ -20,7 +20,7 @@ function main(system::String)
     end
 
     # read the matrix
-    filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
+    filename = "../Davidson_algorithm/m_pp_" * system * ".dat" #
     println("read ", filename)
     file = open(filename, "r")
     A = Array{Float64}(undef, N*N)
@@ -39,14 +39,19 @@ function main(system::String)
     # perform Davidson algorithm
     println("Davidson")
     @time Σ, U = davidson(A, V, Naux, 1e-5, N, system)
+    # idx = sortperm(Σ)
+    # Eigenvalues = Eigenvalues[idx] # they are not sorted! 
+    # Ritz_vecs = Ritz_vecs[:,idx] # sort the converged eigenvectors
 
-    # perform exact diagonalization as a reference
-    println("Full diagonalization")
-    @time Σexact, Uexact = eigen(A) 
+    
+    # # perform exact diagonalization as a reference
+    # println("Full diagonalization")
+    # @time Σexact, Uexact = eigen(A) 
 
-    display("text/plain", Σexact[1:Nlow]')
-    display("text/plain", Σ')
-    display("text/plain", (Σ-Σexact[1:Nlow])')
+    # display("text/plain", Σexact[1:Nlow]')
+    # display("text/plain", Σ')
+    # display("text/plain", (Σ-Σexact[1:Nlow])')
+    return Σ, U
 end
 
 function davidson(
@@ -73,7 +78,7 @@ function davidson(
     Ritz_vecs = [] # Ritz vectors
     Eigenvalues = Float64[] # Ritz eigenvalues
     while true
-        iter = iter + 1
+        iter += 1
         
         if nevf > 0
             Xconv = hcat(Ritz_vecs...) # converged eigenvectors
@@ -100,14 +105,16 @@ function davidson(
         n_converg = 0
         norms = zeros(size(R,2))
         for i = 1:size(R,2)
-            norms[i] = norm(R[:,i])
-            if norm(R[:,i]) < thresh
+            Ri = @view R[:,i]
+            norms[i] = norm(Ri)
+            if norm(Ri) < thresh
                 n_converg += 1
                 push!(Ritz_vecs, X[:,i])
                 push!(Eigenvalues, Σ[i])
                 println("converged eigenvalue ", Σ[i], " with norm ", norms[i])
             end
         end
+            
         
         nevf += n_converg # number of converged eigenvalues
 
@@ -144,4 +151,4 @@ function davidson(
     end
 end
 
-main("He")
+Σ, U = main("He")
