@@ -39,7 +39,14 @@ function main(system::String)
     # perform Davidson algorithm
     println("Davidson")
     @time Σ, U = davidson(A, V, Naux, 1e-5, N, system)
-    println("Σ = ", Σ)
+
+    # perform exact diagonalization as a reference
+    println("Full diagonalization")
+    @time Σexact, Uexact = eigen(A) 
+
+    display("text/plain", Σexact[1:Nlow]')
+    display("text/plain", Σ')
+    display("text/plain", (Σ-Σexact[1:Nlow])')
 end
 
 function davidson(
@@ -64,12 +71,13 @@ function davidson(
     iter = 0 # iteration counter
 
     Ritz_vecs = [] # Ritz vectors
-    Eigenvalues = [] # Ritz eigenvalues
+    Eigenvalues = Float64[] # Ritz eigenvalues
     while true
         iter = iter + 1
         
         if nevf > 0
             Xconv = hcat(Ritz_vecs...) # converged eigenvectors
+            # V -= Xconv * (Xconv' * V)
             for j in 1:size(V,2)
                 V[:, j] -= Xconv * (Xconv' * V[:, j])  # project out component in span(Xconv) --> Is it correct? Are the ritz vectors orthogonalized already?
             end
@@ -108,7 +116,9 @@ function davidson(
 
         if nevf >= Nlow
             println("converged!")
-            return (Σ, X)
+            idx = sortperm(Eigenvalues)
+            Eigenvalues = Eigenvalues[idx] # they are not sorted! 
+            return (Eigenvalues, Xconv)
         end
 
         # update guess space using diagonal preconditioner 
