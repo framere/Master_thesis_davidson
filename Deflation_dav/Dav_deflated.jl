@@ -38,7 +38,8 @@ function main(system::String)
 
     # perform Davidson algorithm
     println("Davidson")
-    @time Σ, U = davidson(A, V, Naux, 1e-6, system)
+    @time Σ, U = davidson(A, V, Naux, 1e-5, N, system)
+    println("Σ = ", Σ)
 end
 
 function davidson(
@@ -46,6 +47,7 @@ function davidson(
     V::Matrix{T},
     Naux::Integer,
     thresh::Float64,
+    N ::Integer,
     system::String # default system is hBN
 )::Tuple{Vector{T},Matrix{T}} where T<:Number
     
@@ -106,7 +108,7 @@ function davidson(
 
         if nevf >= Nlow
             println("converged!")
-            return (Eigenvalues, Ritz_vecs)
+            return (Σ, X)
         end
 
         # update guess space using diagonal preconditioner 
@@ -116,12 +118,16 @@ function davidson(
             t[:,i] = C .* R[:,i] # the new basis vectors
         end
 
+        V0 = zeros(N, Nlow)
+        for i = 1:Nlow
+            V0[i,i] = 1.0
+        end
 
         # update guess basis
         if size(V,2) <= Naux-Nlow && n_converg == 0 # could be wrong as Naus-Nlow could not be representative anymore
             V = hcat(V,t) # concatenate V and t
         else
-            V = hcat(X[:,n_converg +1 : end],t) # concatenate X and t 
+            V = hcat(V0, X[:,n_converg +1 : end],t) # concatenate X and t 
         end
     end
 end
