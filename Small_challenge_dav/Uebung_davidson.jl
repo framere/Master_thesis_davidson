@@ -99,7 +99,16 @@ function main()
     
     # Calculate exact eigenvalues with Julia built-in solver for comparison
     eigenvalues = eigen(Symmetric(H)).values
-    
+    eigenvectors = eigen(Symmetric(H)).vectors
+
+   open("exact.dat", "w") do eigen_vectors_file
+        n = size(eigenvectors, 1)  # number of rows (entries) in each eigenvector
+        for i in 1:n
+            @printf(eigen_vectors_file, "%e %e\n", eigenvectors[i, 1], eigenvectors[i, 2])
+        end
+    end
+
+
     println(" Ritz values   Eigenvalues")
     for i in 1:length(lambda)
         @printf("%e %e\n", lambda[i], eigenvalues[i])
