@@ -10,10 +10,6 @@ function davidson(
 )::Tuple{Vector{T},Matrix{T}} where T<:Number
 
     Nlow = size(V,2)
-    if Naux < Nlow
-        println("ERROR: auxiliary basis must not be smaller than number of target eigenvalues")
-    end
-
     D = diag(A)
     Ritz_vecs = []
     Eigenvalues = Float64[]
@@ -38,70 +34,46 @@ function davidson(
 
             output = @sprintf("iter=%6d  Rnorm=%11.3e  size(V,2)=%6d\n", iter, Rnorm, size(V,2))
             print(output)
-
-            for i = 1:Nlow
-                if Rnorm < thresh
-                    # Check if this eigenvalue is already found
-                    is_duplicate = any(norm(Xconv' * X[:, i]) .> 0.99)
-                    if is_duplicate
-                        continue
-                    end
-
+            converged = [norm(R[:, i]) < thresh for i = 1:Nlow]
+            if all(converged)
+                n_blocks_converged += 1
+                println("Block ", block, " converged.")
+                for i = 1:Nlow
                     push!(Ritz_vecs, X[:, i])
                     push!(Eigenvalues, Σ[i])
-                    Eigenvalue_number = length(Eigenvalues)
-                    println("converged eigenvalue ", Σ[i], " with residual norm ", norm(R[:, i]), " (eigenvalue number: ", Eigenvalue_number, ")")
-                   
-                    # Orthonormalize and add to Xconv
-                    q = X[:, i]
-                    if size(Xconv, 2) > 0
-                        q -= Xconv * (Xconv' * q)
-                    end
-                    q /= norm(q)
-                    Xconv = hcat(Xconv, q)
-                    converged_in_block += 1
+                    println("converged eigenvalue ", Σ[i], " with residual norm ", norm(R[:, i]))
+                    Xconv = qr(hcat(Ritz_vecs...)).Q
                 end
-            end
-
-            if converged_in_block >= Nlow
                 break
             end
-
-            # Remove converged space from V
-            for i in 1:size(V,2)
-                V[:, i] -= Xconv * (Xconv' * V[:, i])
-            end
-
-            # Preconditioned residual
+            
+            
             t = zero(similar(R))
             for i = 1:size(t,2)
                 C = 1.0 ./ (Σ[i] .- D)
                 t[:, i] = C .* R[:, i]
             end
-
-            # Project out converged space from t
+            
             if size(Xconv, 2) > 0
-                for i = 1:size(t,2)
-                    t[:, i] -= Xconv * (Xconv' * t[:, i])
+                for j in 1:size(V,2)
+                    V[:, j] -= Xconv * (Xconv' * V[:, j])
                 end
             end
 
-            # Augment V
+
             if size(V,2) <= Naux - Nlow
                 V = hcat(V, t)
             else
                 V = hcat(X, t)
             end
         end
+
     end
 
     return (Eigenvalues, hcat(Ritz_vecs...))
 end
-
-
-function main(system::String)
-    # the two test systems He and hBN are hardcoded
-    system = system
+function define_matrix(system::String)
+    # Define a sample matrix for testing
     
     Nlow = 16 # we are interested in the first Nlow eigenvalues
     Naux = Nlow * 16 # let our auxiliary space be larger (but not too large)
@@ -127,6 +99,12 @@ function main(system::String)
     A = reshape(A, N, N)
     A = -A # because we are interested in the largest eigenvalues
     A = Hermitian(A)
+    return A, N, Nlow, Naux
+end
+
+
+function main(system::String)
+    A, N, Nlow, Naux = define_matrix(system)
 
     # initial guess vectors (naive guess)
     V = zeros(N, Nlow)
