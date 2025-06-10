@@ -1,23 +1,6 @@
 using LinearAlgebra
 using Printf
 
-# generate symmetric matrix
-function sparse_matrix(N::Int, factor::Int)
-    A = zeros(Float64, N, N)
-    for i in 1:N
-        for j in 1:N
-            if i == j
-                A[i, j] = rand()
-            else
-                A[i, j] = rand() / factor
-            end
-        end
-    end
-    A = 0.5 * (A + A')
-
-    return Hermitian(A)
-end
-
 function davidson(
     A::AbstractMatrix{T},
     V::Matrix{T},
@@ -34,12 +17,14 @@ function davidson(
     D = diag(A)
     Ritz_vecs = []
     Eigenvalues = Float64[]
+    Xconv = Matrix{T}(undef, size(A,1), 0)  # Empty orthonormal basis
 
     for block in 1:blocks
+        println("Block ", block, " of ", blocks)
         iter = 0
-        n_blocks_converged = 0
-        Xconv = Matrix{T}(undef, size(A,1), 0)  # Empty orthonormal basis
-        while true
+        converged_in_block = 0
+
+        while converged_in_block < Nlow && length(Eigenvalues) < Nlow * blocks
             iter += 1
             qr_decomp = qr(V)
             V = Matrix(qr_decomp.Q)
@@ -54,66 +39,65 @@ function davidson(
             output = @sprintf("iter=%6d  Rnorm=%11.3e  size(V,2)=%6d\n", iter, Rnorm, size(V,2))
             print(output)
 
-            converged = [norm(R[:, i]) < thresh for i = 1:Nlow]
-            if all(converged)
-                n_blocks_converged += 1
-                println("Block ", block, " converged.")
-                for i = 1:Nlow
+            for i = 1:Nlow
+                if norm(R[:, i]) < thresh
+                    # Check if this eigenvalue is already found
+                    is_duplicate = any(norm(Xconv' * X[:, i]) .> 0.99)
+                    if is_duplicate
+                        continue
+                    end
+
                     push!(Ritz_vecs, X[:, i])
                     push!(Eigenvalues, Σ[i])
-                    println("converged eigenvalue ", Σ[i], " with residual norm ", norm(R[:, i]))
-                    Xconv = qr(hcat(Ritz_vecs...)).Q
+                    Eigenvalue_number = length(Eigenvalues)
+                    println("converged eigenvalue ", Σ[i], " with residual norm ", norm(R[:, i]), " (eigenvalue number: ", Eigenvalue_number, ")")
+                   
+                    # Orthonormalize and add to Xconv
+                    q = X[:, i]
+                    if size(Xconv, 2) > 0
+                        q -= Xconv * (Xconv' * q)
+                    end
+                    q /= norm(q)
+                    Xconv = hcat(Xconv, q)
+                    converged_in_block += 1
                 end
+            end
+
+            if converged_in_block >= Nlow
                 break
             end
 
+            # Remove converged space from V
+            for i in 1:size(V,2)
+                V[:, i] -= Xconv * (Xconv' * V[:, i])
+            end
+
+            # Preconditioned residual
             t = zero(similar(R))
             for i = 1:size(t,2)
                 C = 1.0 ./ (Σ[i] .- D)
                 t[:, i] = C .* R[:, i]
             end
-            
+
+            # Project out converged space from t
             if size(Xconv, 2) > 0
-                for j in 1:size(V,2)
-                    V[:, j] -= Xconv * (Xconv' * V[:, j])
+                for i = 1:size(t,2)
+                    t[:, i] -= Xconv * (Xconv' * t[:, i])
                 end
             end
 
-
+            # Augment V
             if size(V,2) <= Naux - Nlow
                 V = hcat(V, t)
             else
                 V = hcat(X, t)
             end
         end
-
     end
 
     return (Eigenvalues, hcat(Ritz_vecs...))
 end
 
-# -----------------------------------------------------------------------------------
-# function main()
-#     A = sparse_matrix(10000, 10)  # Example sparse matrix
-
-#     Nlow = 16
-#     Naux = Nlow * 16
-#     N = size(A, 1)
-
-#     V = zeros(N, Nlow)
-#     for i = 1:Nlow
-#         V[i, i] = 1.0
-#     end
-
-#     println("Davidson")
-#     @time Σ, U = davidson(A, V, Naux, 1e-5, 2)
-# end
-
-
-# main()
-
-
-# -----------------------------------------------------------------------------------
 
 function main(system::String)
     # the two test systems He and hBN are hardcoded
@@ -152,7 +136,7 @@ function main(system::String)
 
     # perform Davidson algorithm
     println("Davidson")
-    n_blocks = 2 # number of blocks to split the Davidson algorithm into
+    n_blocks = 3 # number of blocks to split the Davidson algorithm into
     @time Σ, U = davidson(A, V, Naux, 1e-5, n_blocks)
     # idx = sortperm(Σ)
     # Eigenvalues = Eigenvalues[idx] # they are not sorted! 
@@ -165,8 +149,7 @@ function main(system::String)
 
     display("text/plain", Σexact[1:n_blocks*Nlow]')
     display("text/plain", Σ')
-    display("text/plain", (Σ-Σexact[1:n_blocks*Nlow])')
-    return Σ, U
+    display("text/plain", (Σ[1:n_blocks*Nlow]-Σexact[1:n_blocks*Nlow])')
 end
 
 main("He")
