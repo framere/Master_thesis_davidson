@@ -10,7 +10,6 @@ function davidson(
 )::Tuple{Vector{T},Matrix{T}} where T<:Number
 
     Nlow = size(V,2)
-    D = diag(A)
     Ritz_vecs = []
     Eigenvalues = Float64[]
     Xconv = Matrix{T}(undef, size(A,1), 0)  # Empty orthonormal basis
@@ -18,36 +17,57 @@ function davidson(
     for block in 1:blocks
         println("Block ", block, " of ", blocks)
         iter = 0
+        D = diag(A)  # Diagonal part of A (for preconditioner)
 
-        if size(Xconv, 2) > 0
-            V = V - Xconv * (Xconv' * V)
-            V = qr(V).Q
-        end
+        sizeV = size(V, 2) 
+        println("Initial size of V for block ", block, " is ", sizeV)
+        println("Number of eigenvalues to find in this block: ", Nlow)
+        println("Number of auxiliary vectors: ", Naux)
 
-        while length(Eigenvalues) < Nlow * blocks
+        while length(Eigenvalues) < Nlow * block
             iter += 1
             qr_decomp = qr(V)
             V = Matrix(qr_decomp.Q)
+
+            if size(Xconv, 2) > 0
+                V = V - Xconv * (Xconv' * V)
+                V = qr(V).Q
+            end
 
             H = Hermitian(V' * (A * V))
             Σ, U = eigen(H, 1:Nlow)
 
             X = V * U
             R = X .* Σ' .- A * X
+
+            println("Size of X: ", size(X))
             Rnorm = norm(R, 2)
 
             output = @sprintf("iter=%6d  Rnorm=%11.3e  size(V,2)=%6d\n", iter, Rnorm, size(V,2))
             print(output)
             
             if Rnorm < thresh
-                println("Block ", block, " converged with Rnorm ", Rnorm)
-                for i = 1:Nlow
-                    push!(Ritz_vecs, X[:, i])
-                    push!(Eigenvalues, Σ[i])
-                    println("converged eigenvalue ", Σ[i], " with residual norm ", norm(R[:, i]))
-                    Xconv = qr(hcat(Ritz_vecs...)).Q
+                if size(Xconv, 2) > 0
+                    proj_norm = norm(Xconv' * X, 2)
+                else
+                    proj_norm = 0.0
                 end
-                break
+
+                if proj_norm < 1e-1
+                    println("converged block ", block, "with Rnorm ", Rnorm)
+                    for i = 1:Nlow
+                        push!(Ritz_vecs, X[:, i])
+                        push!(Eigenvalues, Σ[i])
+                        println("converged eigenvalue ", Σ[i], " with residual norm ", norm(R[:, i]))
+
+                        q = X[:, i]
+                        if size(Xconv, 2) > 0
+                            q -= Xconv * (Xconv' * q)
+                        end
+                        q /= norm(q)
+                        Xconv = hcat(Xconv, q)
+                    end
+                end
             end
             
             
@@ -55,18 +75,11 @@ function davidson(
             for i = 1:size(t,2)
                 C = 1.0 ./ (Σ[i] .- D)
                 t[:, i] = C .* R[:, i]
-                t[:, i] -= Xconv * (Xconv' * t[:, i])
             end
 
             if size(V,2) <= Naux - Nlow
-                for j in 1:size(V,2)
-                    V[:, j] -= Xconv * (Xconv' * V[:, j])
-                end
                 V = hcat(V, t)
             else
-                for j in 1:size(X,2)
-                    X[:, j] -= Xconv * (Xconv' * X[:, j])
-                end
                 V = hcat(X, t)
             end
         end

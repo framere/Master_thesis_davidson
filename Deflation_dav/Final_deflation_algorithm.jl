@@ -92,7 +92,7 @@ end
 function define_matrix(system::String)
     # Define a sample matrix for testing
     
-    Nlow = 100   # we are interested in the first Nlow eigenvalues
+    Nlow = 16   # we are interested in the first Nlow eigenvalues
     Naux = Nlow * 16 # let our auxiliary space be larger (but not too large)
 
     if system == "He"
@@ -148,10 +148,10 @@ end
 
 systems = ["He", "hBN", "Si"]
 
-for system in systems
-    println("system: ", system)
-    main(system)
-end
+# for system in systems
+#     println("system: ", system)
+#     main(system)
+# end
 
 
-# main("hBN")
+main("hBN")

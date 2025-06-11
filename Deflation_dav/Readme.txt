@@ -5,3 +5,6 @@ Problems:
 2) **Davidson deflated improve** takes out single eigenvalues as the algorithm progresses
 
 3) **adaptive deflation** bislang bestfunktionierenden Algorithmus mit dem von Tobias
+
+4) **final deflation algorithm**, same as adaptive but more compact
+
