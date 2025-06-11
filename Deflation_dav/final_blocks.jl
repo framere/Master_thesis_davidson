@@ -18,9 +18,13 @@ function davidson(
     for block in 1:blocks
         println("Block ", block, " of ", blocks)
         iter = 0
-        converged_in_block = 0
 
-        while converged_in_block < Nlow && length(Eigenvalues) < Nlow * blocks
+        if size(Xconv, 2) > 0
+            V = V - Xconv * (Xconv' * V)
+            V = qr(V).Q
+        end
+
+        while length(Eigenvalues) < Nlow * blocks
             iter += 1
             qr_decomp = qr(V)
             V = Matrix(qr_decomp.Q)
@@ -34,10 +38,9 @@ function davidson(
 
             output = @sprintf("iter=%6d  Rnorm=%11.3e  size(V,2)=%6d\n", iter, Rnorm, size(V,2))
             print(output)
-            converged = [norm(R[:, i]) < thresh for i = 1:Nlow]
-            if all(converged)
-                n_blocks_converged += 1
-                println("Block ", block, " converged.")
+            
+            if Rnorm < thresh
+                println("Block ", block, " converged with Rnorm ", Rnorm)
                 for i = 1:Nlow
                     push!(Ritz_vecs, X[:, i])
                     push!(Eigenvalues, Σ[i])
@@ -52,18 +55,18 @@ function davidson(
             for i = 1:size(t,2)
                 C = 1.0 ./ (Σ[i] .- D)
                 t[:, i] = C .* R[:, i]
+                t[:, i] -= Xconv * (Xconv' * t[:, i])
             end
-            
-            if size(Xconv, 2) > 0
+
+            if size(V,2) <= Naux - Nlow
                 for j in 1:size(V,2)
                     V[:, j] -= Xconv * (Xconv' * V[:, j])
                 end
-            end
-
-
-            if size(V,2) <= Naux - Nlow
                 V = hcat(V, t)
             else
+                for j in 1:size(X,2)
+                    X[:, j] -= Xconv * (Xconv' * X[:, j])
+                end
                 V = hcat(X, t)
             end
         end
@@ -72,6 +75,9 @@ function davidson(
 
     return (Eigenvalues, hcat(Ritz_vecs...))
 end
+
+
+
 function define_matrix(system::String)
     # Define a sample matrix for testing
     
@@ -90,7 +96,8 @@ function define_matrix(system::String)
     end
 
     # read the matrix
-    filename = "../Davidson_algorithm/m_pp_" * system * ".dat" #
+    # filename = "../Davidson_algorithm/m_pp_" * system * ".dat" #institute
+    filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
     println("read ", filename)
     file = open(filename, "r")
     A = Array{Float64}(undef, N*N)
@@ -122,12 +129,12 @@ function main(system::String)
 
     
     # perform exact diagonalization as a reference
-    println("Full diagonalization")
-    @time Σexact, Uexact = eigen(A) 
+#     println("Full diagonalization")
+#     @time Σexact, Uexact = eigen(A) 
 
-    display("text/plain", Σexact[1:n_blocks*Nlow]')
-    display("text/plain", Σ')
-    display("text/plain", (Σ[1:n_blocks*Nlow]-Σexact[1:n_blocks*Nlow])')
+#     display("text/plain", Σexact[1:n_blocks*Nlow]')
+#     display("text/plain", Σ')
+#     display("text/plain", (Σ[1:n_blocks*Nlow]-Σexact[1:n_blocks*Nlow])')
 end
 
 main("He")
