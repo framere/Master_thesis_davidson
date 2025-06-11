@@ -134,24 +134,24 @@ function main(system::String)
     println("Davidson")
     n_blocks = 1 # number of blocks to split the Davidson algorithm into
     @time Σ, U = davidson(A, V, Naux, 1e-5, n_blocks)
-    sorted_indices = sortperm(Σ)
-    Eigenvalues = Σ[sorted_indices]  # Sort eigenvalues
-    Ritz_vecs = U[:, sorted_indices]  # Sort eigenvectors
-    # perform exact diagonalization as a reference
-    println("Full diagonalization")
-    @time Σexact, Uexact = eigen(A) 
+    # sorted_indices = sortperm(Σ)
+    # Eigenvalues = Σ[sorted_indices]  # Sort eigenvalues
+    # Ritz_vecs = U[:, sorted_indices]  # Sort eigenvectors
+    # # perform exact diagonalization as a reference
+    # println("Full diagonalization")
+    # @time Σexact, Uexact = eigen(A) 
 
-    display("text/plain", Σexact[1:n_blocks*Nlow]')
-    display("text/plain", Σ')
-    display("text/plain", (Eigenvalues[1:n_blocks*Nlow] -Σexact[1:n_blocks*Nlow])')
+    # display("text/plain", Σexact[1:n_blocks*Nlow]')
+    # display("text/plain", Σ')
+    # display("text/plain", (Eigenvalues[1:n_blocks*Nlow] -Σexact[1:n_blocks*Nlow])')
 end
 
-# systems = ["He", "hBN", "Si"]
+systems = ["He", "hBN", "Si"]
 
-# for system in systems
-#     println("system: ", system)
-#     main(system)
-# end
+for system in systems
+    println("system: ", system)
+    main(system)
+end
 
 
-main("hBN")
+# main("hBN")
