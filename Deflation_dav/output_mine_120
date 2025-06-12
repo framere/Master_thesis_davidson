@@ -1,0 +1,535 @@
+system: He
+read ../Davidson_algorithm/m_pp_He.dat
+Davidson
+iter=     1  Rnorm=  4.344e+00  size(V,2)=   120
+iter=     2  Rnorm=  4.006e+00  size(V,2)=   240
+iter=     3  Rnorm=  2.605e+00  size(V,2)=   360
+iter=     4  Rnorm=  5.747e-01  size(V,2)=   480
+iter=     5  Rnorm=  2.215e-01  size(V,2)=   600
+converged eigenvalue -6.137069205372056 with residual norm 2.7626256481465213e-6// Eigenvalue number: 1
+converged eigenvalue -5.133615974579178 with residual norm 1.2116209372186582e-6// Eigenvalue number: 2
+converged eigenvalue -5.124023118125375 with residual norm 6.7804207822897815e-6// Eigenvalue number: 3
+converged eigenvalue -5.1150339267816465 with residual norm 1.649790198999584e-6// Eigenvalue number: 4
+iter=     6  Rnorm=  1.583e-01  size(V,2)=   720
+converged eigenvalue -4.347007051607821 with residual norm 2.3835074526547298e-7// Eigenvalue number: 5
+converged eigenvalue -4.346796009386995 with residual norm 8.375150169151833e-6// Eigenvalue number: 6
+converged eigenvalue -4.3426449932699684 with residual norm 8.07280093897954e-7// Eigenvalue number: 7
+converged eigenvalue -4.308296738673454 with residual norm 8.387228880071799e-8// Eigenvalue number: 8
+converged eigenvalue -0.9913885184663498 with residual norm 1.8974422743763059e-6// Eigenvalue number: 9
+converged eigenvalue -0.9850880218611711 with residual norm 3.054222362224221e-6// Eigenvalue number: 10
+converged eigenvalue -0.9790298998456328 with residual norm 2.552553507638136e-6// Eigenvalue number: 11
+converged eigenvalue -0.7612326832052587 with residual norm 7.89403861609936e-6// Eigenvalue number: 12
+converged eigenvalue -0.6420881983194262 with residual norm 8.305744491666887e-7// Eigenvalue number: 13
+converged eigenvalue -0.44887864053438575 with residual norm 5.90906487950123e-6// Eigenvalue number: 14
+converged eigenvalue -0.44742064983900476 with residual norm 8.065945446743584e-6// Eigenvalue number: 15
+iter=     7  Rnorm=  9.180e-02  size(V,2)=   840
+converged eigenvalue -4.150101720129572 with residual norm 4.42752525941943e-8// Eigenvalue number: 16
+converged eigenvalue -0.6431862068468313 with residual norm 2.0308964421062623e-6// Eigenvalue number: 17
+converged eigenvalue -0.6399679103376503 with residual norm 1.0908456174348072e-6// Eigenvalue number: 18
+converged eigenvalue -0.6382992301188544 with residual norm 3.8172450255595244e-7// Eigenvalue number: 19
+converged eigenvalue -0.6358097539599618 with residual norm 1.0146685331213086e-6// Eigenvalue number: 20
+converged eigenvalue -0.6340562623027335 with residual norm 8.691681084052041e-7// Eigenvalue number: 21
+converged eigenvalue -0.6331731424454223 with residual norm 7.8426813691389e-7// Eigenvalue number: 22
+converged eigenvalue -0.45149441692922665 with residual norm 8.556777732865587e-6// Eigenvalue number: 23
+converged eigenvalue -0.4485989949986783 with residual norm 3.781151348581838e-7// Eigenvalue number: 24
+converged eigenvalue -0.4440498870925953 with residual norm 5.489149237395066e-6// Eigenvalue number: 25
+converged eigenvalue -0.2773564215717803 with residual norm 4.675263377837521e-6// Eigenvalue number: 26
+converged eigenvalue -0.27650243390401885 with residual norm 2.257125988947714e-6// Eigenvalue number: 27
+converged eigenvalue -0.27204536721498485 with residual norm 3.7138639422343935e-6// Eigenvalue number: 28
+iter=     8  Rnorm=  5.687e-02  size(V,2)=   960
+converged eigenvalue -0.27962021766561834 with residual norm 1.9005044005105757e-6// Eigenvalue number: 29
+converged eigenvalue -0.275259294838457 with residual norm 2.800651414464524e-6// Eigenvalue number: 30
+converged eigenvalue -0.27494783982059995 with residual norm 1.630567631247589e-6// Eigenvalue number: 31
+converged eigenvalue -0.2749059910078396 with residual norm 1.0007530314226264e-6// Eigenvalue number: 32
+converged eigenvalue -0.27213000698646533 with residual norm 5.914017817025593e-7// Eigenvalue number: 33
+converged eigenvalue -0.2717844592421236 with residual norm 1.8677401984140541e-6// Eigenvalue number: 34
+converged eigenvalue -0.1675289066708182 with residual norm 8.059651339053141e-6// Eigenvalue number: 35
+iter=     9  Rnorm=  3.858e-02  size(V,2)=  1080
+converged eigenvalue -0.17154329093524812 with residual norm 1.9074955192575606e-6// Eigenvalue number: 36
+converged eigenvalue -0.16928029853158008 with residual norm 1.6138203677853387e-6// Eigenvalue number: 37
+converged eigenvalue -0.12695226334620277 with residual norm 3.076402288047441e-6// Eigenvalue number: 38
+converged eigenvalue -0.10995883356374792 with residual norm 8.22065772871643e-6// Eigenvalue number: 39
+iter=    10  Rnorm=  2.536e-02  size(V,2)=  1200
+converged eigenvalue -0.12936596060991623 with residual norm 9.996605407606365e-6// Eigenvalue number: 40
+converged eigenvalue -0.12723118402589823 with residual norm 4.1509409036789e-6// Eigenvalue number: 41
+converged eigenvalue -0.12708755313405212 with residual norm 3.1989344375237707e-6// Eigenvalue number: 42
+converged eigenvalue -0.12626802802140524 with residual norm 2.7672940030927485e-6// Eigenvalue number: 43
+converged eigenvalue -0.12499928751815922 with residual norm 3.5782630807547843e-6// Eigenvalue number: 44
+converged eigenvalue -0.1248748848148741 with residual norm 9.277423544690071e-6// Eigenvalue number: 45
+converged eigenvalue -0.1247703456333604 with residual norm 2.2299053158655486e-6// Eigenvalue number: 46
+converged eigenvalue -0.12368025942068755 with residual norm 1.3855620222670881e-6// Eigenvalue number: 47
+converged eigenvalue -0.12334503678941491 with residual norm 2.7998382751325216e-6// Eigenvalue number: 48
+converged eigenvalue -0.12330358256106227 with residual norm 3.0131014342416842e-6// Eigenvalue number: 49
+converged eigenvalue -0.12306951769574662 with residual norm 2.363630356802614e-6// Eigenvalue number: 50
+converged eigenvalue -0.1229883661360624 with residual norm 3.54228216242847e-6// Eigenvalue number: 51
+converged eigenvalue -0.12233583596309641 with residual norm 2.2456681811371724e-6// Eigenvalue number: 52
+converged eigenvalue -0.12175023920886538 with residual norm 3.6857093916242192e-6// Eigenvalue number: 53
+converged eigenvalue -0.12162751483993414 with residual norm 3.868643292980676e-6// Eigenvalue number: 54
+converged eigenvalue -0.1215837783303784 with residual norm 2.8658702960805035e-6// Eigenvalue number: 55
+iter=    11  Rnorm=  1.766e-02  size(V,2)=  1320
+converged eigenvalue -0.12262635875819425 with residual norm 4.711442109689026e-7// Eigenvalue number: 56
+converged eigenvalue -0.06882163560170199 with residual norm 3.485268518362177e-6// Eigenvalue number: 57
+converged eigenvalue -0.06737668604859567 with residual norm 4.5893032331442595e-6// Eigenvalue number: 58
+converged eigenvalue -0.06717640650485196 with residual norm 3.7476819406873578e-6// Eigenvalue number: 59
+converged eigenvalue -0.06696040243502452 with residual norm 3.7903741011030336e-6// Eigenvalue number: 60
+converged eigenvalue -0.06688195943702391 with residual norm 1.404608443970404e-6// Eigenvalue number: 61
+converged eigenvalue -0.058714526297989664 with residual norm 8.066256755161884e-6// Eigenvalue number: 62
+iter=    12  Rnorm=  1.045e-02  size(V,2)=  1440
+converged eigenvalue -0.06052945060481092 with residual norm 1.6669575865070322e-6// Eigenvalue number: 63
+converged eigenvalue -0.059529569311371024 with residual norm 2.9621196051963387e-6// Eigenvalue number: 64
+converged eigenvalue -0.0590261485089417 with residual norm 1.4671584018294378e-6// Eigenvalue number: 65
+converged eigenvalue -0.05896485113220325 with residual norm 1.60597649430305e-6// Eigenvalue number: 66
+converged eigenvalue -0.05836258339466307 with residual norm 5.289446158118618e-6// Eigenvalue number: 67
+converged eigenvalue -0.05824881136854609 with residual norm 1.6807668065947327e-6// Eigenvalue number: 68
+converged eigenvalue -0.057963193363397496 with residual norm 4.299040904111855e-6// Eigenvalue number: 69
+converged eigenvalue -0.05794434217118327 with residual norm 2.6291990415942194e-6// Eigenvalue number: 70
+converged eigenvalue -0.05757204107994683 with residual norm 1.9222479743340738e-6// Eigenvalue number: 71
+converged eigenvalue -0.057263143603763444 with residual norm 1.808365466620602e-6// Eigenvalue number: 72
+converged eigenvalue -0.056999802806803994 with residual norm 2.9103991335527083e-6// Eigenvalue number: 73
+converged eigenvalue -0.056576230376696936 with residual norm 1.3488274224995507e-6// Eigenvalue number: 74
+converged eigenvalue -0.05168725946087766 with residual norm 6.185139992998428e-6// Eigenvalue number: 75
+converged eigenvalue -0.050932991621115135 with residual norm 5.86538073775016e-6// Eigenvalue number: 76
+converged eigenvalue -0.050647621927452584 with residual norm 3.3474336227009203e-6// Eigenvalue number: 77
+iter=    13  Rnorm=  5.193e-03  size(V,2)=  1560
+converged eigenvalue -0.0502847451896668 with residual norm 1.55912241870653e-6// Eigenvalue number: 78
+converged eigenvalue -0.05021464342676242 with residual norm 1.1129100848933173e-6// Eigenvalue number: 79
+converged eigenvalue -0.050207060984916604 with residual norm 1.4994966807548605e-6// Eigenvalue number: 80
+converged eigenvalue -0.0494392896734908 with residual norm 2.499234141456115e-6// Eigenvalue number: 81
+converged eigenvalue -0.04939567685463042 with residual norm 1.492444989563176e-6// Eigenvalue number: 82
+converged eigenvalue -0.04936279476377324 with residual norm 1.139341197936958e-6// Eigenvalue number: 83
+iter=    14  Rnorm=  2.024e-03  size(V,2)=  1680
+iter=    15  Rnorm=  7.363e-04  size(V,2)=  1800
+converged eigenvalue -0.02897765088338299 with residual norm 8.600277794462058e-6// Eigenvalue number: 84
+converged eigenvalue -0.028408769291395113 with residual norm 6.689707484550063e-6// Eigenvalue number: 85
+converged eigenvalue -0.0283613343046828 with residual norm 9.234045818222388e-6// Eigenvalue number: 86
+converged eigenvalue -0.028279252089917915 with residual norm 3.6108826752808735e-6// Eigenvalue number: 87
+converged eigenvalue -0.028107354722230353 with residual norm 7.146869961085527e-6// Eigenvalue number: 88
+converged eigenvalue -0.02791331701398807 with residual norm 8.27433169301168e-6// Eigenvalue number: 89
+converged eigenvalue -0.027588681013811355 with residual norm 8.856657373843914e-6// Eigenvalue number: 90
+converged eigenvalue -0.027533128732466505 with residual norm 4.31424147176247e-6// Eigenvalue number: 91
+iter=    16  Rnorm=  3.297e-04  size(V,2)=  1920
+converged eigenvalue -0.028453424175421207 with residual norm 1.6432347797073458e-6// Eigenvalue number: 92
+converged eigenvalue -0.02796657516746851 with residual norm 7.864083223781163e-6// Eigenvalue number: 93
+converged eigenvalue -0.027791769127004862 with residual norm 1.9449805472643055e-6// Eigenvalue number: 94
+converged eigenvalue -0.027556007817630086 with residual norm 2.4651226681604407e-6// Eigenvalue number: 95
+converged eigenvalue -0.027093611670320945 with residual norm 2.5608808542513665e-6// Eigenvalue number: 96
+converged eigenvalue -0.027036303168786146 with residual norm 3.240429121003478e-6// Eigenvalue number: 97
+converged eigenvalue -0.02675303325249866 with residual norm 3.071480612018719e-6// Eigenvalue number: 98
+converged eigenvalue -0.022644230753605495 with residual norm 7.533779004187108e-6// Eigenvalue number: 99
+iter=    17  Rnorm=  2.947e-04  size(V,2)=   240
+converged eigenvalue -0.022655709384639424 with residual norm 9.915104497710035e-6// Eigenvalue number: 100
+converged eigenvalue -0.022557092338713964 with residual norm 5.7247798783954685e-6// Eigenvalue number: 101
+iter=    18  Rnorm=  2.865e-04  size(V,2)=   360
+converged eigenvalue -0.02158402091724539 with residual norm 7.321359386740431e-6// Eigenvalue number: 102
+converged eigenvalue -0.02152334528168134 with residual norm 8.24497815247005e-6// Eigenvalue number: 103
+converged eigenvalue -0.021320471435297226 with residual norm 9.401233717339622e-6// Eigenvalue number: 104
+iter=    19  Rnorm=  2.786e-04  size(V,2)=   480
+converged eigenvalue -0.022095112278079927 with residual norm 9.512424667111302e-6// Eigenvalue number: 105
+converged eigenvalue -0.021420860875154962 with residual norm 9.376154915661784e-6// Eigenvalue number: 106
+iter=    20  Rnorm=  2.710e-04  size(V,2)=   600
+converged eigenvalue -0.029759610638814705 with residual norm 9.829027240507407e-6// Eigenvalue number: 107
+converged eigenvalue -0.022920249308278327 with residual norm 9.587408429347763e-6// Eigenvalue number: 108
+converged eigenvalue -0.021575703062103952 with residual norm 9.22054025729341e-6// Eigenvalue number: 109
+converged eigenvalue -0.021199942490150368 with residual norm 9.480653991802964e-6// Eigenvalue number: 110
+converged eigenvalue -0.021143169919042058 with residual norm 9.166881949427758e-6// Eigenvalue number: 111
+iter=    21  Rnorm=  2.532e-04  size(V,2)=   720
+converged eigenvalue -0.027167990253594218 with residual norm 7.28158229758407e-6// Eigenvalue number: 112
+converged eigenvalue -0.021472424299872714 with residual norm 9.164619746000264e-6// Eigenvalue number: 113
+converged eigenvalue -0.021162795286293584 with residual norm 9.85165513589859e-6// Eigenvalue number: 114
+iter=    22  Rnorm=  2.197e-04  size(V,2)=   840
+converged eigenvalue -0.022282891962525447 with residual norm 8.820486045806608e-6// Eigenvalue number: 115
+iter=    23  Rnorm=  1.985e-04  size(V,2)=   960
+converged eigenvalue -0.020902248719433247 with residual norm 8.937987460897075e-6// Eigenvalue number: 116
+iter=    24  Rnorm=  1.818e-04  size(V,2)=  1080
+iter=    25  Rnorm=  1.662e-04  size(V,2)=  1200
+iter=    26  Rnorm=  1.481e-04  size(V,2)=  1320
+converged eigenvalue -0.029330613628133946 with residual norm 8.837055944396287e-6// Eigenvalue number: 117
+converged eigenvalue -0.020781029953494505 with residual norm 5.925912412250847e-6// Eigenvalue number: 118
+iter=    27  Rnorm=  1.314e-04  size(V,2)=  1440
+iter=    28  Rnorm=  1.121e-04  size(V,2)=  1560
+iter=    29  Rnorm=  1.014e-04  size(V,2)=  1680
+iter=    30  Rnorm=  9.369e-05  size(V,2)=  1800
+converged eigenvalue -0.02324976917560344 with residual norm 5.279680392115371e-6// Eigenvalue number: 119
+iter=    31  Rnorm=  8.755e-05  size(V,2)=  1920
+iter=    32  Rnorm=  8.636e-05  size(V,2)=   240
+iter=    33  Rnorm=  8.620e-05  size(V,2)=   360
+iter=    34  Rnorm=  8.578e-05  size(V,2)=   480
+iter=    35  Rnorm=  8.520e-05  size(V,2)=   600
+iter=    36  Rnorm=  8.430e-05  size(V,2)=   720
+iter=    37  Rnorm=  8.349e-05  size(V,2)=   840
+iter=    38  Rnorm=  8.225e-05  size(V,2)=   960
+iter=    39  Rnorm=  8.095e-05  size(V,2)=  1080
+iter=    40  Rnorm=  7.942e-05  size(V,2)=  1200
+iter=    41  Rnorm=  7.767e-05  size(V,2)=  1320
+iter=    42  Rnorm=  7.573e-05  size(V,2)=  1440
+iter=    43  Rnorm=  7.367e-05  size(V,2)=  1560
+iter=    44  Rnorm=  7.146e-05  size(V,2)=  1680
+iter=    45  Rnorm=  6.872e-05  size(V,2)=  1800
+iter=    46  Rnorm=  6.508e-05  size(V,2)=  1920
+iter=    47  Rnorm=  6.464e-05  size(V,2)=   240
+iter=    48  Rnorm=  6.444e-05  size(V,2)=   360
+iter=    49  Rnorm=  6.420e-05  size(V,2)=   480
+iter=    50  Rnorm=  6.383e-05  size(V,2)=   600
+iter=    51  Rnorm=  6.338e-05  size(V,2)=   720
+iter=    52  Rnorm=  6.262e-05  size(V,2)=   840
+iter=    53  Rnorm=  6.180e-05  size(V,2)=   960
+iter=    54  Rnorm=  6.119e-05  size(V,2)=  1080
+iter=    55  Rnorm=  5.997e-05  size(V,2)=  1200
+iter=    56  Rnorm=  5.894e-05  size(V,2)=  1320
+iter=    57  Rnorm=  5.759e-05  size(V,2)=  1440
+iter=    58  Rnorm=  5.638e-05  size(V,2)=  1560
+iter=    59  Rnorm=  5.518e-05  size(V,2)=  1680
+iter=    60  Rnorm=  5.378e-05  size(V,2)=  1800
+iter=    61  Rnorm=  5.152e-05  size(V,2)=  1920
+iter=    62  Rnorm=  5.143e-05  size(V,2)=   240
+iter=    63  Rnorm=  5.134e-05  size(V,2)=   360
+iter=    64  Rnorm=  5.115e-05  size(V,2)=   480
+iter=    65  Rnorm=  5.083e-05  size(V,2)=   600
+iter=    66  Rnorm=  5.045e-05  size(V,2)=   720
+iter=    67  Rnorm=  4.989e-05  size(V,2)=   840
+iter=    68  Rnorm=  4.933e-05  size(V,2)=   960
+iter=    69  Rnorm=  4.887e-05  size(V,2)=  1080
+iter=    70  Rnorm=  4.817e-05  size(V,2)=  1200
+iter=    71  Rnorm=  4.743e-05  size(V,2)=  1320
+iter=    72  Rnorm=  4.656e-05  size(V,2)=  1440
+iter=    73  Rnorm=  4.555e-05  size(V,2)=  1560
+iter=    74  Rnorm=  4.461e-05  size(V,2)=  1680
+iter=    75  Rnorm=  4.334e-05  size(V,2)=  1800
+iter=    76  Rnorm=  4.201e-05  size(V,2)=  1920
+iter=    77  Rnorm=  4.200e-05  size(V,2)=   240
+iter=    78  Rnorm=  4.192e-05  size(V,2)=   360
+iter=    79  Rnorm=  4.177e-05  size(V,2)=   480
+iter=    80  Rnorm=  4.153e-05  size(V,2)=   600
+iter=    81  Rnorm=  4.130e-05  size(V,2)=   720
+iter=    82  Rnorm=  4.068e-05  size(V,2)=   840
+iter=    83  Rnorm=  3.968e-05  size(V,2)=   960
+iter=    84  Rnorm=  3.895e-05  size(V,2)=  1080
+iter=    85  Rnorm=  3.747e-05  size(V,2)=  1200
+iter=    86  Rnorm=  3.605e-05  size(V,2)=  1320
+iter=    87  Rnorm=  3.487e-05  size(V,2)=  1440
+iter=    88  Rnorm=  3.255e-05  size(V,2)=  1560
+iter=    89  Rnorm=  3.117e-05  size(V,2)=  1680
+iter=    90  Rnorm=  2.967e-05  size(V,2)=  1800
+iter=    91  Rnorm=  2.678e-05  size(V,2)=  1920
+iter=    92  Rnorm=  2.674e-05  size(V,2)=   240
+iter=    93  Rnorm=  2.671e-05  size(V,2)=   360
+iter=    94  Rnorm=  2.656e-05  size(V,2)=   480
+iter=    95  Rnorm=  2.624e-05  size(V,2)=   600
+iter=    96  Rnorm=  2.568e-05  size(V,2)=   720
+iter=    97  Rnorm=  2.535e-05  size(V,2)=   840
+iter=    98  Rnorm=  2.482e-05  size(V,2)=   960
+iter=    99  Rnorm=  2.397e-05  size(V,2)=  1080
+iter=   100  Rnorm=  2.328e-05  size(V,2)=  1200
+iter=   101  Rnorm=  2.230e-05  size(V,2)=  1320
+iter=   102  Rnorm=  2.160e-05  size(V,2)=  1440
+iter=   103  Rnorm=  2.087e-05  size(V,2)=  1560
+iter=   104  Rnorm=  2.007e-05  size(V,2)=  1680
+iter=   105  Rnorm=  1.937e-05  size(V,2)=  1800
+iter=   106  Rnorm=  1.857e-05  size(V,2)=  1920
+iter=   107  Rnorm=  1.857e-05  size(V,2)=   240
+iter=   108  Rnorm=  1.854e-05  size(V,2)=   360
+iter=   109  Rnorm=  1.843e-05  size(V,2)=   480
+iter=   110  Rnorm=  1.833e-05  size(V,2)=   600
+iter=   111  Rnorm=  1.822e-05  size(V,2)=   720
+iter=   112  Rnorm=  1.797e-05  size(V,2)=   840
+iter=   113  Rnorm=  1.740e-05  size(V,2)=   960
+iter=   114  Rnorm=  1.710e-05  size(V,2)=  1080
+iter=   115  Rnorm=  1.636e-05  size(V,2)=  1200
+iter=   116  Rnorm=  1.570e-05  size(V,2)=  1320
+iter=   117  Rnorm=  1.514e-05  size(V,2)=  1440
+iter=   118  Rnorm=  1.409e-05  size(V,2)=  1560
+iter=   119  Rnorm=  1.350e-05  size(V,2)=  1680
+iter=   120  Rnorm=  1.291e-05  size(V,2)=  1800
+iter=   121  Rnorm=  1.202e-05  size(V,2)=  1920
+iter=   122  Rnorm=  1.202e-05  size(V,2)=   240
+iter=   123  Rnorm=  1.200e-05  size(V,2)=   360
+iter=   124  Rnorm=  1.190e-05  size(V,2)=   480
+iter=   125  Rnorm=  1.180e-05  size(V,2)=   600
+iter=   126  Rnorm=  1.173e-05  size(V,2)=   720
+iter=   127  Rnorm=  1.154e-05  size(V,2)=   840
+iter=   128  Rnorm=  1.126e-05  size(V,2)=   960
+iter=   129  Rnorm=  1.099e-05  size(V,2)=  1080
+iter=   130  Rnorm=  1.062e-05  size(V,2)=  1200
+iter=   131  Rnorm=  1.036e-05  size(V,2)=  1320
+iter=   132  Rnorm=  9.982e-06  size(V,2)=  1440
+converged eigenvalue -0.017596347510428247 with residual norm 9.981971000986086e-6// Eigenvalue number: 120
+312.495728 seconds (532.93 k allocations: 29.840 GiB, 1.99% gc time, 0.06% compilation time)
+system: hBN
+read ../Davidson_algorithm/m_pp_hBN.dat
+Davidson
+iter=     1  Rnorm=  1.942e+01  size(V,2)=   120
+iter=     2  Rnorm=  1.634e+01  size(V,2)=   240
+iter=     3  Rnorm=  1.171e+01  size(V,2)=   360
+iter=     4  Rnorm=  5.243e+00  size(V,2)=   480
+iter=     5  Rnorm=  2.749e+00  size(V,2)=   600
+iter=     6  Rnorm=  4.131e+00  size(V,2)=   720
+iter=     7  Rnorm=  1.199e+00  size(V,2)=   840
+converged eigenvalue -8.246134566337524 with residual norm 8.928181281506438e-7// Eigenvalue number: 1
+converged eigenvalue -7.239976225879143 with residual norm 5.863921881013503e-7// Eigenvalue number: 2
+converged eigenvalue -6.717845879507662 with residual norm 9.371443346352904e-6// Eigenvalue number: 3
+iter=     8  Rnorm=  1.650e+00  size(V,2)=   960
+converged eigenvalue -8.324439163319598 with residual norm 2.190522783844983e-6// Eigenvalue number: 4
+converged eigenvalue -8.324261360573493 with residual norm 2.7407986198577007e-6// Eigenvalue number: 5
+converged eigenvalue -8.324260971159083 with residual norm 2.7097706545341516e-6// Eigenvalue number: 6
+converged eigenvalue -8.324001142362112 with residual norm 4.794879224470419e-6// Eigenvalue number: 7
+converged eigenvalue -8.324000961073951 with residual norm 4.893952327386766e-6// Eigenvalue number: 8
+converged eigenvalue -8.323766995310296 with residual norm 2.441442517355941e-6// Eigenvalue number: 9
+converged eigenvalue -8.249734131228553 with residual norm 3.6422504247131657e-6// Eigenvalue number: 10
+converged eigenvalue -8.249734089985205 with residual norm 3.648042589827578e-6// Eigenvalue number: 11
+converged eigenvalue -8.14817908321132 with residual norm 5.8064793816387965e-6// Eigenvalue number: 12
+converged eigenvalue -8.148179055942567 with residual norm 6.2901358799893145e-6// Eigenvalue number: 13
+converged eigenvalue -7.90117750030883 with residual norm 1.2444618494192922e-6// Eigenvalue number: 14
+converged eigenvalue -7.901106389885635 with residual norm 2.6069189299914283e-6// Eigenvalue number: 15
+converged eigenvalue -7.901105538358781 with residual norm 2.4912379406787728e-6// Eigenvalue number: 16
+converged eigenvalue -7.901038009166992 with residual norm 6.615767748481396e-6// Eigenvalue number: 17
+converged eigenvalue -7.901036366702827 with residual norm 6.675654618890453e-6// Eigenvalue number: 18
+converged eigenvalue -7.900973128721963 with residual norm 1.17495582900973e-6// Eigenvalue number: 19
+converged eigenvalue -7.76879677197002 with residual norm 3.5943538783246707e-6// Eigenvalue number: 20
+converged eigenvalue -7.768642494265319 with residual norm 5.190964937232977e-6// Eigenvalue number: 21
+converged eigenvalue -7.768642110957969 with residual norm 5.331355950738082e-6// Eigenvalue number: 22
+converged eigenvalue -7.768591229746634 with residual norm 4.593001748401723e-6// Eigenvalue number: 23
+converged eigenvalue -7.768590712368079 with residual norm 5.476700695501547e-6// Eigenvalue number: 24
+converged eigenvalue -7.76842645565353 with residual norm 4.42307468389526e-6// Eigenvalue number: 25
+converged eigenvalue -7.4037576101971085 with residual norm 1.3679633061676957e-6// Eigenvalue number: 26
+converged eigenvalue -7.4037573610782585 with residual norm 1.3472688770646664e-6// Eigenvalue number: 27
+iter=     9  Rnorm=  2.954e-01  size(V,2)=  1080
+converged eigenvalue -7.966664885418324 with residual norm 2.193285283710374e-6// Eigenvalue number: 28
+converged eigenvalue -7.9666648439628425 with residual norm 2.188921161906622e-6// Eigenvalue number: 29
+converged eigenvalue -7.738820593341647 with residual norm 4.8508149017957484e-6// Eigenvalue number: 30
+converged eigenvalue -7.738343691733166 with residual norm 4.850206688862885e-6// Eigenvalue number: 31
+converged eigenvalue -7.738343674246685 with residual norm 4.807626725260375e-6// Eigenvalue number: 32
+converged eigenvalue -7.737667273563833 with residual norm 4.853122101335332e-6// Eigenvalue number: 33
+converged eigenvalue -7.73766705558962 with residual norm 4.850500916554611e-6// Eigenvalue number: 34
+converged eigenvalue -7.737066512357603 with residual norm 4.86199616927793e-6// Eigenvalue number: 35
+converged eigenvalue -7.180751812632169 with residual norm 1.6653911612981816e-6// Eigenvalue number: 36
+converged eigenvalue -7.180735785430916 with residual norm 2.4355132337558916e-6// Eigenvalue number: 37
+converged eigenvalue -7.053672590870808 with residual norm 1.9362193033180008e-6// Eigenvalue number: 38
+converged eigenvalue -7.053672439812721 with residual norm 1.9351972774570622e-6// Eigenvalue number: 39
+converged eigenvalue -6.900621476254397 with residual norm 2.867575753973476e-6// Eigenvalue number: 40
+converged eigenvalue -6.900513475653486 with residual norm 2.834019696241212e-6// Eigenvalue number: 41
+converged eigenvalue -6.900513306219931 with residual norm 2.975470867901092e-6// Eigenvalue number: 42
+converged eigenvalue -6.900291945362921 with residual norm 3.0738174560171574e-6// Eigenvalue number: 43
+converged eigenvalue -6.900291695628677 with residual norm 3.0939214293900323e-6// Eigenvalue number: 44
+converged eigenvalue -6.900153462952618 with residual norm 2.880888863493157e-6// Eigenvalue number: 45
+converged eigenvalue -6.750861068243577 with residual norm 2.3340946409100415e-6// Eigenvalue number: 46
+converged eigenvalue -6.7506694120160455 with residual norm 5.446851520938591e-6// Eigenvalue number: 47
+converged eigenvalue -6.750668754953338 with residual norm 5.030685945509445e-6// Eigenvalue number: 48
+converged eigenvalue -6.749777020521854 with residual norm 2.0527164558639007e-6// Eigenvalue number: 49
+converged eigenvalue -6.494854172585372 with residual norm 2.7436138296656755e-6// Eigenvalue number: 50
+converged eigenvalue -6.494853981831152 with residual norm 2.524983091028235e-6// Eigenvalue number: 51
+converged eigenvalue -5.863526766385937 with residual norm 7.486094878134799e-6// Eigenvalue number: 52
+converged eigenvalue -5.863248301321868 with residual norm 8.465497793112702e-6// Eigenvalue number: 53
+converged eigenvalue -5.8632479731148095 with residual norm 9.698275071162384e-6// Eigenvalue number: 54
+converged eigenvalue -5.8627197966329145 with residual norm 9.925090790970893e-6// Eigenvalue number: 55
+converged eigenvalue -5.862379467481236 with residual norm 9.330708831077356e-6// Eigenvalue number: 56
+converged eigenvalue -5.829486265148047 with residual norm 2.009433258659274e-6// Eigenvalue number: 57
+converged eigenvalue -5.8293942963785215 with residual norm 3.674410875627682e-6// Eigenvalue number: 58
+converged eigenvalue -5.82939328331858 with residual norm 3.703238716759814e-6// Eigenvalue number: 59
+converged eigenvalue -5.829301157813311 with residual norm 7.071531798670572e-6// Eigenvalue number: 60
+converged eigenvalue -5.8293006165675 with residual norm 7.3284527658923084e-6// Eigenvalue number: 61
+converged eigenvalue -5.829222831833203 with residual norm 2.359523564431581e-6// Eigenvalue number: 62
+iter=    10  Rnorm=  2.873e-01  size(V,2)=  1200
+converged eigenvalue -6.749818008751727 with residual norm 1.4972359102024386e-6// Eigenvalue number: 63
+converged eigenvalue -6.749817506955022 with residual norm 1.2502178560876727e-6// Eigenvalue number: 64
+converged eigenvalue -6.353674979196826 with residual norm 2.8743367266081656e-6// Eigenvalue number: 65
+converged eigenvalue -6.353674907354758 with residual norm 2.8702244275015564e-6// Eigenvalue number: 66
+converged eigenvalue -6.273744731314325 with residual norm 1.2211673290326735e-6// Eigenvalue number: 67
+converged eigenvalue -6.273698634842941 with residual norm 1.5867785646214392e-6// Eigenvalue number: 68
+converged eigenvalue -5.86271990169607 with residual norm 9.540741632850769e-7// Eigenvalue number: 69
+converged eigenvalue -4.8327876028334655 with residual norm 8.505720233377523e-6// Eigenvalue number: 70
+converged eigenvalue -4.832787440344364 with residual norm 8.621488146702833e-6// Eigenvalue number: 71
+converged eigenvalue -4.063916549409005 with residual norm 8.15345180855997e-6// Eigenvalue number: 72
+converged eigenvalue -3.8721565001492566 with residual norm 8.463474330322485e-6// Eigenvalue number: 73
+converged eigenvalue -3.8721563395272787 with residual norm 8.705116095586497e-6// Eigenvalue number: 74
+iter=    11  Rnorm=  4.209e-02  size(V,2)=  1320
+converged eigenvalue -5.7036900887087 with residual norm 2.067592531362437e-6// Eigenvalue number: 75
+converged eigenvalue -5.703603643199603 with residual norm 1.9859459948655814e-6// Eigenvalue number: 76
+converged eigenvalue -5.703603430815087 with residual norm 1.8415143529854413e-6// Eigenvalue number: 77
+converged eigenvalue -5.703101161647194 with residual norm 1.623060347140856e-6// Eigenvalue number: 78
+converged eigenvalue -5.703100925808228 with residual norm 1.9371300303763058e-6// Eigenvalue number: 79
+converged eigenvalue -5.703007051373935 with residual norm 2.050249851835307e-6// Eigenvalue number: 80
+converged eigenvalue -4.297830718732828 with residual norm 9.650012827163704e-6// Eigenvalue number: 81
+converged eigenvalue -3.8835498907000954 with residual norm 3.3687529757309895e-6// Eigenvalue number: 82
+converged eigenvalue -3.8834797404170365 with residual norm 8.157144079348277e-6// Eigenvalue number: 83
+converged eigenvalue -3.8834796652527857 with residual norm 7.335490448879924e-6// Eigenvalue number: 84
+converged eigenvalue -3.8832358340152693 with residual norm 6.873391910666078e-6// Eigenvalue number: 85
+converged eigenvalue -3.883235822214548 with residual norm 6.937517091275814e-6// Eigenvalue number: 86
+converged eigenvalue -3.8831608045650015 with residual norm 3.1696981301910166e-6// Eigenvalue number: 87
+converged eigenvalue -3.7032931527265056 with residual norm 8.469963775288356e-6// Eigenvalue number: 88
+converged eigenvalue -3.5837273101401808 with residual norm 5.5567206605013805e-6// Eigenvalue number: 89
+iter=    12  Rnorm=  4.526e-03  size(V,2)=  1440
+converged eigenvalue -6.812477606161465 with residual norm 4.369294379996053e-6// Eigenvalue number: 90
+converged eigenvalue -6.8124772461979575 with residual norm 4.2352938679508875e-6// Eigenvalue number: 91
+converged eigenvalue -4.2978384973307024 with residual norm 2.176778159355202e-6// Eigenvalue number: 92
+converged eigenvalue -3.7033050463126207 with residual norm 4.366476471387688e-6// Eigenvalue number: 93
+converged eigenvalue -3.7033049022544935 with residual norm 4.280810916915013e-6// Eigenvalue number: 94
+converged eigenvalue -3.7031727075662086 with residual norm 4.968530536169285e-6// Eigenvalue number: 95
+converged eigenvalue -3.703172666354389 with residual norm 4.2058645638777745e-6// Eigenvalue number: 96
+converged eigenvalue -3.7031526946089377 with residual norm 1.0321481876364218e-6// Eigenvalue number: 97
+converged eigenvalue -3.700517044066186 with residual norm 7.924594749059493e-6// Eigenvalue number: 98
+converged eigenvalue -3.700517006318168 with residual norm 8.255101463606959e-6// Eigenvalue number: 99
+converged eigenvalue -3.5844508213781756 with residual norm 1.303359117169319e-6// Eigenvalue number: 100
+converged eigenvalue -3.5842293117134965 with residual norm 3.5920743887017335e-6// Eigenvalue number: 101
+converged eigenvalue -3.584229268917606 with residual norm 3.1173319922378708e-6// Eigenvalue number: 102
+converged eigenvalue -3.5839753251988746 with residual norm 1.2906892589335474e-6// Eigenvalue number: 103
+converged eigenvalue -3.58397509105762 with residual norm 1.292269290090946e-6// Eigenvalue number: 104
+iter=    13  Rnorm=  2.388e-01  size(V,2)=  1560
+converged eigenvalue -4.692833625022561 with residual norm 5.21386034186661e-6// Eigenvalue number: 105
+converged eigenvalue -3.9895502070392546 with residual norm 1.934419464540023e-6// Eigenvalue number: 106
+converged eigenvalue -3.989550156821725 with residual norm 2.0384712732305877e-6// Eigenvalue number: 107
+converged eigenvalue -3.9893484666534444 with residual norm 1.8979502158223612e-6// Eigenvalue number: 108
+converged eigenvalue -3.989348404845609 with residual norm 2.6394712088804023e-6// Eigenvalue number: 109
+converged eigenvalue -3.6956496824886678 with residual norm 1.0266422094538123e-6// Eigenvalue number: 110
+converged eigenvalue -3.601568639077181 with residual norm 4.044378652034301e-6// Eigenvalue number: 111
+converged eigenvalue -3.6015686193633645 with residual norm 4.145905820973904e-6// Eigenvalue number: 112
+iter=    14  Rnorm=  1.884e-02  size(V,2)=  1680
+converged eigenvalue -4.692821779243359 with residual norm 2.6885180269153823e-6// Eigenvalue number: 113
+converged eigenvalue -3.9896307149424084 with residual norm 1.2266849369583069e-6// Eigenvalue number: 114
+converged eigenvalue -3.989271193049876 with residual norm 8.956176508048075e-7// Eigenvalue number: 115
+converged eigenvalue -3.695638975924294 with residual norm 4.6496563099091335e-6// Eigenvalue number: 116
+iter=    15  Rnorm=  1.361e-03  size(V,2)=  1800
+converged eigenvalue -3.66668883927081 with residual norm 1.4475127173732184e-6// Eigenvalue number: 117
+converged eigenvalue -3.6666886819828317 with residual norm 1.9727243946119766e-6// Eigenvalue number: 118
+converged eigenvalue -3.527485573249712 with residual norm 8.367984396082914e-6// Eigenvalue number: 119
+iter=    16  Rnorm=  9.642e-05  size(V,2)=  1920
+iter=    17  Rnorm=  1.022e-05  size(V,2)=   240
+iter=    18  Rnorm=  2.158e-06  size(V,2)=   360
+converged eigenvalue -3.748534275744065 with residual norm 2.157881612786595e-6// Eigenvalue number: 120
+ 67.679769 seconds (37.25 k allocations: 5.615 GiB, 1.24% gc time)
+system: Si
+read ../Davidson_algorithm/m_pp_Si.dat
+Davidson
+iter=     1  Rnorm=  1.331e+01  size(V,2)=   120
+iter=     2  Rnorm=  5.904e+00  size(V,2)=   240
+iter=     3  Rnorm=  3.238e+00  size(V,2)=   360
+iter=     4  Rnorm=  1.501e+00  size(V,2)=   480
+iter=     5  Rnorm=  3.276e-01  size(V,2)=   600
+iter=     6  Rnorm=  3.044e-01  size(V,2)=   720
+converged eigenvalue -5.623427778611082 with residual norm 7.912596734981319e-6// Eigenvalue number: 1
+converged eigenvalue -5.54776129930953 with residual norm 6.538581729236592e-6// Eigenvalue number: 2
+converged eigenvalue -5.153694545898511 with residual norm 7.143410864789639e-6// Eigenvalue number: 3
+converged eigenvalue -4.957715259758613 with residual norm 9.961630600591171e-6// Eigenvalue number: 4
+iter=     7  Rnorm=  2.953e-01  size(V,2)=   840
+converged eigenvalue -5.763122208753988 with residual norm 6.467578829566791e-6// Eigenvalue number: 5
+converged eigenvalue -5.763113985998738 with residual norm 6.467838668087918e-6// Eigenvalue number: 6
+converged eigenvalue -5.685254579181739 with residual norm 9.302736506476214e-6// Eigenvalue number: 7
+converged eigenvalue -5.68524543764942 with residual norm 9.302487426932866e-6// Eigenvalue number: 8
+converged eigenvalue -5.445918476338211 with residual norm 7.173546326223538e-7// Eigenvalue number: 9
+converged eigenvalue -5.415824360457193 with residual norm 8.960244057469606e-6// Eigenvalue number: 10
+converged eigenvalue -5.406840849264301 with residual norm 9.594889470181936e-6// Eigenvalue number: 11
+converged eigenvalue -5.406816901236048 with residual norm 9.555076644842205e-6// Eigenvalue number: 12
+converged eigenvalue -5.293336538316239 with residual norm 8.639042815013194e-7// Eigenvalue number: 13
+converged eigenvalue -5.099921766268337 with residual norm 9.476681097811216e-6// Eigenvalue number: 14
+converged eigenvalue -5.099872572544505 with residual norm 9.48992387221847e-6// Eigenvalue number: 15
+converged eigenvalue -4.489639108591413 with residual norm 2.2754629104198823e-6// Eigenvalue number: 16
+converged eigenvalue -4.388970693407244 with residual norm 2.6525460976052222e-6// Eigenvalue number: 17
+converged eigenvalue -4.341279378803721 with residual norm 7.527335652436988e-6// Eigenvalue number: 18
+iter=     8  Rnorm=  6.708e-02  size(V,2)=   960
+converged eigenvalue -5.825344566454617 with residual norm 2.298168898961486e-6// Eigenvalue number: 19
+converged eigenvalue -5.825329624534665 with residual norm 2.2983353070925535e-6// Eigenvalue number: 20
+converged eigenvalue -5.8197784261753585 with residual norm 9.805772850312981e-7// Eigenvalue number: 21
+converged eigenvalue -5.819777494856068 with residual norm 2.050389841642263e-6// Eigenvalue number: 22
+converged eigenvalue -5.667194912560462 with residual norm 1.1330958185757434e-6// Eigenvalue number: 23
+converged eigenvalue -5.667182559849196 with residual norm 1.125319962367857e-6// Eigenvalue number: 24
+converged eigenvalue -5.559899370736741 with residual norm 1.636604476631963e-6// Eigenvalue number: 25
+converged eigenvalue -5.559876716479704 with residual norm 1.6366461199279058e-6// Eigenvalue number: 26
+converged eigenvalue -5.50521989924004 with residual norm 2.1091936711450655e-6// Eigenvalue number: 27
+converged eigenvalue -5.505219760902513 with residual norm 2.1091585758501672e-6// Eigenvalue number: 28
+converged eigenvalue -5.477288046550895 with residual norm 1.4441733795539832e-6// Eigenvalue number: 29
+converged eigenvalue -5.4772875707379365 with residual norm 1.4441704006390678e-6// Eigenvalue number: 30
+converged eigenvalue -5.424788347019569 with residual norm 3.4511034146723097e-6// Eigenvalue number: 31
+converged eigenvalue -5.424779608969115 with residual norm 3.424968694659035e-6// Eigenvalue number: 32
+converged eigenvalue -5.415815747593516 with residual norm 3.057857995007064e-6// Eigenvalue number: 33
+converged eigenvalue -5.415773051491974 with residual norm 3.225520821365255e-6// Eigenvalue number: 34
+converged eigenvalue -5.2823910841424775 with residual norm 2.779520142333375e-6// Eigenvalue number: 35
+converged eigenvalue -5.28239035943261 with residual norm 2.779426653102198e-6// Eigenvalue number: 36
+converged eigenvalue -5.2817207118478775 with residual norm 2.2258014329354e-6// Eigenvalue number: 37
+converged eigenvalue -5.281720440436642 with residual norm 1.472461775940863e-6// Eigenvalue number: 38
+converged eigenvalue -5.28159799995507 with residual norm 6.8631143651153726e-6// Eigenvalue number: 39
+converged eigenvalue -5.281594738528628 with residual norm 6.86350764710352e-6// Eigenvalue number: 40
+converged eigenvalue -5.125882877952605 with residual norm 9.901841137714447e-7// Eigenvalue number: 41
+converged eigenvalue -5.125842346291697 with residual norm 9.901347550683312e-7// Eigenvalue number: 42
+converged eigenvalue -5.099118513247919 with residual norm 4.983889066636456e-6// Eigenvalue number: 43
+converged eigenvalue -5.099114727003074 with residual norm 4.9839113967450045e-6// Eigenvalue number: 44
+converged eigenvalue -5.077088443383645 with residual norm 6.916965398419992e-6// Eigenvalue number: 45
+converged eigenvalue -5.07706414094904 with residual norm 6.918335312507364e-6// Eigenvalue number: 46
+converged eigenvalue -5.016962382769351 with residual norm 3.0367173186416313e-6// Eigenvalue number: 47
+converged eigenvalue -5.016955080537761 with residual norm 3.0366422579073855e-6// Eigenvalue number: 48
+converged eigenvalue -4.992532110830674 with residual norm 4.6755770424994616e-6// Eigenvalue number: 49
+converged eigenvalue -4.992512555053889 with residual norm 4.674293999167945e-6// Eigenvalue number: 50
+converged eigenvalue -4.990642613831954 with residual norm 2.7636868378765816e-6// Eigenvalue number: 51
+converged eigenvalue -4.990640477270895 with residual norm 3.5764778866085906e-6// Eigenvalue number: 52
+converged eigenvalue -4.970918914187966 with residual norm 4.676544391060918e-6// Eigenvalue number: 53
+converged eigenvalue -4.970914820052974 with residual norm 4.733826573461963e-6// Eigenvalue number: 54
+converged eigenvalue -4.812425897707613 with residual norm 4.0717319381568975e-6// Eigenvalue number: 55
+converged eigenvalue -4.812420748421725 with residual norm 4.0719697581291555e-6// Eigenvalue number: 56
+converged eigenvalue -4.69789519893352 with residual norm 5.583082695731048e-6// Eigenvalue number: 57
+converged eigenvalue -4.697889189283214 with residual norm 5.443010270541906e-6// Eigenvalue number: 58
+converged eigenvalue -4.696801991090927 with residual norm 8.98251340641269e-6// Eigenvalue number: 59
+converged eigenvalue -4.696796173679272 with residual norm 8.982709146397906e-6// Eigenvalue number: 60
+converged eigenvalue -4.512412591105783 with residual norm 7.104043596525744e-6// Eigenvalue number: 61
+converged eigenvalue -4.512402302271429 with residual norm 7.1044479874735895e-6// Eigenvalue number: 62
+converged eigenvalue -4.150087226730179 with residual norm 5.027661398437886e-6// Eigenvalue number: 63
+iter=     9  Rnorm=  1.281e-02  size(V,2)=  1080
+converged eigenvalue -5.0479301475727345 with residual norm 1.5543068147604501e-6// Eigenvalue number: 64
+converged eigenvalue -5.047927395084694 with residual norm 1.554360297412758e-6// Eigenvalue number: 65
+converged eigenvalue -4.957266458018837 with residual norm 2.214905976556047e-6// Eigenvalue number: 66
+converged eigenvalue -4.957263224137491 with residual norm 2.2149717632884127e-6// Eigenvalue number: 67
+converged eigenvalue -4.952706117733531 with residual norm 1.6695255959924688e-6// Eigenvalue number: 68
+converged eigenvalue -4.9526915168190895 with residual norm 1.6797479744304903e-6// Eigenvalue number: 69
+converged eigenvalue -4.877172324299287 with residual norm 1.3912542876312007e-6// Eigenvalue number: 70
+converged eigenvalue -4.8771717917322155 with residual norm 1.4076749275102093e-6// Eigenvalue number: 71
+converged eigenvalue -4.760299329106612 with residual norm 1.3527223762406775e-6// Eigenvalue number: 72
+converged eigenvalue -4.760298294545227 with residual norm 1.3527041523249718e-6// Eigenvalue number: 73
+converged eigenvalue -4.717699308422793 with residual norm 1.9709328290635626e-6// Eigenvalue number: 74
+converged eigenvalue -4.717698608785079 with residual norm 1.9710513512656375e-6// Eigenvalue number: 75
+converged eigenvalue -4.649175273965162 with residual norm 2.1699110092022035e-6// Eigenvalue number: 76
+converged eigenvalue -4.649163497307446 with residual norm 2.1673462576723455e-6// Eigenvalue number: 77
+converged eigenvalue -4.563178511501364 with residual norm 2.1075416299581195e-6// Eigenvalue number: 78
+converged eigenvalue -4.5631776892567615 with residual norm 2.107444489434129e-6// Eigenvalue number: 79
+converged eigenvalue -4.485214883289448 with residual norm 1.7714475683562975e-6// Eigenvalue number: 80
+converged eigenvalue -4.485213863554846 with residual norm 2.0490784467898793e-6// Eigenvalue number: 81
+converged eigenvalue -4.452817420015585 with residual norm 3.450004986652576e-6// Eigenvalue number: 82
+converged eigenvalue -4.452815582404474 with residual norm 3.451129480445784e-6// Eigenvalue number: 83
+converged eigenvalue -4.39068148147676 with residual norm 2.5698821842861065e-6// Eigenvalue number: 84
+converged eigenvalue -4.390676324723704 with residual norm 2.827897878970085e-6// Eigenvalue number: 85
+converged eigenvalue -4.358333820644327 with residual norm 5.719171627545294e-6// Eigenvalue number: 86
+converged eigenvalue -4.358325116763237 with residual norm 5.7215944633671036e-6// Eigenvalue number: 87
+converged eigenvalue -4.343828132565318 with residual norm 6.765454727337652e-6// Eigenvalue number: 88
+converged eigenvalue -4.34381160737908 with residual norm 6.80757167650414e-6// Eigenvalue number: 89
+converged eigenvalue -4.209392692839947 with residual norm 2.8095893830072556e-6// Eigenvalue number: 90
+converged eigenvalue -4.209372707462831 with residual norm 3.2227927032004544e-6// Eigenvalue number: 91
+converged eigenvalue -4.19867419987776 with residual norm 1.216365357665315e-6// Eigenvalue number: 92
+converged eigenvalue -4.1986729498061335 with residual norm 1.2163371898818185e-6// Eigenvalue number: 93
+converged eigenvalue -4.139270331615163 with residual norm 9.390573981947897e-6// Eigenvalue number: 94
+converged eigenvalue -4.139270088312375 with residual norm 9.3908070513461e-6// Eigenvalue number: 95
+converged eigenvalue -4.055567197695164 with residual norm 3.011727487697513e-6// Eigenvalue number: 96
+converged eigenvalue -4.05556690769122 with residual norm 3.012785601142144e-6// Eigenvalue number: 97
+converged eigenvalue -3.756328669515868 with residual norm 2.898069391461512e-6// Eigenvalue number: 98
+iter=    10  Rnorm=  1.837e-03  size(V,2)=  1200
+converged eigenvalue -4.1404291335039325 with residual norm 1.2640799445802775e-6// Eigenvalue number: 99
+converged eigenvalue -4.1404253055549525 with residual norm 1.2645434399903827e-6// Eigenvalue number: 100
+converged eigenvalue -4.133949407509411 with residual norm 1.5070696715622252e-6// Eigenvalue number: 101
+converged eigenvalue -4.119657925820533 with residual norm 1.4554510711058515e-6// Eigenvalue number: 102
+converged eigenvalue -4.1196363402514695 with residual norm 1.4646304465649647e-6// Eigenvalue number: 103
+converged eigenvalue -4.030848860385844 with residual norm 5.739116972452179e-6// Eigenvalue number: 104
+converged eigenvalue -4.030848807047502 with residual norm 8.254906551112906e-6// Eigenvalue number: 105
+converged eigenvalue -4.027678174539581 with residual norm 1.2757503147623827e-6// Eigenvalue number: 106
+converged eigenvalue -4.027665316987831 with residual norm 1.275948598117378e-6// Eigenvalue number: 107
+converged eigenvalue -3.968665206810096 with residual norm 1.8840992404965926e-6// Eigenvalue number: 108
+converged eigenvalue -3.9686627242727424 with residual norm 1.8852335731462086e-6// Eigenvalue number: 109
+converged eigenvalue -3.8654663507830618 with residual norm 2.9016116081225746e-6// Eigenvalue number: 110
+converged eigenvalue -3.865458742347957 with residual norm 3.024330095867674e-6// Eigenvalue number: 111
+converged eigenvalue -3.8379726353408774 with residual norm 5.848807876355278e-6// Eigenvalue number: 112
+converged eigenvalue -3.8379692088409465 with residual norm 5.848144386236213e-6// Eigenvalue number: 113
+iter=    11  Rnorm=  2.164e-04  size(V,2)=  1320
+converged eigenvalue -3.8270946783540776 with residual norm 1.2784066259578726e-6// Eigenvalue number: 114
+converged eigenvalue -3.8270939587392734 with residual norm 4.147543667871393e-6// Eigenvalue number: 115
+converged eigenvalue -3.7623390196464035 with residual norm 2.3519771621732424e-6// Eigenvalue number: 116
+converged eigenvalue -3.76233886674793 with residual norm 2.3492073729751576e-6// Eigenvalue number: 117
+iter=    12  Rnorm=  1.843e-05  size(V,2)=  1440
+converged eigenvalue -3.805747124677253 with residual norm 2.9526737329575438e-6// Eigenvalue number: 118
+converged eigenvalue -3.8057436172932624 with residual norm 3.1602416570626445e-6// Eigenvalue number: 119
+iter=    13  Rnorm=  1.393e-06  size(V,2)=  1560
+converged eigenvalue -3.8510006289333045 with residual norm 1.3164042947536939e-6// Eigenvalue number: 120
+ 36.768609 seconds (27.62 k allocations: 3.510 GiB, 1.90% gc time)

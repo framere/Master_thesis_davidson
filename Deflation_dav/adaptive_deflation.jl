@@ -99,7 +99,7 @@ end
 function define_matrix(system::String)
     # Define a sample matrix for testing
     
-    Nlow = 29   # we are interested in the first Nlow eigenvalues
+    Nlow = 120   # we are interested in the first Nlow eigenvalues
     Naux = Nlow * 16 # let our auxiliary space be larger (but not too large)
 
     if system == "He"
@@ -114,8 +114,8 @@ function define_matrix(system::String)
     end
 
     # read the matrix
-    # filename = "../Davidson_algorithm/m_pp_" * system * ".dat" #institute
-    filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
+    filename = "../Davidson_algorithm/m_pp_" * system * ".dat" #institute
+    # filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
     println("read ", filename)
     file = open(filename, "r")
     A = Array{Float64}(undef, N*N)
