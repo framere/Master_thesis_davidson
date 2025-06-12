@@ -5,7 +5,7 @@ function main(system::String)
     # the two test systems He and hBN are hardcoded
     system = system
     
-    Nlow = 16 # we are interested in the first Nlow eigenvalues
+    Nlow = 150 # we are interested in the first Nlow eigenvalues
     Naux = Nlow * 16 # let our auxiliary space be larger (but not too large)
 
     if system == "He"
@@ -20,8 +20,8 @@ function main(system::String)
     end
 
     # read the matrix
-    # filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
-    filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
+    filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
+    # filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
     println("read ", filename)
     file = open(filename, "r")
     A = Array{Float64}(undef, N*N)
@@ -40,6 +40,12 @@ function main(system::String)
     # perform Davidson algorithm
     println("Davidson")
     @time Σ, U = davidson(A, V, Naux, 1e-5, N, system)
+
+    #sort
+    idx = sortperm(Σ)
+    Σ = Σ[idx] # sort eigenvalues
+    U = U[:,idx] # sort the converged eigenvectors
+
 
     # perform exact diagonalization as a reference
     println("Full diagonalization")
@@ -145,4 +151,7 @@ function davidson(
     end
 end
 
-main("He")
+for system in ["He", "hBN", "Si"]
+    println("system: ", system)
+    main(system)
+end
