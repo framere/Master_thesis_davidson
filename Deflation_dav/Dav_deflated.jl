@@ -112,7 +112,7 @@ function davidson(
                 n_converg += 1
                 push!(Ritz_vecs, X[:,i])
                 push!(Eigenvalues, Σ[i])
-                println("converged eigenvalue ", Σ[i], " with norm ", norms[i])
+                println("converged eigenvalue ", Σ[i], " with norm ", norms[i], " EV number ", nevf + n_converg)
             end
         end
         
@@ -133,7 +133,9 @@ function davidson(
         # update guess space using diagonal preconditioner 
         t = zero(similar(R)) 
         for i = 1:size(t,2)
-            C = 1.0 ./ (Σ[i] .- D) 
+            # C = 1.0 ./ (Σ[i] .- D)
+            ϵ = 1e-8
+            C = 1.0 ./ clamp.(Σ[i] .- D, ϵ, Inf) 
             t[:,i] = C .* R[:,i] # the new basis vectors
         end
 
@@ -151,7 +153,7 @@ function davidson(
     end
 end
 
-for system in ["He", "hBN", "Si"]
+for system in ["hBN", "Si"]
     println("system: ", system)
     main(system)
 end
