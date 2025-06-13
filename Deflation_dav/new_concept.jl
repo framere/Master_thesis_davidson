@@ -54,25 +54,42 @@ function davidson(A::AbstractMatrix{T},
     D = diag(A)
     Eigenvalues = Float64[]
     Ritz_vecs = Matrix{T}(undef, size(A, 1), 0)
-    V_lock = Matrix{T}(undef, size(A, 1), 0)  # Converged eigenvectors
+    V_lock = Matrix{T}(undef, size(A, 1), 0)
 
     iter = 0
 
     while nevf < l
         iter += 1
 
-        # Orthogonalize V
+        # Deflate V against converged eigenvectors
+        if size(V_lock, 2) > 0
+            for i in 1:size(V_lock, 2)
+                v_lock = V_lock[:, i]
+                for j in 1:size(V, 2)
+                    V[:, j] -= v_lock * (v_lock' * V[:, j])
+                end
+            end
+        end
         V = Matrix(qr(V).Q)
 
-        # Project and solve small eigenproblem
+        # Solve small eigenproblem
         H = Hermitian(V' * (A * V))
         nu = min(size(H, 2), nu_0 - nevf)
         Σ, U = eigen(H, 1:nu)
         X = V * U
 
-        # Compute residuals
-        R = A * X - X * Diagonal(Σ)
+        # Deflate X against converged eigenvectors
+        if size(V_lock, 2) > 0
+            for i in 1:size(V_lock, 2)
+                x_lock = V_lock[:, i]
+                for j in 1:size(X, 2)
+                    X[:, j] -= x_lock * (x_lock' * X[:, j])
+                end
+            end
+        end
 
+        # Residuals
+        R = A * X - X * Diagonal(Σ)
         norms = vec(norm.(eachcol(R)))
         conv_indices = findall(x -> x <= thresh, norms)
 
@@ -93,19 +110,18 @@ function davidson(A::AbstractMatrix{T},
         Σ_nc = Σ[non_conv_indices]
         R_nc = R[:, non_conv_indices]
 
-        # Correction vectors with diagonal preconditioner
+        # Diagonal preconditioner
         t = Matrix{T}(undef, size(A,1), length(non_conv_indices))
         ϵ = 1e-10
-
         for (i, idx) in enumerate(non_conv_indices)
             denom = clamp.(Σ_nc[i] .- D, ϵ, Inf)
             t[:, i] = R_nc[:, i] ./ denom
         end
 
-        # Orthonormalize corrections
+        # Orthogonalize against current and locked basis
         T_hat, n_b_hat = select_corrections_ORTHO(t, V, V_lock, 0.1, 1e-6)
 
-        # Restart logic
+        # Restart if needed
         if size(V, 2) + n_b_hat > n_aux || n_b_hat == 0
             V = hcat(X_nc, T_hat)
         else
@@ -117,6 +133,7 @@ function davidson(A::AbstractMatrix{T},
 
     return (Eigenvalues, Ritz_vecs)
 end
+
 
 
 function load_matrix(system::String)
@@ -166,7 +183,13 @@ function main(system::String)
 
     # perform Davidson algorithm
     println("Davidson")
-    @time Σ, U = davidson(A, V, Naux, 50, 1e-5, system)
+    @time Σ, U = davidson(A, V, Naux, 16, 1e-5, system)
+
+
+    # sort
+    idx = sortperm(Σ)
+    Σ = Σ[idx] # sort eigenvalues
+    U = U[:,idx] # sort the converged eigenvectors
 
     # perform exact diagonalization as a reference
     println("Full diagonalization")
@@ -178,4 +201,4 @@ function main(system::String)
 end
 
 
-main("He") # or "hBN", "Si"
+main("hBN") # or "hBN", "Si"
