@@ -8,3 +8,6 @@ Problems:
 
 4) **final deflation algorithm**, same as adaptive but more compact
 
+5) **new_concept, basierend auf dem paper von sadkane und sidje, works ok but I have the problem with small basis
+
+
