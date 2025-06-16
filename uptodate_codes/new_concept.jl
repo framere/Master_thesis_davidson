@@ -45,12 +45,13 @@ function davidson(A::AbstractMatrix{T},
     V::Matrix{T},
     n_aux::Integer,
     l::Integer,
+    l_buffer::Integer,
     thresh::Float64,
     system::String = ""
 )::Tuple{Vector{T}, Matrix{T}} where T<:Number
 
     n_b = size(V, 2)
-    nu_0 = max(l, n_b)
+    nu_0 = max(l_buffer, n_b)
     nevf = 0
 
     D = diag(A)
@@ -60,7 +61,7 @@ function davidson(A::AbstractMatrix{T},
 
     iter = 0
 
-    while nevf < l
+    while nevf < l_buffer
         iter += 1
 
         # Orthogonalize V against locked vectors
@@ -114,7 +115,8 @@ function davidson(A::AbstractMatrix{T},
         end
 
         # Orthogonalize corrections
-        T_hat, n_b_hat = select_corrections_ORTHO(t, V, V_lock, 0.1, 1e-6)
+        T_hat, n_b_hat = select_corrections_ORTHO(t, V, V_lock, 0.1, 1e-10)
+        # println("→ Requested $(size(t, 2)) corrections, kept $n_b_hat after orthogonalization")
 
         # Update subspace
         if size(V, 2) + n_b_hat > n_aux|| length(conv_indices) > 0 || n_b_hat == 0 
@@ -130,7 +132,6 @@ function davidson(A::AbstractMatrix{T},
 
     return (Eigenvalues, Ritz_vecs)
 end
-
 
 
 function load_matrix(system::String)
@@ -162,8 +163,11 @@ function main(system::String)
     # the two test systems He and hBN are hardcoded
     system = system
     
-    Nlow =16 # we are interested in the first Nlow eigenvalues
-    Naux = Nlow * 20 # let our auxiliary space be larger (but not too large)
+    Nlow = 16 # we are interested in the first Nlow eigenvalues
+    Naux = Nlow * 16 # let our auxiliary space be larger (but not too large)
+    l = 200 # number of eigenvalues to compute
+    l_buffer = 210 # number of eigenvalues to compute before checking convergence
+
 
     # read the matrix
     A = load_matrix(system)
@@ -180,7 +184,7 @@ function main(system::String)
 
     # perform Davidson algorithm
     println("Davidson")
-    @time Σ, U = davidson(A, V, Naux, 100, 1e-5, system)
+    @time Σ, U = davidson(A, V, Naux, l, l_buffer, 1e-4, system)
 
 
     # sort
@@ -189,13 +193,13 @@ function main(system::String)
     U = U[:,idx] # sort the converged eigenvectors
 
     # perform exact diagonalization as a reference
-    # println("Full diagonalization")
-    # @time Σexact, Uexact = eigen(A) 
+    println("Full diagonalization")
+    @time Σexact, Uexact = eigen(A) 
 
-    # display("text/plain", Σexact[1:Nlow]')
+    # display("text/plain", Σexact[1:l]')
     # display("text/plain", Σ')
-    # display("text/plain", (Σ - Σexact[1:Nlow])')
+    display("text/plain", (Σ - Σexact[1:l])')
 end
 
 
-main("Si") # or "hBN", "Si"
+main("hBN") # or "hBN", "Si"

@@ -1,6 +1,7 @@
 using LinearAlgebra
 using Printf
 
+
 # Orthogonalize correction vectors against current and locked vectors
 function select_corrections_ORTHO(t_candidates, V, V_lock, η, droptol; maxorth=2)
     ν = size(t_candidates, 2)
@@ -45,12 +46,13 @@ function davidson(A::AbstractMatrix{T},
     V::Matrix{T},
     n_aux::Integer,
     l::Integer,
+    l_buffer::Integer,
     thresh::Float64,
     system::String = ""
 )::Tuple{Vector{T}, Matrix{T}} where T<:Number
 
     n_b = size(V, 2)
-    nu_0 = max(l, n_b)
+    nu_0 = max(l_buffer, n_b)
     nevf = 0
 
     D = diag(A)
@@ -60,7 +62,7 @@ function davidson(A::AbstractMatrix{T},
 
     iter = 0
 
-    while nevf < l
+    while nevf < l_buffer
         iter += 1
 
         # Orthogonalize V against locked vectors
@@ -93,10 +95,18 @@ function davidson(A::AbstractMatrix{T},
                 V_lock = hcat(V_lock, X[:, i])
                 nevf += 1
                 println(@sprintf("Converged eigenvalue %.10f with norm %.2e (EV %d)", Σ[i], norms[i], nevf))
-                if nevf >= l
-                    println("Converged all eigenvalues.")
-                    return (Eigenvalues, Ritz_vecs)
+                # After adding converged eigenpairs...
+                if length(Eigenvalues) >= l
+                    # Sort eigenvalues and check if the lowest l have converged
+                    idx = sortperm(Eigenvalues)
+                    selected = idx[1:l]
+                    selected_norms = [norm(A * Ritz_vecs[:, i] - Eigenvalues[i] * Ritz_vecs[:, i]) for i in selected]
+                    if all(norm_i ≤ thresh for norm_i in selected_norms)
+                        println("Converged the lowest $l eigenvalues.")
+                        return (Eigenvalues[selected], Ritz_vecs[:, selected])
+                    end
                 end
+
             end
         end
 
@@ -115,6 +125,14 @@ function davidson(A::AbstractMatrix{T},
 
         # Orthogonalize corrections
         T_hat, n_b_hat = select_corrections_ORTHO(t, V, V_lock, 0.1, 1e-6)
+
+
+        # # Enrich correction vectors if too few were generated
+        # if size(t, 2) < 4
+        #     n_extra = 4 - size(t, 2)
+        #     extra = random_orthogonal_vectors(size(A, 1), V, V_lock, n_extra)
+        #     t = hcat(t, extra)
+        # end
 
         # Update subspace
         if size(V, 2) + n_b_hat > n_aux|| length(conv_indices) > 0 || n_b_hat == 0 
@@ -164,7 +182,8 @@ function main(system::String)
     
     Nlow =16 # we are interested in the first Nlow eigenvalues
     Naux = Nlow * 20 # let our auxiliary space be larger (but not too large)
-
+    l_buffer = 210 # number of eigenvalues to compute before checking convergence
+    l = 200 # number of eigenvalues to compute
     # read the matrix
     A = load_matrix(system)
     N = size(A, 1)
@@ -180,7 +199,7 @@ function main(system::String)
 
     # perform Davidson algorithm
     println("Davidson")
-    @time Σ, U = davidson(A, V, Naux, 100, 1e-5, system)
+    @time Σ, U = davidson(A, V, Naux, l, l_buffer, 1e-5, system)
 
 
     # sort
@@ -189,12 +208,12 @@ function main(system::String)
     U = U[:,idx] # sort the converged eigenvectors
 
     # perform exact diagonalization as a reference
-    # println("Full diagonalization")
-    # @time Σexact, Uexact = eigen(A) 
+    println("Full diagonalization")
+    @time Σexact, Uexact = eigen(A) 
 
     # display("text/plain", Σexact[1:Nlow]')
     # display("text/plain", Σ')
-    # display("text/plain", (Σ - Σexact[1:Nlow])')
+    display("text/plain", (Σ - Σexact[1:l])')
 end
 
 
