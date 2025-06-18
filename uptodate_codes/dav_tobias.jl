@@ -29,7 +29,7 @@ function main(system::String)
     # the two test systems He and hBN are hardcoded
     system = system
     
-    Nlow = 100 # we are interested in the first Nlow eigenvalues
+    Nlow = 120 # we are interested in the first Nlow eigenvalues
     Naux = Nlow * 16 # let our auxiliary space be larger (but not too large)
 
     # read the matrix
@@ -140,4 +140,4 @@ end
 
 
 
-main("Si")
+main("hBN")

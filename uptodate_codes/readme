@@ -4,4 +4,5 @@
 
 3) new_concept: Last implementation. Very similar to 1), but we use the selection of corrections with the algorithm ORTHO
 
-4) Final_blocks --> tried to implement the deflation blockwise, but somehow I can't get it to work properly
+4) Final_blocks --> it works, but needs some refinement
+
