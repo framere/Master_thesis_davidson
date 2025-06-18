@@ -29,7 +29,7 @@ function main(system::String)
     # the two test systems He and hBN are hardcoded
     system = system
     
-    Nlow = 120 # we are interested in the first Nlow eigenvalues
+    Nlow = 80 # we are interested in the first Nlow eigenvalues
     Naux = Nlow * 16 # let our auxiliary space be larger (but not too large)
 
     # read the matrix
@@ -54,7 +54,7 @@ function main(system::String)
     #@time Σexact, Uexact = eigen(A) 
 
     #display("text/plain", Σexact[1:Nlow]')
-    #display("text/plain", Σ')
+    display("text/plain", Σ')
     #display(A("text/plain", (Σ-Σexact[1:Nlow])')
 end
 
