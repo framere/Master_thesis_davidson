@@ -109,7 +109,7 @@ function define_matrix(system::String)
     end
 
     # read the matrix
-    filename = "../Davidson_algorithm/m_pp_" * system * ".dat" #institute
+    # filename = "../Davidson_algorithm/m_pp_" * system * ".dat" #institute
     # filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
     println("read ", filename)
     file = open(filename, "r")

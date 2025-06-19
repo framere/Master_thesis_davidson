@@ -1,8 +1,12 @@
-1) Adaptive deflation works and very similar to new_concept. Both based on the paper of Sadkane and Sidje
+1) Dav_tobias --> Tobias code. Grob works with single growing blocks!
 
-2) Dav_tobias --> Tobias code. Grob works with single growing blocks!
+2) Single_deflation_standard works based on the paper of Sadkane and Sidje (no improvement)
 
-3) new_concept: Last implementation. Very similar to 1), but we use the selection of corrections with the algorithm ORTHO
+3) single_deflation_buffered: Very similar to 2), but we use the selection of corrections with the algorithm ORTHO. We use l_buffer to have a faster convergence at the end. Disclaimer: It does not work optimally
 
-4) Final_blocks --> it works, but needs some refinement
+4) Single_deflation_modification: Same as 3), but to avoid slow convergence at the enc we defined a block davidson based on 1) for the last 10 eigenvalues
+
+5) Final_blocks --> it works, but needs some refinement (we have a standard block size and no selective deflation implemented)
+
+6) Selective deflation blocks --> works good (best possible) we need to test it on the real systems in order to get valid results
 

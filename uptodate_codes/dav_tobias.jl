@@ -13,7 +13,8 @@ function load_matrix(system::String)
     end
 
     # read the matrix
-    filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
+    # filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
+    filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
     println("read ", filename)
     file = open(filename, "r")
     A = Array{Float64}(undef, N * N)
@@ -29,25 +30,25 @@ function main(system::String)
     # the two test systems He and hBN are hardcoded
     system = system
     
-    Nlow = 80 # we are interested in the first Nlow eigenvalues
+    Nlow = 8 # we are interested in the first Nlow eigenvalues
     Naux = Nlow * 16 # let our auxiliary space be larger (but not too large)
 
     # read the matrix
     A = load_matrix(system)
     N = size(A, 1)
 
-    ## initial guess vectors (naive guess)
+    # initial guess vectors (naive guess)
     V = zeros(N, Nlow)
     for i = 1:Nlow
        V[i,i] = 1.0
     end
 
     # # initial guess vectors (stochastic guess)
-    # V = rand(N,Nlow) .- 0.5
+    # V = rand(N,Nlow) .- 0.995
 
     # perform Davidson algorithm
     println("Davidson")
-    @time Σ, U = davidson(A, V, Naux, 1e-5, system)
+    @time Σ, U = davidson(A, V, Naux, 1e-2, system)
 
     # perform exact diagonalization as a reference
     #println("Full diagonalization")
@@ -55,6 +56,7 @@ function main(system::String)
 
     #display("text/plain", Σexact[1:Nlow]')
     display("text/plain", Σ')
+    # display("text/plain", U)
     #display(A("text/plain", (Σ-Σexact[1:Nlow])')
 end
 

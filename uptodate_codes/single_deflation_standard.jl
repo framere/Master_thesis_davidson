@@ -45,13 +45,12 @@ function davidson(A::AbstractMatrix{T},
     V::Matrix{T},
     n_aux::Integer,
     l::Integer,
-    l_buffer::Integer,
     thresh::Float64,
     system::String = ""
 )::Tuple{Vector{T}, Matrix{T}} where T<:Number
 
     n_b = size(V, 2)
-    nu_0 = max(l_buffer, n_b)
+    nu_0 = max(l, n_b)
     nevf = 0
 
     D = diag(A)
@@ -61,7 +60,7 @@ function davidson(A::AbstractMatrix{T},
 
     iter = 0
 
-    while nevf < l_buffer
+    while nevf < l
         iter += 1
 
         # Orthogonalize V against locked vectors
@@ -146,7 +145,8 @@ function load_matrix(system::String)
     end
 
     # read the matrix
-    filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
+    # filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
+    filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
     println("read ", filename)
     file = open(filename, "r")
     A = Array{Float64}(undef, N * N)
@@ -163,12 +163,10 @@ function main(system::String)
     # the two test systems He and hBN are hardcoded
     system = system
     
-    Nlow = 16 # we are interested in the first Nlow eigenvalues
+    Nlow = 16 # Starting dimension for the subspace
     Naux = Nlow * 16 # let our auxiliary space be larger (but not too large)
     l = 200 # number of eigenvalues to compute
-    l_buffer = 210 # number of eigenvalues to compute before checking convergence
-
-
+    
     # read the matrix
     A = load_matrix(system)
     N = size(A, 1)
@@ -179,12 +177,9 @@ function main(system::String)
        V[i,i] = 1.0
     end
 
-    # # initial guess vectors (stochastic guess)
-    # V = rand(N,Nlow) .- 0.5
-
     # perform Davidson algorithm
     println("Davidson")
-    @time Σ, U = davidson(A, V, Naux, l, l_buffer, 1e-4, system)
+    @time Σ, U = davidson(A, V, Naux, l, 1e-3, system)
 
 
     # sort

@@ -149,6 +149,7 @@ function main(system::String)
     idx = sortperm(Σ)
     Σ = Σ[idx] # they are not sorted! 
     # Ritz_vecs = Ritz_vecs[:,idx] # sort the converged eigenvectors
+
     
     # # perform exact diagonalization as a reference
     # println("Full diagonalization")
