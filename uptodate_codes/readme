@@ -10,3 +10,5 @@
 
 6) Selective deflation blocks --> works good (best possible) we need to test it on the real systems in order to get valid results
 
+7) Selective deflation modification. It works but it has some problems updating the space at the end. Still unresolved issue!
+
