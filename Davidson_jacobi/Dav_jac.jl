@@ -1,126 +1,102 @@
 using LinearAlgebra
-using Printf
 using IterativeSolvers
+using LinearOperators
 
-# Load matrix function (same as your original)
-function load_matrix(system::String)
-    if system == "He"
-        N = 4488
-    elseif system == "hBN"
-        N = 6863        
-    elseif system == "Si"
-        N = 6201
-    else
-        error("Unknown system: $system")
-    end
 
-    # read the matrix
-    filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
-    println("read ", filename)
-    file = open(filename, "r")
-    A = Array{Float64}(undef, N * N)
-    read!(file, A)
-    close(file)
+function jacobi_filter(A::AbstractMatrix{Float64}, V::Matrix{Float64}, n::Int; 
+                       tol=1e-6, N_block=4, max_iters=100)
+    N = size(A, 1)
+    λ = zeros(n)
+    k = 0  # index of the lowest unconverged eigenvector
+    V = qr(V).Q[:, 1:n]  # Orthonormalize initial V
 
-    A = reshape(A, N, N)
-    A = -A  # for largest eigenvalues of original matrix
-    return Hermitian(A)
-end
-
-# Jacobi-Davidson method
-function jacobi_davidson(
-    A::Hermitian{Float64,Matrix{Float64}},
-    v0::Vector{Float64},
-    m::Int,                # max subspace size before restart
-    tol::Float64,
-    system::String
-)
-    N = length(v0)
-    v1 = v0 / norm(v0)
-    w1 = A * v1
-    h11 = dot(v1, w1)
-
-    V = [v1]
-    W = [w1]
-    H = [h11]
-
-    u = v1
-    θ = h11
-    r = w1 - θ * u
-
-    iter = 0
-    logfile = open("jd_log_$system.txt", "w")
-
-    while norm(r) > tol
-        iter += 1
-        Vk = hcat(V...)
-        Wk = hcat(W...)
-        Hk = Matrix{Float64}(undef, size(Wk, 2), size(Vk, 2))
-
-        # Inner loop
-        for k = 1:m-1
-            # Solve: (I - uu^*)(A - θI)(I - uu^*) t = -r approximately
-            function jd_operator(t)
-                t = t - u * dot(u, t) # (I - uu^*) t
-                At = A * t - θ * t
-                At = At - u * dot(u, At) # (I - uu^*) (A - θI) (I - uu^*) t
-                return At
-            end
-
-            t = zeros(N)
-            maxit = 10
-            tol_lin = 1e-3
-            t, _ = gmres(jd_operator, -r, restart=10, maxiter=maxit, tol=tol_lin, log=false)
-
-            # Orthonormalize t against Vk
-            for vi in V
-                t -= vi * dot(vi, t)
-            end
-            t /= norm(t)
-
-            push!(V, t)
-            wk1 = A * t
-            push!(W, wk1)
+    for iter = 1:max_iters
+        if k >= n
+            println("Converged after $iter iterations.")
+            break
         end
 
-        Vk = hcat(V...)
-        Wk = hcat(W...)
-        Hk = Vk' * Wk
+        # Define block indices
+        block_start = k + 1
+        block_end = min(k + N_block, n)
+        block_inds = block_start:block_end
+        block_size = length(block_inds)
 
-        # Compute largest eigenpair
-        Σ, S = eigen(Hermitian(Hk))
-        θ, idx = findmax(real(Σ))
-        s = S[:, idx]
-        u = Vk * s
-        û = Wk * s
-        r = û - θ * u
+        println("\n▶ Iteration $iter — Updating eigenvectors $block_start to $block_end")
 
-        println("iter=$iter  |r| = $(norm(r))")
-        @printf(logfile, "%d %.6e\n", iter, norm(r))
+        # Compute Rayleigh quotients and residuals
+        r = Matrix{Float64}(undef, N, block_size)
+        λ_block = zeros(block_size)
+        for (i, j) in enumerate(block_inds)
+            vi = V[:, j]
+            λi = dot(vi, A * vi)
+            λ_block[i] = λi
+            r[:, i] = A * vi - λi * vi
+            println("   λ[$j] ≈ $(round(λi, digits=6)) |residual| = $(round(norm(r[:, i]), digits=2))")
+        end
 
-        # Restart with best vector
-        V = [u]
-        W = [û]
-        H = [θ]
+        # Solve correction equations with MINRES
+        S = zeros(N, block_size)
+
+
+        for (i, j) in enumerate(block_inds)
+            vi = V[:, j]
+            λi = λ_block[i]
+            P = I - vi * vi'
+
+            function mv(s)
+                return P * (A * s - λi * s)
+            end
+
+            Aop = LinearOperator(Float64, N, N, mv)
+
+            println("   Solving correction equation for vector $j using MINRES...")
+            s, _ = minres(Aop, r[:, i], reltol=1e-6, maxiter=100)
+
+            S[:, i] = s
+        end
+
+
+
+
+        # Build subspace W and orthonormalize
+        W = hcat(V[:, k+1:block_end], S[:, 1:block_size])
+        for j in 1:k
+            W = W - V[:, j] * (V[:, j]' * W)  # Orthogonalize against converged
+        end
+        W = qr(W).Q  # Orthonormalize
+
+        # Project A into subspace
+        A_sub = W' * A * W
+
+        # Diagonalize subspace matrix
+        eigvals, eigvecs = eigen(A_sub)
+
+        # Rotate eigenvectors in subspace
+        V[:, k+1:k+block_size] = W * eigvecs[:, 1:block_size]
+        λ[k+1:k+block_size] = eigvals[1:block_size]
+
+        # Check convergence
+        new_k = k
+        for j in k+1:k+block_size
+            rj = A * V[:, j] - λ[j] * V[:, j]
+            if norm(rj) > tol
+                new_k = j
+            end
+        end
+
+        k = new_k + 1
+        println("   Diagonalizing subspace of size $(size(W, 2))")
+        
     end
 
-    close(logfile)
-    return θ, u
+    return V[:, 1:n], λ[1:n]
 end
 
-# Main function
-function main(system::String)
-    A = load_matrix(system)
-    N = size(A, 1)
 
-    # Initial guess vector (random)
-    v0 = randn(N)
-    
-    println("Running Jacobi-Davidson for system: $system")
-    @time θ, u = jacobi_davidson(A, v0, 20, 1e-5, system)
+A = randn(100, 100)
+A = Hermitian(A + A')
 
-    println("\nApproximate dominant eigenvalue: ", θ)
-end
+V0 = randn(100, 10)  # Initial guess for 10 eigenvectors
 
-# Example usage
-main("Si")
+V, λ = jacobi_filter(A, V0, 10)
