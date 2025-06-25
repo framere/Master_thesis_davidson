@@ -33,28 +33,15 @@ function davidson_driver(
             while true
                 iter += 1
 
-                # deflate locked vectors
-                if size(V_lock, 2) > 0
-                    for i in 1:size(V_lock, 2)
-                        v_lock = V_lock[:, i]
-                        for j in 1:size(V, 2)
-                            V[:, j] -= v_lock * (v_lock' * V[:, j])
-                        end
-                    end
-                end
+                V = orthogonalize(V, V_lock)
 
-                V = Matrix(qr(V).Q)
-
-                H = Hermitian(V' * (A * V))          
-                Σ, U = eigen(H, 1:remaining) 
-                X = V * U  # Ritz vectors
-                R = X .* Σ' - A * X  # residual vectors
+                Σ, X, R = rayleigh_ritz_projection(A, V, remaining)
                 Rnorm = norm(R, 2)  # Frobenius norm
 
                 output = @sprintf("iter=%6d  Rnorm=%11.3e  size(V,2)=%6d\n", iter, Rnorm, size(V, 2))
                 print(output)
 
-                if Rnorm < 2.5e-3
+                if Rnorm < thresh
                     println("Converged!")
                     for i = 1:remaining
                         push!(Eigenvalues, Σ[i])
@@ -86,24 +73,12 @@ function davidson_driver(
             end 
         
         else
-            if size(V_lock, 2) > 0
-                for i in 1:size(V_lock, 2)
-                    v_lock = V_lock[:, i]
-                    for j in 1:size(V, 2)
-                        V[:, j] -= v_lock * (v_lock' * V[:, j])
-                    end
-                end
-            end
-            V = Matrix(qr(V).Q)
+            V = orthogonalize(V, V_lock)
 
             # Rayleigh-Ritz
-            H = Hermitian(V' * (A * V))
-            nu = min(size(H, 2), nu_0 - nevf)
-            Σ, U = eigen(H, 1:nu)
-            X = V * U  # Ritz vectors
 
-            # Compute residuals like you originally did
-            R = X .* Σ' - A * X
+            nu = min(size(H, 2), nu_0 - nevf)
+            Σ, X, R = rayleigh_ritz_projection(A, V, nu)
             norms = vec(norm.(eachcol(R)))
 
             conv_indices = Int[]
@@ -158,7 +133,7 @@ function main(system::String)
     Naux = Nlow * 16
     l = 200
     thresh = 1e-3
-    n_final = 5
+    n_final = 10
 
     filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
     A = load_matrix(system, filename)
@@ -176,10 +151,10 @@ function main(system::String)
     Σ = Σ[idx]
     U = U[:, idx]
 
-    println("Full diagonalization (reference)")
-    @time Σexact, _ = eigen(A)
+    # println("Full diagonalization (reference)")
+    # @time Σexact, _ = eigen(A)
 
-    display("text/plain", (Σ - Σexact[1:l])')
+    # display("text/plain", (Σ - Σexact[1:l])')
 end
 
 main("hBN")
