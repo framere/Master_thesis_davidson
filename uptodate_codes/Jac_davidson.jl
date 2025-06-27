@@ -80,7 +80,7 @@ function main(system::String)
     end
 
     
-    Nlow = 16 # we are interested in the first Nlow eigenvalues
+    Nlow = 50 # we are interested in the first Nlow eigenvalues
     Naux = Nlow * 16 # let our auxiliary space be larger (but not too large)
     # read the matrix
     filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
@@ -114,4 +114,4 @@ function main(system::String)
     display("text/plain", (λs-Σexact[1:Nlow])')
 end
 
-main("He")
+main("Si")
