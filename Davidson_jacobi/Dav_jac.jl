@@ -1,77 +1,109 @@
 using LinearAlgebra
 using IterativeSolvers
-using LinearOperators
 
-function davidson_jacobi(A; m=20, tol=1e-8, max_iters=100, Nlow=3)
-    n = size(A, 1)
-    V = Matrix(qr(randn(n, Nlow)).Q)  # Start with 3 orthonormal vectors
-
-    iter_count = 0
-    converged = false
-
-    while !converged && iter_count < max_iters
-        iter_count += 1
-
-        # Orthonormalize V again (just in case)
-        V = Matrix(qr(V).Q)
-
-        # Projected matrix
-        H = Hermitian(V' * (A * V))
-        eigvals, eigvecs = eigen(H)
-
-        # Get the Nlow smallest eigenpairs
-        idxs = sortperm(eigvals)[1:Nlow]
-        θs = eigvals[idxs]
-        Ss = eigvecs[:, idxs]
-        Xs = V * Ss  # Ritz vectors (each column is one Ritz vector)
-
-        Rs = A * Xs - Xs .* θs'  # Residuals for each eigenpair
-        Rnorm = norm(Rs)  # Frobenius norm
-        println("iter=$iter_count  Rnorm=$Rnorm  dim(V)=$(size(V, 2))")
-
-        if Rnorm < tol
-            converged = true
-            break
-        end
-
-        # Solve correction equation for each residual vector
-        for i in 1:Nlow
-            u = Xs[:, i]
-            r = Rs[:, i]
-            θ = θs[i]
-
-            # Define projection operator P = I - uuᵗ
-            function P(x)
-                return x - u * (u' * x)
-            end
-
-            # Linear operator M = P*(A - θI)*P
-            function M_mul!(y, x)
-                tmp = P(x)
-                tmp2 = (A - θ * I) * tmp
-                y .= P(tmp2)
-            end
-
-            M = LinearOperator(Float64, n, n, false, false, M_mul!)
-
-            # Solve correction equation approximately
-            t_i, _ = bicgstabl(M, -r; reltol=1e-4, max_mv_products=1000)
-
-            # Expand basis only with meaningful corrections
-            if isa(t_i, AbstractVector) && norm(t_i) > 1e-12
-                t_i ./= norm(t_i)
-                V = hcat(V, t_i)
-            end
-        end
-    end
-
-    println("Converged in $iter_count iterations.")
-    return θs, Xs
+# ------------------------------------------------------------
+# Helper function: project vector orthogonal to v
+function project(v::AbstractVector, x::AbstractMatrix)
+    return x - v * v' * x
 end
 
-# Example usage:
+# ------------------------------------------------------------
+# Helper function: project matrix-vector product operator
+function M_operator(A, v, λ)
+    I_mat = I(size(A, 1))  # Identity matrix of the same size as A
+    x = (A - λ * I_mat)
+    y = project(v, x) 
+    z = project(v, y)
+    return z
+end
+
+# ------------------------------------------------------------
+# Main function: Block Jacobi-Davidson
+function block_jacobi_davidson(A::AbstractMatrix; nev=2, tol=1e-4, maxiter=100)
+    n = size(A,1)
+    V = zeros(n, nev)
+    for i = 1:nev
+        V[i,i] = 1.0
+    end
+    D = diag(A)
+
+    converged = falses(nev) # convergence flags for each eigenpair
+
+    λs = zeros(nev)
+    
+    iter = 0
+    while !all(converged) && iter < maxiter
+        iter += 1
+
+        # orthogonalize guess orbitals (using QR decomposition)
+        qr_decomp = qr(V)
+        V = Matrix(qr_decomp.Q)    
+
+        # construct and diagonalize Rayleigh matrix
+        H = Hermitian(V'*(A*V))
+        Σ, U = eigen(H, 1:nev)
+
+        X = V*U # Ritz vecors
+        R = X.*Σ' - A*X # residual vectors
+
+        # Solve correction equations for each unconverged eigenpair
+        S = zeros(n, nev)
+        for i in 1:nev
+            if converged[i]
+                continue
+            end
+            v = V[:,i]
+            λ = λs[i]
+            r = R[i]
+            
+            # Define LinearOperator M
+            Mop = M_operator(A, v, λ)
+            
+            # Preconditioner: inverse diagonal
+            diagA = diag(A)
+            precond_vec = diagA .- λ
+            precond = 1 ./ precond_vec
+            Pl = Matrix(Diagonal(precond))
+
+            
+            # Solve M s = -r using GMRES
+            s, _ = gmres(Mop, -r; Pl=Pl, log=true, reltol=1e-8)
+            S[:,i] = s
+        end
+
+        # Build new subspace
+        W = hcat(V, S)
+        # Orthonormalize W
+        Q, _ = qr(W)
+        Q = Matrix(Q)
+        
+        # Project A into subspace
+        Ahat = Q' * A * Q
+        
+        # Solve small eigenproblem
+        D, T = eigen(Ahat)
+        
+        # Rotate back
+        V = Q * T
+        
+        # Update residuals and convergence
+        for i in 1:nev
+            r_norm = norm(A*V[:,i] - D[i]*V[:,i])
+            if r_norm < tol
+                converged[i] = true
+            end
+        end
+        
+        println("Iteration $iter: residual norms = ", [norm(A*V[:,i] - D[i]*V[:,i]) for i in 1:nev])
+    end
+    
+    return D[1:nev], V[:,1:nev]
+end
+
+# ------------------------------------------------------------
+# Example usage
 n = 50
-A = randn(n, n)
-A = 0.5 * (A + A')  # Hermitian
-θs, Xs = davidson_jacobi(A)
-println("Eigenvalues found: ", θs)
+A = Hermitian(randn(n,n))
+λs, Vs = block_jacobi_davidson(A; nev=2, tol=1e-8, maxiter=50)
+
+println("Computed eigenvalues: ", λs)
