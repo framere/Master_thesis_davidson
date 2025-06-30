@@ -51,13 +51,30 @@ function davidson_driver(
                         println(@sprintf("Converged eigenvalue %.10f with norm %.2e (EV %d)", Σ[i], Rnorm, nevf))
                     end
                 end
-
-                # Update guess space using diagonal preconditioner
+                
                 t = zero(similar(R))
-                for i = 1:size(t, 2)
-                    C = 1.0 ./ (Σ[i] .- D)
-                    t[:, i] = C .* R[:, i]  # the new basis vectors
+                for i in 1:size(t, 2)
+                    ri = R[:,i]
+                    vi = X[:,i]
+                    λi = Σ[i]
+
+                    # Projector: P = I - vi*vi'
+                    Pi = I - vi * vi'
+
+                    # Approximate (I - vi*vi') (A - λi I)^(-1) (I - vi*vi') * ri
+                    M_diag_inv = 1.0 ./ (D .- λi)      # Diagonal preconditioner
+                    zi = M_diag_inv .* (Pi * ri)      # Apply preconditioner to projected residual
+                    si = Pi * zi                      # Project again to stay orthogonal to vi
+
+                    t[:,i] = si
                 end
+
+                # # Update guess space using diagonal preconditioner
+                # t = zero(similar(R))
+                # for i = 1:size(t, 2)
+                #     C = 1.0 ./ (Σ[i] .- D)
+                #     t[:, i] = C .* R[:, i]  # the new basis vectors
+                # end
 
                 # Update guess basis
                 if size(V, 2) <= Naux - remaining
@@ -77,7 +94,7 @@ function davidson_driver(
 
             # Rayleigh-Ritz
 
-            nu = min(size(H, 2), nu_0 - nevf)
+            nu = min(size(V, 2), nu_0 - nevf)
             Σ, X, R = rayleigh_ritz_projection(A, V, nu)
             norms = vec(norm.(eachcol(R)))
 
@@ -157,4 +174,4 @@ function main(system::String)
     # display("text/plain", (Σ - Σexact[1:l])')
 end
 
-main("hBN")
+main("He")

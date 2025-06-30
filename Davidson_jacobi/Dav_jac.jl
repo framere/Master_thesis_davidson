@@ -1,109 +1,114 @@
 using LinearAlgebra
-using IterativeSolvers
 
-# ------------------------------------------------------------
-# Helper function: project vector orthogonal to v
-function project(v::AbstractVector, x::AbstractMatrix)
-    return x - v * v' * x
-end
+# Rayleigh quotient λ = v'A*v
+rayleigh_quotient(A, v) = dot(v, A * v)
 
-# ------------------------------------------------------------
-# Helper function: project matrix-vector product operator
-function M_operator(A, v, λ)
-    I_mat = I(size(A, 1))  # Identity matrix of the same size as A
-    x = (A - λ * I_mat)
-    y = project(v, x) 
-    z = project(v, y)
-    return z
-end
+# Residual r = A*v - λ*v
+compute_residual(A, v, λ) = A * v .- λ * v
 
-# ------------------------------------------------------------
-# Main function: Block Jacobi-Davidson
-function block_jacobi_davidson(A::AbstractMatrix; nev=2, tol=1e-4, maxiter=100)
-    n = size(A,1)
-    V = zeros(n, nev)
-    for i = 1:nev
-        V[i,i] = 1.0
+# Orthonormalize a matrix (columns)
+function orthonormalize(V::AbstractMatrix)
+    Q = copy(V)
+    for i in 1:size(Q, 2)
+        for j in 1:i-1
+            Q[:, i] .-= dot(Q[:, j], Q[:, i]) * Q[:, j]
+        end
+        Q[:, i] ./= norm(Q[:, i])
     end
-    D = diag(A)
+    return Q
+end
 
-    converged = falses(nev) # convergence flags for each eigenpair
+# Block Jacobi–Davidson Davidson method with diagonal preconditioner
+function block_jacobi_davidson(A::Hermitian{Float64, Matrix{Float64}}, n_eig::Int;
+                               Nblock::Int = 2, max_iter::Int = 50, tol::Float64 = 1e-8)
 
-    λs = zeros(nev)
-    
+    n = size(A, 1)
+    D = diag(A)                        # Diagonal for preconditioner
+    V = orthonormalize(randn(n, n_eig))  # Initial guess
+    converged = falses(n_eig)
+    λ = zeros(n_eig)
+    residuals = [zeros(n) for _ in 1:n_eig]
+
+    k = 1
     iter = 0
-    while !all(converged) && iter < maxiter
+
+    while k ≤ n_eig && iter < max_iter
         iter += 1
+        block_inds = k:min(k+Nblock-1, n_eig)
 
-        # orthogonalize guess orbitals (using QR decomposition)
-        qr_decomp = qr(V)
-        V = Matrix(qr_decomp.Q)    
-
-        # construct and diagonalize Rayleigh matrix
-        H = Hermitian(V'*(A*V))
-        Σ, U = eigen(H, 1:nev)
-
-        X = V*U # Ritz vecors
-        R = X.*Σ' - A*X # residual vectors
-
-        # Solve correction equations for each unconverged eigenpair
-        S = zeros(n, nev)
-        for i in 1:nev
-            if converged[i]
-                continue
-            end
-            v = V[:,i]
-            λ = λs[i]
-            r = R[i]
-            
-            # Define LinearOperator M
-            Mop = M_operator(A, v, λ)
-            
-            # Preconditioner: inverse diagonal
-            diagA = diag(A)
-            precond_vec = diagA .- λ
-            precond = 1 ./ precond_vec
-            Pl = Matrix(Diagonal(precond))
-
-            
-            # Solve M s = -r using GMRES
-            s, _ = gmres(Mop, -r; Pl=Pl, log=true, reltol=1e-8)
-            S[:,i] = s
+        # Step 1: Compute Rayleigh quotients and residuals
+        for (j, idx) in enumerate(block_inds)
+            vi = V[:, idx]
+            λ[idx] = rayleigh_quotient(A, vi)
+            residuals[idx] = compute_residual(A, vi, λ[idx])
         end
 
-        # Build new subspace
-        W = hcat(V, S)
-        # Orthonormalize W
-        Q, _ = qr(W)
-        Q = Matrix(Q)
-        
-        # Project A into subspace
-        Ahat = Q' * A * Q
-        
-        # Solve small eigenproblem
-        D, T = eigen(Ahat)
-        
-        # Rotate back
-        V = Q * T
-        
-        # Update residuals and convergence
-        for i in 1:nev
-            r_norm = norm(A*V[:,i] - D[i]*V[:,i])
-            if r_norm < tol
-                converged[i] = true
-            end
+        # Step 2: Diagonal preconditioning for correction
+        S = zeros(n, length(block_inds))
+        for (j, idx) in enumerate(block_inds)
+            vi = V[:, idx]
+            ri = residuals[idx]
+            λi = λ[idx]
+
+            Pi = I - vi * vi'                         # Projector
+            zi = (1.0 ./ (D .- λi)) .* (Pi * ri)      # Diagonal preconditioning
+            si = Pi * zi                              # Final projection
+            S[:, j] = si
         end
-        
-        println("Iteration $iter: residual norms = ", [norm(A*V[:,i] - D[i]*V[:,i]) for i in 1:nev])
+
+        # Step 3: Expand subspace and orthonormalize
+        W = hcat(V[:, block_inds], S)
+        W = orthonormalize(W)
+
+        # Step 4: Rayleigh–Ritz in expanded subspace
+        Atilde = W' * A * W
+        evals, Q = eigen(Hermitian(Atilde))
+        Vnew = W * Q[:, 1:length(block_inds)]
+
+        # Step 5: Update eigenpairs
+        for (j, idx) in enumerate(block_inds)
+            V[:, idx] = Vnew[:, j]
+            λ[idx] = evals[j]
+            residuals[idx] = compute_residual(A, V[:, idx], λ[idx])
+            converged[idx] = norm(residuals[idx]) < tol
+        end
+
+        # Step 6: Next unconverged
+        next_unconverged = findfirst(!, converged)
+        if isnothing(next_unconverged)
+            break
+        else
+            k = next_unconverged
+        end
     end
-    
-    return D[1:nev], V[:,1:nev]
+
+    return λ[1:n_eig], V[:, 1:n_eig]
 end
 
-# ------------------------------------------------------------
-# Example usage
-n = 50
-A = Hermitian(randn(n,n))
-λs, Vs = block_jacobi_davidson(A; nev=2, tol=1e-8, maxiter=50)
 
-println("Computed eigenvalues: ", λs)
+function sparse_matrix(N::Int, factor::Int)
+    A = zeros(Float64, N, N)
+    for i in 1:N
+        for j in 1:N
+            if i == j
+                A[i, j] = rand() 
+            else
+                A[i, j] = rand() / factor
+            end
+        end
+    end
+    A = 0.5 * (A + A')
+
+    return Hermitian(A)
+end
+
+A = sparse_matrix(1000, 300)
+N_ev = 40
+@time λ, V = block_jacobi_davidson(A, N_ev, Nblock=10)
+println("Computed eigenvalues: ", λ)
+
+# compare with exact results
+exact_eigenvalues, exact_eigenvectors = eigen(A)
+
+println("Exact eigenvalues: ", exact_eigenvalues[1:N_ev])
+println("Difference: ", λ - exact_eigenvalues[1:N_ev])
