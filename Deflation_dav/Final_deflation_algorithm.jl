@@ -1,6 +1,111 @@
 using LinearAlgebra
 using Printf
 
+
+function davidson_schur(
+    A::AbstractMatrix{T},
+    V::Matrix{T},
+    Naux::Integer,
+    thresh::Float64,
+    blocks::Int
+)::Tuple{Vector{T}, Matrix{T}} where T<:Number
+    println("Davidson-Schur algorithm started...")
+    Nlow = size(V, 2)
+    if Naux < Nlow
+        error("ERROR: auxiliary basis must not be smaller than number of target eigenvalues")
+    end
+
+    D = diag(A)
+    Qlocked = Matrix{T}(undef, size(A, 1), 0)  # Locked vectors
+    Σlocked = Float64[]
+    iter = 0
+
+    while size(Qlocked, 2) < Nlow
+        iter += 1
+
+        # Step 1: Orthonormalize V (and optionally augment with Qlocked)
+        V = Matrix(qr(V).Q)
+
+        # Step 2: Form Rayleigh-Ritz matrix in the trial subspace
+        H = Hermitian(V' * A * V)
+
+        # Step 3: Schur decomposition (real Schur form since H is Hermitian)
+        schur_obj = schur(H)
+        Tmat = schur_obj.T
+        Y = schur_obj.Z  # Schur basis vectors
+        ritz_vals = diag(Tmat)
+
+        # Step 4: Ritz vectors in original space
+        X = V * Y
+
+        # Step 5: Residuals
+        R = A * X .- X .* ritz_vals'
+        Rnorms = [norm(R[:,i]) for i in 1:Nlow]
+
+        @printf("iter=%3d  max(Rnorm)=%.3e  locked=%d\n", iter, maximum(Rnorms), size(Qlocked, 2))
+
+        # Step 6: Check convergence and lock
+        new_locked = 0
+        keep_indices = []
+
+        for i in 1:Nlow
+            if Rnorms[i] < thresh
+                if size(Qlocked, 2) > 0 && norm(Qlocked' * X[:,i]) > 1e-1
+                    continue  # Already represented
+                end
+
+                # Lock the vector
+                q = X[:,i]
+                if size(Qlocked,2) > 0
+                    q -= Qlocked * (Qlocked' * q)
+                end
+                q /= norm(q)
+
+                Qlocked = hcat(Qlocked, q)
+                push!(Σlocked, ritz_vals[i])
+                new_locked += 1
+            else
+                push!(keep_indices, i)  # Not yet converged
+            end
+        end
+
+        if new_locked == 0 && length(keep_indices) == 0
+            println("No progress in this iteration, exiting.")
+            break
+        end
+
+        # Step 7: Build new search space V using unconverged Schur vectors
+        Y_remain = Y[:, keep_indices]
+        X_remain = V * Y_remain  # unconverged Ritz vectors
+
+        # Step 8: Build correction vectors with preconditioner
+        Tnew = zeros(size(A,1), length(keep_indices))
+        for (j, i) in enumerate(keep_indices)
+            C = 1.0 ./ (ritz_vals[i] .- D)
+            Tnew[:,j] = C .* R[:,i]
+        end
+
+        # Step 9: Project out locked vectors from correction vectors
+        if size(Qlocked,2) > 0
+            for j in 1:size(Tnew,2)
+                Tnew[:,j] -= Qlocked * (Qlocked' * Tnew[:,j])
+            end
+        end
+
+        # Step 10: Enrich subspace
+        if size(X_remain, 2) + size(Tnew, 2) + size(Qlocked, 2) <= Naux
+            V = hcat(X_remain, Tnew)
+        else
+            V = hcat(X_remain, Tnew)
+        end
+    end
+
+    return (Σlocked, Qlocked)
+end
+
+
+
+
 function davidson(
     A::AbstractMatrix{T},
     V::Matrix{T},
@@ -8,7 +113,7 @@ function davidson(
     thresh::Float64,
     blocks::Int
 )::Tuple{Vector{T}, Matrix{T}} where T<:Number
-
+    println("Davidson algorithm started...")
     Nlow = size(V, 2)
     if Naux < Nlow
         println("ERROR: auxiliary basis must not be smaller than number of target eigenvalues")
@@ -107,8 +212,8 @@ function define_matrix(system::String)
     end
 
     # read the matrix
-    filename = "../Davidson_algorithm/m_pp_" * system * ".dat" #institute
-    # filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
+    # filename = "../Davidson_algorithm/m_pp_" * system * ".dat" #institute
+    filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
     println("read ", filename)
     file = open(filename, "r")
     A = Array{Float64}(undef, N*N)
@@ -134,24 +239,31 @@ function main(system::String)
     println("Davidson")
     n_blocks = 1 # number of blocks to split the Davidson algorithm into
     @time Σ, U = davidson(A, V, Naux, 1e-5, n_blocks)
-    # sorted_indices = sortperm(Σ)
-    # Eigenvalues = Σ[sorted_indices]  # Sort eigenvalues
-    # Ritz_vecs = U[:, sorted_indices]  # Sort eigenvectors
-    # # perform exact diagonalization as a reference
-    # println("Full diagonalization")
-    # @time Σexact, Uexact = eigen(A) 
+    @time Σ_schur, U_schur = davidson_schur(A, V, Naux, 1e-5, n_blocks)
+    sorted_indices = sortperm(Σ)
+    Eigenvalues = Σ[sorted_indices]  # Sort eigenvalues
+    Ritz_vecs = U[:, sorted_indices]  # Sort eigenvectors
+    
+    sorted_indices_schur = sortperm(Σ_schur)
+    Eigenvalues_schur = Σ_schur[sorted_indices_schur]
+    Ritz_vecs_schur = U_schur[:, sorted_indices_schur]
+
+    # perform exact diagonalization as a reference
+    println("Full diagonalization")
+    @time Σexact, Uexact = eigen(A) 
 
     # display("text/plain", Σexact[1:n_blocks*Nlow]')
     # display("text/plain", Σ')
-    # display("text/plain", (Eigenvalues[1:n_blocks*Nlow] -Σexact[1:n_blocks*Nlow])')
+    display("text/plain", (Eigenvalues[1:n_blocks*Nlow] -Σexact[1:n_blocks*Nlow])')
+    display("text/plain", (Eigenvalues_schur[1:n_blocks*Nlow] - Σexact[1:n_blocks*Nlow])')
 end
 
-systems = ["He", "hBN", "Si"]
+# systems = ["He", "hBN", "Si"]
 
-for system in systems
-    println("system: ", system)
-    main(system)
-end
+# for system in systems
+#     println("system: ", system)
+#     main(system)
+# end
 
 
-# main("hBN")
+main("hBN")

@@ -12,3 +12,4 @@
 
 7) Selective deflation modification. It works but it has some problems updating the space at the end. Still unresolved issue!
 
+8) Jac_davidson --> First draft (at the end of the day it's the same as Davidson but a small variation in the preconditioning)

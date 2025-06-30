@@ -14,7 +14,7 @@ function load_matrix(system::String)
 
     # read the matrix
     # filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
-    filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
+    filename = "../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
     println("read ", filename)
     file = open(filename, "r")
     A = Array{Float64}(undef, N * N)
@@ -30,7 +30,7 @@ function main(system::String)
     # the two test systems He and hBN are hardcoded
     system = system
     
-    Nlow = 8 # we are interested in the first Nlow eigenvalues
+    Nlow = 50 # we are interested in the first Nlow eigenvalues
     Naux = Nlow * 16 # let our auxiliary space be larger (but not too large)
 
     # read the matrix
@@ -48,16 +48,16 @@ function main(system::String)
 
     # perform Davidson algorithm
     println("Davidson")
-    @time Σ, U = davidson(A, V, Naux, 1e-2, system)
+    @time Σ, U = davidson(A, V, Naux, 1e-5, system)
 
     # perform exact diagonalization as a reference
-    #println("Full diagonalization")
-    #@time Σexact, Uexact = eigen(A) 
+    println("Full diagonalization")
+    @time Σexact, Uexact = eigen(A) 
 
     #display("text/plain", Σexact[1:Nlow]')
     display("text/plain", Σ')
     # display("text/plain", U)
-    #display(A("text/plain", (Σ-Σexact[1:Nlow])')
+    display("text/plain", (Σ-Σexact[1:Nlow])')
 end
 
 
@@ -77,10 +77,9 @@ function davidson(
 
     # diagonal part of A (for preconditioner)
     D = diag(A)
-    logfile = open("davidson_log_$system.txt", "w") 
+    # logfile = open("davidson_log_$system.txt", "w") 
     # iterations
     iter = 0
-    nevf = 0 # number of converged eigenvalues
     while true
         iter = iter + 1
         
@@ -95,24 +94,15 @@ function davidson(
         X = V*U # Ritz vectors
         R = X.*Σ' - A*X # residual vectors
         Rnorm = norm(R,2) # Frobenius norm
-        
-        n_converg = 0
-        norms = zeros(size(R,2))
-        for i = 1:size(R,2)
-            norms[i] = norm(R[:,i])
-            if norm(R[:,i]) < thresh
-                n_converg += 1
-            end
-        end
-
+      
         # status output
         output = @sprintf("iter=%6d  Rnorm=%11.3e  size(V,2)=%6d\n", iter, Rnorm, size(V,2))
-        @printf(logfile, "%d %.6e\n", iter, Rnorm)
+        # @printf(logfile, "%d %.6e\n", iter, Rnorm)
         print(output)
         
         if Rnorm < thresh
             println("converged!")
-            close(logfile)
+            # close(logfile)
             return (Σ, X)
         end
 
@@ -142,4 +132,4 @@ end
 
 
 
-main("hBN")
+main("Si")

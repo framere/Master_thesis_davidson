@@ -63,3 +63,30 @@ function load_matrix(system::String,
     A = -A  # for largest eigenvalues of original matrix
     return Hermitian(A)
 end
+
+function orthogonalize(V::Matrix, against::Matrix)
+    if size(against, 2) == 0
+        return Matrix(qr(V).Q)
+    end
+    for i in 1:size(against, 2)
+        v = against[:, i]
+        for j in 1:size(V, 2)
+            V[:, j] -= v * (v' * V[:, j])
+        end
+    end
+    return Matrix(qr(V).Q)
+end
+
+
+function rayleigh_ritz_projection(
+    A::Hermitian{T, Matrix{T}}, 
+    V::Matrix{T}, 
+    nev::Int
+)::Tuple{Vector{T}, Matrix{T}, Matrix{T}} where T<:Number
+
+    H = Hermitian(V' * A * V)
+    Σ, U = eigen(H, 1:nev)
+    X = V * U
+    R = X .* Σ' .- A * X
+    return Σ, X, R
+end

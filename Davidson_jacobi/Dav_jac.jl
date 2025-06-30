@@ -1,102 +1,114 @@
 using LinearAlgebra
-using IterativeSolvers
-using LinearOperators
 
+# Rayleigh quotient λ = v'A*v
+rayleigh_quotient(A, v) = dot(v, A * v)
 
-function jacobi_filter(A::AbstractMatrix{Float64}, V::Matrix{Float64}, n::Int; 
-                       tol=1e-6, N_block=4, max_iters=100)
-    N = size(A, 1)
-    λ = zeros(n)
-    k = 0  # index of the lowest unconverged eigenvector
-    V = qr(V).Q[:, 1:n]  # Orthonormalize initial V
+# Residual r = A*v - λ*v
+compute_residual(A, v, λ) = A * v .- λ * v
 
-    for iter = 1:max_iters
-        if k >= n
-            println("Converged after $iter iterations.")
+# Orthonormalize a matrix (columns)
+function orthonormalize(V::AbstractMatrix)
+    Q = copy(V)
+    for i in 1:size(Q, 2)
+        for j in 1:i-1
+            Q[:, i] .-= dot(Q[:, j], Q[:, i]) * Q[:, j]
+        end
+        Q[:, i] ./= norm(Q[:, i])
+    end
+    return Q
+end
+
+# Block Jacobi–Davidson Davidson method with diagonal preconditioner
+function block_jacobi_davidson(A::Hermitian{Float64, Matrix{Float64}}, n_eig::Int;
+                               Nblock::Int = 2, max_iter::Int = 50, tol::Float64 = 1e-8)
+
+    n = size(A, 1)
+    D = diag(A)                        # Diagonal for preconditioner
+    V = orthonormalize(randn(n, n_eig))  # Initial guess
+    converged = falses(n_eig)
+    λ = zeros(n_eig)
+    residuals = [zeros(n) for _ in 1:n_eig]
+
+    k = 1
+    iter = 0
+
+    while k ≤ n_eig && iter < max_iter
+        iter += 1
+        block_inds = k:min(k+Nblock-1, n_eig)
+
+        # Step 1: Compute Rayleigh quotients and residuals
+        for (j, idx) in enumerate(block_inds)
+            vi = V[:, idx]
+            λ[idx] = rayleigh_quotient(A, vi)
+            residuals[idx] = compute_residual(A, vi, λ[idx])
+        end
+
+        # Step 2: Diagonal preconditioning for correction
+        S = zeros(n, length(block_inds))
+        for (j, idx) in enumerate(block_inds)
+            vi = V[:, idx]
+            ri = residuals[idx]
+            λi = λ[idx]
+
+            Pi = I - vi * vi'                         # Projector
+            zi = (1.0 ./ (D .- λi)) .* (Pi * ri)      # Diagonal preconditioning
+            si = Pi * zi                              # Final projection
+            S[:, j] = si
+        end
+
+        # Step 3: Expand subspace and orthonormalize
+        W = hcat(V[:, block_inds], S)
+        W = orthonormalize(W)
+
+        # Step 4: Rayleigh–Ritz in expanded subspace
+        Atilde = W' * A * W
+        evals, Q = eigen(Hermitian(Atilde))
+        Vnew = W * Q[:, 1:length(block_inds)]
+
+        # Step 5: Update eigenpairs
+        for (j, idx) in enumerate(block_inds)
+            V[:, idx] = Vnew[:, j]
+            λ[idx] = evals[j]
+            residuals[idx] = compute_residual(A, V[:, idx], λ[idx])
+            converged[idx] = norm(residuals[idx]) < tol
+        end
+
+        # Step 6: Next unconverged
+        next_unconverged = findfirst(!, converged)
+        if isnothing(next_unconverged)
             break
+        else
+            k = next_unconverged
         end
-
-        # Define block indices
-        block_start = k + 1
-        block_end = min(k + N_block, n)
-        block_inds = block_start:block_end
-        block_size = length(block_inds)
-
-        println("\n▶ Iteration $iter — Updating eigenvectors $block_start to $block_end")
-
-        # Compute Rayleigh quotients and residuals
-        r = Matrix{Float64}(undef, N, block_size)
-        λ_block = zeros(block_size)
-        for (i, j) in enumerate(block_inds)
-            vi = V[:, j]
-            λi = dot(vi, A * vi)
-            λ_block[i] = λi
-            r[:, i] = A * vi - λi * vi
-            println("   λ[$j] ≈ $(round(λi, digits=6)) |residual| = $(round(norm(r[:, i]), digits=2))")
-        end
-
-        # Solve correction equations with MINRES
-        S = zeros(N, block_size)
-
-
-        for (i, j) in enumerate(block_inds)
-            vi = V[:, j]
-            λi = λ_block[i]
-            P = I - vi * vi'
-
-            function mv(s)
-                return P * (A * s - λi * s)
-            end
-
-            Aop = LinearOperator(Float64, N, N, mv)
-
-            println("   Solving correction equation for vector $j using MINRES...")
-            s, _ = minres(Aop, r[:, i], reltol=1e-6, maxiter=100)
-
-            S[:, i] = s
-        end
-
-
-
-
-        # Build subspace W and orthonormalize
-        W = hcat(V[:, k+1:block_end], S[:, 1:block_size])
-        for j in 1:k
-            W = W - V[:, j] * (V[:, j]' * W)  # Orthogonalize against converged
-        end
-        W = qr(W).Q  # Orthonormalize
-
-        # Project A into subspace
-        A_sub = W' * A * W
-
-        # Diagonalize subspace matrix
-        eigvals, eigvecs = eigen(A_sub)
-
-        # Rotate eigenvectors in subspace
-        V[:, k+1:k+block_size] = W * eigvecs[:, 1:block_size]
-        λ[k+1:k+block_size] = eigvals[1:block_size]
-
-        # Check convergence
-        new_k = k
-        for j in k+1:k+block_size
-            rj = A * V[:, j] - λ[j] * V[:, j]
-            if norm(rj) > tol
-                new_k = j
-            end
-        end
-
-        k = new_k + 1
-        println("   Diagonalizing subspace of size $(size(W, 2))")
-        
     end
 
-    return V[:, 1:n], λ[1:n]
+    return λ[1:n_eig], V[:, 1:n_eig]
 end
 
 
-A = randn(100, 100)
-A = Hermitian(A + A')
+function sparse_matrix(N::Int, factor::Int)
+    A = zeros(Float64, N, N)
+    for i in 1:N
+        for j in 1:N
+            if i == j
+                A[i, j] = rand() 
+            else
+                A[i, j] = rand() / factor
+            end
+        end
+    end
+    A = 0.5 * (A + A')
 
-V0 = randn(100, 10)  # Initial guess for 10 eigenvectors
+    return Hermitian(A)
+end
 
-V, λ = jacobi_filter(A, V0, 10)
+A = sparse_matrix(1000, 300)
+N_ev = 40
+@time λ, V = block_jacobi_davidson(A, N_ev, Nblock=10)
+println("Computed eigenvalues: ", λ)
+
+# compare with exact results
+exact_eigenvalues, exact_eigenvectors = eigen(A)
+
+println("Exact eigenvalues: ", exact_eigenvalues[1:N_ev])
+println("Difference: ", λ - exact_eigenvalues[1:N_ev])
