@@ -160,7 +160,8 @@ function main(system::String)
     thresh = 1e-3
     n_final = 5
 
-    filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
+    # filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
+    filename = filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
     A = load_matrix(system, filename)
     N = size(A, 1)
 
