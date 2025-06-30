@@ -52,12 +52,29 @@ function davidson_driver(
                     end
                 end
                 
-                # Correction vectors
                 t = zero(similar(R))
-                for i = 1:size(t, 2)
-                    C = 1.0 ./ (Σ[i] .- D)
-                    t[:, i] = C .* R[:, i]  # the new basis vectors
+                for i in 1:size(t, 2)
+                    ri = R[:,i]
+                    vi = X[:,i]
+                    λi = Σ[i]
+
+                    # Projector: P = I - vi*vi'
+                    Pi = I - vi * vi'
+
+                    # Approximate (I - vi*vi') (A - λi I)^(-1) (I - vi*vi') * ri
+                    M_diag_inv = 1.0 ./ (D .- λi)      # Diagonal preconditioner
+                    zi = M_diag_inv .* (Pi * ri)      # Apply preconditioner to projected residual
+                    si = Pi * zi                      # Project again to stay orthogonal to vi
+
+                    t[:,i] = si
                 end
+
+                # # Update guess space using diagonal preconditioner
+                # t = zero(similar(R))
+                # for i = 1:size(t, 2)
+                #     C = 1.0 ./ (Σ[i] .- D)
+                #     t[:, i] = C .* R[:, i]  # the new basis vectors
+                # end
 
                 # Update guess basis
                 if size(V, 2) <= Naux - remaining
@@ -102,12 +119,38 @@ function davidson_driver(
             Σ_nc = Σ[non_conv_indices]
             R_nc = R[:, non_conv_indices]
 
-            # Correction vectors
+            # # Correction vectors
+            # t = Matrix{T}(undef, size(A, 1), length(non_conv_indices))
+            # ϵ = 1e-6  # small value to avoid division by zero
+            # for (i, idx) in enumerate(non_conv_indices)
+            #     denom = clamp.(Σ_nc[i] .- D, ϵ, Inf)
+            #     t[:, i] = R_nc[:, i] ./ denom
+            # end
+
+
+            # Jacobi–Davidson-style correction vectors
             t = Matrix{T}(undef, size(A, 1), length(non_conv_indices))
-            ϵ = 1e-6  # small value to avoid division by zero
+            ϵ = 1e-6  # regularization to avoid divide-by-zero
+
             for (i, idx) in enumerate(non_conv_indices)
-                denom = clamp.(Σ_nc[i] .- D, ϵ, Inf)
-                t[:, i] = R_nc[:, i] ./ denom
+                ri = R_nc[:, i]
+                vi = X_nc[:, i]
+                λi = Σ_nc[i]
+
+                # Projector: P = I - vi * vi'
+                Pi = I - vi * vi'  # acts as (I - v*v')
+
+                # Diagonal preconditioner for (A - λi*I)^(-1)
+                denom = clamp.(D .- λi, ϵ, Inf)  # avoid divide by zero
+                M_inv = Diagonal(1.0 ./ denom)
+
+                # Apply preconditioner to projected residual
+                zi = M_inv * (Pi * ri)
+
+                # Final projection to stay orthogonal to vi
+                si = Pi * zi
+
+                t[:, i] = si
             end
 
             # Orthogonalize corrections

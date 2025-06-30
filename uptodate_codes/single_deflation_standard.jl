@@ -133,4 +133,4 @@ function main(system::String)
 end
 
 
-main("hBN") # or "hBN", "Si"
+main("He") # or "hBN", "Si"

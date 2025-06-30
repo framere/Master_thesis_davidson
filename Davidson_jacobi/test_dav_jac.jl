@@ -115,4 +115,4 @@ function main(system::String)
     display("text/plain", (λs-Σexact[1:Nlow])')
 end
 
-main("He")
+main("hBN")
