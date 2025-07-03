@@ -1,8 +1,6 @@
 using LinearAlgebra
 using Printf
 
-include("../uptodate_codes/functions_davidson.jl")
-
 # === Global FLOP counter and helpers ===
 global NFLOPs = 0
 
@@ -12,6 +10,92 @@ end
 
 function count_diag_flops(N::Int)
     global NFLOPs += 20 * N^3
+end
+
+function count_orthogonalization_flops(M::Int, N::Int, vec_length::Int)
+    global NFLOPs += 2 * M * N * vec_length  # dot products
+    global NFLOPs += M * N * vec_length      # vector updates
+end
+
+function count_qr_flops(M::Int, N::Int)
+    global NFLOPs += 2 * M * N^2
+end
+
+function count_norm_flops(N::Int)
+    global NFLOPs += 2 * N
+end
+
+function count_vec_scaling_flops(N::Int)
+    global NFLOPs += N
+end
+
+function count_vec_add_flops(N::Int)
+    global NFLOPs += N
+end
+
+function count_dot_product_flops(N::Int)
+    global NFLOPs += 2 * N
+end
+
+function select_corrections_ORTHO(t_candidates, V, V_lock, η, droptol; maxorth=2)
+    ν = size(t_candidates, 2)
+    n_b = 0
+    T_hat = Matrix{eltype(t_candidates)}(undef, size(t_candidates, 1), ν)
+
+    for i in 1:ν
+        t_i = t_candidates[:, i]
+        old_norm = norm(t_i)
+        count_norm_flops(length(t_i))
+        k = 0
+
+        while k < maxorth
+            k += 1
+
+            # Count orthogonalization against V
+            count_orthogonalization_flops(1, size(V,2), size(V,1))
+            for j in 1:size(V, 2)
+                t_i -= V[:, j] * (V[:, j]' * t_i)
+            end
+
+            new_norm = norm(t_i)
+            count_norm_flops(length(t_i))
+            if new_norm > η * old_norm
+                break
+            end
+            old_norm = new_norm
+        end
+
+        if norm(t_i) > droptol
+            count_norm_flops(length(t_i))
+            n_b += 1
+            T_hat[:, n_b] = t_i / norm(t_i)
+            count_vec_scaling_flops(length(t_i))
+        end
+    end
+
+    return T_hat[:, 1:n_b], n_b
+end
+
+function load_matrix(system::String, filename::String)
+    if system == "He"
+        N = 4488
+    elseif system == "hBN"
+        N = 6863        
+    elseif system == "Si"
+        N = 6201
+    else
+        error("Unknown system: $system")
+    end
+
+    println("read ", filename)
+    file = open(filename, "r")
+    A = Array{Float64}(undef, N * N)
+    read!(file, A)
+    close(file)
+
+    A = reshape(A, N, N)
+    A = -A  # for largest eigenvalues of original matrix
+    return Hermitian(A)
 end
 
 function davidson(
@@ -42,6 +126,7 @@ function davidson(
         iter += 1
 
         if size(V_lock, 2) > 0
+            count_orthogonalization_flops(size(V,2), size(V_lock,2), size(V,1))
             for i in 1:size(V_lock, 2)
                 v_lock = V_lock[:, i]
                 for j in 1:size(V, 2)
@@ -49,6 +134,8 @@ function davidson(
                 end
             end
         end
+        
+        count_qr_flops(size(V,1), size(V,2))
         V = Matrix(qr(V).Q)
 
         # Rayleigh-Ritz
@@ -66,8 +153,12 @@ function davidson(
 
         R = X .* Σ' .- A * X
         count_matmul_flops(size(A, 1), size(A, 2), size(X, 2))
+        count_vec_add_flops(length(R))  # For the subtraction
 
         norms = vec(norm.(eachcol(R)))
+        for _ in eachcol(R)
+            count_norm_flops(size(R,1))
+        end
 
         conv_indices = Int[]
         for i = 1:size(R, 2)
@@ -113,6 +204,8 @@ function davidson(
         for (i, idx) in enumerate(non_conv_indices)
             denom = clamp.(Σ_nc[i] .- D, ϵ, Inf)
             t[:, i] = R_nc[:, i] ./ denom
+            count_vec_add_flops(length(D))
+            count_vec_scaling_flops(length(D))
         end
 
         T_hat, n_b_hat = select_corrections_ORTHO(t, V, V_lock, 0.1, 1e-10)
