@@ -16,17 +16,18 @@ function davidson(
     Xconv = Matrix{T}(undef, size(A,1), 0)  # Empty orthonormal basis
 
     block = 0
+    iter = 0
+    n_converged = 0
     while length(Eigenvalues) < target_nev
         block += 1
         println("Block ", block)
-        iter = 0
         D = diag(A)  # Diagonal part of A (for preconditioner)
         Naux = copy(Nauxiliary) # Ensure Naux is mutable
         sizeV = size(V, 2) 
         println("Initial size of V for block ", block, " is ", sizeV)
         println("Number of eigenvalues to find in this block: ", Nlow)
         println("Number of auxiliary vectors: ", Naux)
-
+        
         while true
             iter += 1
             qr_decomp = qr(V)
@@ -61,8 +62,8 @@ function davidson(
                         if abs.(Σ[i] - Σ[end]) .> deflation_eps* abs(Σ[end])
                             push!(Ritz_vecs, X[:, i])
                             push!(Eigenvalues, Σ[i])
-                            @printf("converged eigenvalue %.3f with residual norm %.2e\n", Σ[i], norm(R[:, i]))
-                            
+                            n_converged += 1
+                            @printf("Converged eigenvalue %.10f with norm %.2e (EV %d)\n", Σ[i], norm(R[:, i]), n_converged)                            
                             q = X[:, i]
                             if size(Xconv, 2) > 0
                                 q -= Xconv * (Xconv' * q)
@@ -105,7 +106,7 @@ function define_matrix(system::String)
     # Define a sample matrix for testing
     
     Nlow = 25 # we are interested in the first Nlow eigenvalues
-    Naux = Nlow * 16 # let our auxiliary space be larger (but not too large)
+    Naux = Nlow * 12 # let our auxiliary space be larger (but not too large)
 
     if system == "He"
         N = 4488
@@ -133,7 +134,7 @@ function define_matrix(system::String)
 end
 
 
-function main(system::String)
+function main(system::String, target_nev::Int)
     A, N, Nlow, Naux = define_matrix(system)
 
     # initial guess vectors (naive guess)
@@ -144,19 +145,27 @@ function main(system::String)
 
     # perform Davidson algorithm
     println("Davidson")
-    target_nev = 108 # number of blocks to split the Davidson algorithm into
-    @time Σ, U = davidson(A, V, Naux, 1e-3, target_nev, 1e-2)
+    Naux = 12*Nlow # let our auxiliary space be larger (but not too large)
+    @time Σ, U = davidson(A, V, Naux, 1e-2, target_nev, 1e-2)
     idx = sortperm(Σ)
     Σ = Σ[idx] # they are not sorted! 
     # Ritz_vecs = Ritz_vecs[:,idx] # sort the converged eigenvectors
     
-    # # perform exact diagonalization as a reference
-    # println("Full diagonalization")
-    # @time Σexact, Uexact = eigen(A) 
+    # perform exact diagonalization as a reference
+    println("Full diagonalization")
+    @time Σexact, Uexact = eigen(A) 
 
     # display("text/plain", Σexact[1:length(Σ)])
     # display("text/plain", Σ')
-    # display("text/plain", (Σ-Σexact[1:length(Σ)])')
+    display("text/plain", (Σ-Σexact[1:length(Σ)])')
 end
 
-main("hBN")
+
+target_nevs = [216, 288, 360]
+
+
+for target_nev in target_nevs
+    println("Running for target_nev = ", target_nev)
+    main("hBN", target_nev) # or "hBN", "He"
+    println("\n")
+end

@@ -94,14 +94,15 @@ function davidson(A::AbstractMatrix{T},
     return (Eigenvalues, Ritz_vecs)
 end
 
-function main(system::String)
+function main(system::String, l::Integer = 200)
     # the two test systems He and hBN are hardcoded
     system = system
-    filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
+    # filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
+    filename = filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
     
     Nlow = 16 # Starting dimension for the subspace
     Naux = Nlow * 16 # let our auxiliary space be larger (but not too large)
-    l = 200 # number of eigenvalues to compute
+    # l = 200 # number of eigenvalues to compute
     
     # read the matrix
     A = load_matrix(system, filename)
@@ -115,7 +116,7 @@ function main(system::String)
 
     # perform Davidson algorithm
     println("Davidson")
-    @time Σ, U = davidson(A, V, Naux, l, 1e-3, system)
+    @time Σ, U = davidson(A, V, Naux, l, 1e-2, system)
 
 
     # sort
@@ -133,4 +134,9 @@ function main(system::String)
 end
 
 
-main("He") # or "hBN", "Si"
+ls = [216, 288, 360]
+
+for l in ls
+    println("Running for Nlow = $l")
+    main("hBN", l)
+end

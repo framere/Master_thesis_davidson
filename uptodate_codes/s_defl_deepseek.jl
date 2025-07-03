@@ -3,6 +3,42 @@ using Printf
 
 include("functions_davidson.jl")
 
+function orthogonalize(V::Matrix{T}, V_lock::Matrix{T}, weight::Float64=0.0) where T
+    if isempty(V_lock)
+        return qr(V).Q
+    else
+        # Soft deflation: project out locked vectors with reduced weight
+        V .= V .- weight .* (V_lock * (V_lock' * V))
+        Q, _ = qr(V)
+        return Q
+    end
+end
+
+function select_corrections_ORTHO(t::Matrix{T}, V::Matrix{T}, V_lock::Matrix{T}, 
+                                thresh::Float64, eps::Float64, weight::Float64=0.0) where T
+    # Apply soft deflation first
+    if !isempty(V_lock)
+        t .= t .- weight .* (V_lock * (V_lock' * t))
+    end
+    
+    # Then orthogonalize against current basis
+    t .= t .- V * (V' * t)
+    
+    # Select significant corrections
+    norms = vec(mapslices(norm, t, dims=1))
+    mask = norms .> thresh
+    t_hat = t[:, mask]
+    
+    # Re-normalize
+    for i in 1:size(t_hat, 2)
+        nrm = norm(t_hat[:, i])
+        if nrm > eps
+            t_hat[:, i] ./= nrm
+        end
+    end
+    
+    return t_hat, size(t_hat, 2)
+end
 
 function davidson_driver(
     A::AbstractMatrix{T},
@@ -23,20 +59,22 @@ function davidson_driver(
     V_lock = Matrix{T}(undef, size(A, 1), 0)
 
     iter = 0
+    soft_deflation_weight = 0.1  # Weight for soft deflation (0.1 means 10% of converged vectors remain)
 
     while nevf < l
         iter += 1
         remaining = l - nevf
 
         if remaining <= n_final
-            println("-----Switching to final convergence mode-----")
+            println("-----Final convergence mode (soft deflation)-----")
             while true
                 iter += 1
 
-                V = orthogonalize(V, V_lock)
+                # Orthogonalize with soft deflation
+                V = orthogonalize(V, V_lock, soft_deflation_weight)
 
                 Σ, X, R = rayleigh_ritz_projection(A, V, remaining)
-                Rnorm = norm(R, 2)  # Frobenius norm
+                Rnorm = norm(R, 2)
 
                 output = @sprintf("iter=%6d  Rnorm=%11.3e  size(V,2)=%6d\n", iter, Rnorm, size(V, 2))
                 print(output)
@@ -52,37 +90,28 @@ function davidson_driver(
                     end
                 end
                 
+                # Correction vectors with soft deflation awareness
                 t = zero(similar(R))
-                for i in 1:size(t, 2)
-                    ri = R[:,i]
-                    vi = X[:,i]
-                    λi = Σ[i]
-
-                    # Projector: P = I - vi*vi'
-                    Pi = I - vi * vi'
-
-                    # Approximate (I - vi*vi') (A - λi I)^(-1) (I - vi*vi') * ri
-                    M_diag_inv = 1.0 ./ (D .- λi)     # Diagonal preconditioner
-                    zi = M_diag_inv .* (Pi * ri)      # Apply preconditioner to projected residual
-                    si = Pi * zi                      # Project again to stay orthogonal to vi
-
-                    t[:,i] = si
+                for i = 1:size(t, 2)
+                    # Modified preconditioner that accounts for soft deflation
+                    θ = Σ[i]
+                    denom = θ .- D
+                    # Apply soft deflation to the preconditioner
+                    if !isempty(V_lock)
+                        proj = V_lock * (V_lock' * R[:, i])
+                        denom .+= soft_deflation_weight * abs.(proj) ./ (θ .- D .+ 1e-10)
+                    end
+                    t[:, i] = R[:, i] ./ denom
                 end
-
-                # # Update guess space using diagonal preconditioner
-                # t = zero(similar(R))
-                # for i = 1:size(t, 2)
-                #     C = 1.0 ./ (Σ[i] .- D)
-                #     t[:, i] = C .* R[:, i]  # the new basis vectors
-                # end
 
                 # Update guess basis
                 if size(V, 2) <= Naux - remaining
-                    V = hcat(V, t)  # concatenate V and t
+                    V = hcat(V, t)
                 else
-                    V = hcat(X, t)  # concatenate X and t
+                    # Keep some of the converged directions with soft weight
+                    V = hcat(X, t)
                 end
-                # Check if we have converged all eigenvalues
+
                 if nevf >= l
                     println("Converged all eigenvalues.")
                     return Eigenvalues, Ritz_vecs
@@ -90,9 +119,8 @@ function davidson_driver(
             end 
         
         else
-            V = orthogonalize(V, V_lock)
-
-            # Rayleigh-Ritz
+            # Standard block iteration with soft deflation
+            V = orthogonalize(V, V_lock, soft_deflation_weight)
 
             nu = min(size(V, 2), nu_0 - nevf)
             Σ, X, R = rayleigh_ritz_projection(A, V, nu)
@@ -119,46 +147,24 @@ function davidson_driver(
             Σ_nc = Σ[non_conv_indices]
             R_nc = R[:, non_conv_indices]
 
-            # # Correction vectors
-            # t = Matrix{T}(undef, size(A, 1), length(non_conv_indices))
-            # ϵ = 1e-6  # small value to avoid division by zero
-            # for (i, idx) in enumerate(non_conv_indices)
-            #     denom = clamp.(Σ_nc[i] .- D, ϵ, Inf)
-            #     t[:, i] = R_nc[:, i] ./ denom
-            # end
-
-
-            # Jacobi–Davidson-style correction vectors
+            # Correction vectors with soft deflation
             t = Matrix{T}(undef, size(A, 1), length(non_conv_indices))
-            ϵ = 1e-6  # regularization to avoid divide-by-zero
-
             for (i, idx) in enumerate(non_conv_indices)
-                ri = R_nc[:, i]
-                vi = X_nc[:, i]
-                λi = Σ_nc[i]
-
-                # Projector: P = I - vi * vi'
-                Pi = I - vi * vi'  # acts as (I - v*v')
-
-                # Diagonal preconditioner for (A - λi*I)^(-1)
-                denom = clamp.(D .- λi, ϵ, Inf)  # avoid divide by zero
-                M_inv = Diagonal(1.0 ./ denom)
-
-                # Apply preconditioner to projected residual
-                zi = M_inv * (Pi * ri)
-
-                # Final projection to stay orthogonal to vi
-                si = Pi * zi
-
-                t[:, i] = si
+                θ = Σ_nc[i]
+                denom = θ .- D
+                # Soft deflation contribution
+                if !isempty(V_lock)
+                    proj = V_lock * (V_lock' * R_nc[:, i])
+                    denom .+= soft_deflation_weight * abs.(proj) ./ (θ .- D .+ 1e-10)
+                end
+                t[:, i] = R_nc[:, i] ./ denom
             end
 
-            # Orthogonalize corrections
-            T_hat, n_b_hat = select_corrections_ORTHO(t, V, V_lock, 0.1, 1e-10)
-            # println("→ Requested $(size(t, 2)) corrections, kept $n_b_hat after orthogonalization")
+            # Orthogonalize corrections with soft deflation
+            T_hat, n_b_hat = select_corrections_ORTHO(t, V, V_lock, 0.1, 1e-10, soft_deflation_weight)
 
             # Update subspace
-            if size(V, 2) + n_b_hat > Naux|| length(conv_indices) > 0 || n_b_hat == 0 
+            if size(V, 2) + n_b_hat > Naux || !isempty(conv_indices) || n_b_hat == 0 
                 V = hcat(X_nc, T_hat)
                 n_b = size(V, 2)
             else
@@ -174,7 +180,7 @@ end
 function main(system::String)
     Nlow = 16
     Naux = Nlow * 16
-    l = 40
+    l = 108
     thresh = 1e-3
     n_final = 10
 

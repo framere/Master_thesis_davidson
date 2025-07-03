@@ -26,12 +26,12 @@ function load_matrix(system::String)
     return Hermitian(A)
 end
 
-function main(system::String)
+function main(system::String, Nlow::Int)
     # the two test systems He and hBN are hardcoded
     system = system
     
-    Nlow = 108 # we are interested in the first Nlow eigenvalues
-    Naux = Nlow * 16 # let our auxiliary space be larger (but not too large)
+    # Nlow = 200 # we are interested in the first Nlow eigenvalues
+    Naux = Nlow * 2 # let our auxiliary space be larger (but not too large)
 
     # read the matrix
     A = load_matrix(system)
@@ -48,7 +48,7 @@ function main(system::String)
 
     # perform Davidson algorithm
     println("Davidson")
-    @time Σ, U = davidson(A, V, Naux, 1e-3, system)
+    @time Σ, U = davidson(A, V, Naux, 1e-2, system)
 
     # perform exact diagonalization as a reference
     println("Full diagonalization")
@@ -123,13 +123,9 @@ function davidson(
 end
 
 
-# systems = ["hBN", "Si"] #"He",
+N_lows = [216, 288, 360]
 
-# for system in systems
-#      println("system: ", system)
-#      main(system)
-# end
-
-
-
-main("hBN")
+for Nlow in N_lows
+    println("Running for Nlow = $Nlow")
+    main("hBN", Nlow)
+end

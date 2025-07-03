@@ -115,13 +115,13 @@ function davidson(
     return (Eigenvalues, Ritz_vecs)
 end
 
-function main(system::String)
+function main(system::String, l::Integer)
     system = system
     filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
 
     Nlow = 16
     Naux = Nlow * 16
-    l = 200
+    # l = 216
 
     A = load_matrix(system, filename)
     N = size(A, 1)
@@ -132,7 +132,7 @@ function main(system::String)
     end
 
     println("Davidson")
-    @time Σ, U = davidson(A, V, Naux, l, 1e-3, system, 3)
+    @time Σ, U = davidson(A, V, Naux, l, 1e-2, system, 3)
 
     idx = sortperm(Σ)
     Σ = Σ[idx]
@@ -144,4 +144,9 @@ function main(system::String)
     display("text/plain", (Σ - Σexact[1:l])')
 end
 
-main("He")
+ls = [216, 288, 360]
+
+for l in ls
+    println("Running for Nlow = $l")
+    main("hBN", l)
+end
