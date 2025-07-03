@@ -1,7 +1,7 @@
 using LinearAlgebra
 using Printf
 
-# Global FLOP counter
+# === Global FLOP counter and helpers ===
 global NFLOPs = 0
 
 function count_matmul_flops(M::Int, N::Int, K::Int)
@@ -10,6 +10,31 @@ end
 
 function count_diag_flops(N::Int)
     global NFLOPs += 20 * N^3
+end
+
+function count_qr_flops(M::Int, N::Int)
+    global NFLOPs += 2 * M * N^2
+end
+
+function count_norm_flops(N::Int)
+    global NFLOPs += 2 * N
+end
+
+function count_vec_scaling_flops(N::Int)
+    global NFLOPs += N
+end
+
+function count_vec_add_flops(N::Int)
+    global NFLOPs += N
+end
+
+function count_dot_product_flops(N::Int)
+    global NFLOPs += 2 * N
+end
+
+function count_orthogonalization_flops(M::Int, N::Int, vec_length::Int)
+    global NFLOPs += 2 * M * N * vec_length  # dot products
+    global NFLOPs += M * N * vec_length      # vector updates
 end
 
 function davidson(
@@ -42,17 +67,25 @@ function davidson(
         
         while true
             iter += 1
+            
+            # Count QR factorization
+            count_qr_flops(size(V,1), size(V,2))
             qr_decomp = qr(V)
             V = Matrix(qr_decomp.Q)
 
             if size(Xconv, 2) > 0
+                # Count orthogonalization against Xconv
                 temp = Xconv' * V
                 count_matmul_flops(size(Xconv,2), size(Xconv,1), size(V,2))
                 V = V - Xconv * temp
                 count_matmul_flops(size(Xconv,1), size(Xconv,2), size(temp,2))
+                
+                # Count second QR
+                count_qr_flops(size(V,1), size(V,2))
                 V = Matrix(qr(V).Q)
             end
 
+            # Rayleigh-Ritz procedure
             temp_AV = A * V
             count_matmul_flops(size(A,1), size(A,2), size(V,2))
             H = V' * temp_AV
@@ -65,11 +98,16 @@ function davidson(
             X = V * U
             count_matmul_flops(size(V,1), size(V,2), size(U,2))
 
+            # Residual calculation
             temp_AX = A * X
             count_matmul_flops(size(A,1), size(A,2), size(X,2))
             R = X .* Σ' .- temp_AX
+            count_vec_add_flops(length(R))
 
+            # Count norm calculation
             Rnorm = norm(R, 2)
+            count_norm_flops(length(R))
+            
             output = @sprintf("iter=%6d  Rnorm=%11.3e  size(V,2)=%6d\n", iter, Rnorm, size(V,2))
             print(output)
 
@@ -90,6 +128,7 @@ function davidson(
                             n_converged += 1
                             @printf("Converged eigenvalue %.10f with norm %.2e (EV %d)\n", Σ[i], norm(R[:, i]), n_converged)
                             
+                            # Count orthogonalization of converged vector
                             q = X[:, i]
                             if size(Xconv, 2) > 0
                                 temp_q = Xconv' * q
@@ -98,6 +137,8 @@ function davidson(
                                 count_matmul_flops(size(Xconv,1), size(Xconv,2), 1)
                             end
                             q /= norm(q)
+                            count_norm_flops(length(q))
+                            count_vec_scaling_flops(length(q))
                             Xconv = hcat(Xconv, q)
                         else
                             @printf("Deflation eigenvalue %.3f: cutting through degenerate eigenvalues\n", Σ[i])
@@ -107,12 +148,17 @@ function davidson(
                 break
             end
             
+            # Preconditioning step
             t = zero(similar(R))
             for i = 1:size(t,2)
                 C = 1.0 ./ (Σ[i] .- D)
                 t[:, i] = C .* R[:, i]
+                count_vec_add_flops(length(D))       # For Σ[i] .- D
+                count_vec_scaling_flops(length(D))    # For the division
+                count_vec_scaling_flops(length(D))    # For the multiplication
             end
 
+            # Update search space
             if size(V,2) <= Naux - Nlow
                 V = hcat(V, t)
             else
