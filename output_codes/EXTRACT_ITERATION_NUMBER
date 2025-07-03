@@ -1,0 +1,1 @@
+awk '/^iter=/{split($2, a, "="); if (a[2] > max) max=a[2]; print "iter=" max " (largest so far)"} END{print "Final largest iteration: " max}' your_output_file.txt

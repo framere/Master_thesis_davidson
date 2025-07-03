@@ -1,0 +1,299 @@
+read ../Davidson_algorithm/m_pp_hBN.dat
+Davidson
+Block 1
+Initial size of V for block 1 is 25
+Number of eigenvalues to find in this block: 25
+Number of auxiliary vectors: 400
+iter=     1  Rnorm=  1.095e+01  size(V,2)=    25
+iter=     2  Rnorm=  8.319e+00  size(V,2)=    50
+iter=     3  Rnorm=  6.689e+00  size(V,2)=    75
+iter=     4  Rnorm=  4.921e+00  size(V,2)=   100
+iter=     5  Rnorm=  6.527e+00  size(V,2)=   125
+iter=     6  Rnorm=  3.777e+00  size(V,2)=   150
+iter=     7  Rnorm=  5.490e+00  size(V,2)=   175
+iter=     8  Rnorm=  3.013e+00  size(V,2)=   200
+iter=     9  Rnorm=  1.738e+00  size(V,2)=   225
+iter=    10  Rnorm=  1.077e+00  size(V,2)=   250
+iter=    11  Rnorm=  6.625e-01  size(V,2)=   275
+iter=    12  Rnorm=  2.257e-01  size(V,2)=   300
+iter=    13  Rnorm=  9.009e-02  size(V,2)=   325
+iter=    14  Rnorm=  1.975e-02  size(V,2)=   350
+iter=    15  Rnorm=  3.814e-03  size(V,2)=   375
+iter=    16  Rnorm=  7.112e-04  size(V,2)=   400
+converged block 1 with Rnorm 0.0007111938274808524
+converged eigenvalue -8.324 with residual norm 2.71e-05
+converged eigenvalue -8.324 with residual norm 3.20e-05
+converged eigenvalue -8.324 with residual norm 4.10e-05
+converged eigenvalue -8.324 with residual norm 5.84e-05
+converged eigenvalue -8.324 with residual norm 2.31e-05
+converged eigenvalue -8.324 with residual norm 2.91e-05
+converged eigenvalue -8.250 with residual norm 2.75e-05
+converged eigenvalue -8.250 with residual norm 2.93e-05
+converged eigenvalue -8.246 with residual norm 1.22e-07
+converged eigenvalue -8.148 with residual norm 1.95e-04
+converged eigenvalue -8.148 with residual norm 5.66e-04
+converged eigenvalue -7.967 with residual norm 1.05e-04
+converged eigenvalue -7.967 with residual norm 1.39e-04
+converged eigenvalue -7.901 with residual norm 2.87e-07
+converged eigenvalue -7.901 with residual norm 7.82e-07
+converged eigenvalue -7.901 with residual norm 8.63e-07
+converged eigenvalue -7.901 with residual norm 2.83e-07
+converged eigenvalue -7.901 with residual norm 4.92e-07
+converged eigenvalue -7.901 with residual norm 3.80e-07
+Deflation eigenvalue -7.769: cutting through degenerate eigenvalues
+Deflation eigenvalue -7.769: cutting through degenerate eigenvalues
+Deflation eigenvalue -7.769: cutting through degenerate eigenvalues
+Deflation eigenvalue -7.769: cutting through degenerate eigenvalues
+Deflation eigenvalue -7.769: cutting through degenerate eigenvalues
+Deflation eigenvalue -7.768: cutting through degenerate eigenvalues
+Block 2
+Initial size of V for block 2 is 400
+Number of eigenvalues to find in this block: 25
+Number of auxiliary vectors: 400
+iter=     1  Rnorm=  4.461e+00  size(V,2)=   400
+iter=     2  Rnorm=  3.338e+00  size(V,2)=    50
+iter=     3  Rnorm=  2.444e+00  size(V,2)=    75
+iter=     4  Rnorm=  1.219e+00  size(V,2)=   100
+iter=     5  Rnorm=  4.473e-01  size(V,2)=   125
+iter=     6  Rnorm=  6.194e-01  size(V,2)=   150
+iter=     7  Rnorm=  1.786e-01  size(V,2)=   175
+iter=     8  Rnorm=  6.249e-02  size(V,2)=   200
+iter=     9  Rnorm=  2.550e-02  size(V,2)=   225
+iter=    10  Rnorm=  1.457e-02  size(V,2)=   250
+iter=    11  Rnorm=  7.193e-03  size(V,2)=   275
+iter=    12  Rnorm=  2.043e-03  size(V,2)=   300
+iter=    13  Rnorm=  5.274e-04  size(V,2)=   325
+converged block 2 with Rnorm 0.0005274308093730266
+converged eigenvalue -7.769 with residual norm 2.80e-09
+converged eigenvalue -7.769 with residual norm 1.39e-08
+converged eigenvalue -7.769 with residual norm 3.68e-09
+converged eigenvalue -7.769 with residual norm 3.41e-09
+converged eigenvalue -7.769 with residual norm 2.89e-09
+converged eigenvalue -7.768 with residual norm 1.52e-09
+converged eigenvalue -7.739 with residual norm 1.49e-05
+converged eigenvalue -7.738 with residual norm 1.65e-07
+converged eigenvalue -7.738 with residual norm 3.39e-07
+converged eigenvalue -7.738 with residual norm 2.01e-07
+converged eigenvalue -7.738 with residual norm 4.13e-08
+converged eigenvalue -7.737 with residual norm 1.28e-05
+converged eigenvalue -7.404 with residual norm 2.04e-10
+converged eigenvalue -7.404 with residual norm 4.71e-10
+converged eigenvalue -7.240 with residual norm 8.09e-08
+converged eigenvalue -7.181 with residual norm 1.30e-06
+converged eigenvalue -7.181 with residual norm 1.51e-05
+converged eigenvalue -7.054 with residual norm 7.84e-06
+converged eigenvalue -7.054 with residual norm 1.37e-05
+Deflation eigenvalue -6.901: cutting through degenerate eigenvalues
+Deflation eigenvalue -6.901: cutting through degenerate eigenvalues
+Deflation eigenvalue -6.901: cutting through degenerate eigenvalues
+Deflation eigenvalue -6.900: cutting through degenerate eigenvalues
+Deflation eigenvalue -6.900: cutting through degenerate eigenvalues
+Deflation eigenvalue -6.900: cutting through degenerate eigenvalues
+Block 3
+Initial size of V for block 3 is 325
+Number of eigenvalues to find in this block: 25
+Number of auxiliary vectors: 400
+iter=     1  Rnorm=  5.171e+00  size(V,2)=   325
+iter=     2  Rnorm=  2.771e-01  size(V,2)=   350
+iter=     3  Rnorm=  5.827e-02  size(V,2)=   375
+iter=     4  Rnorm=  1.493e-02  size(V,2)=   400
+iter=     5  Rnorm=  4.942e-03  size(V,2)=    50
+iter=     6  Rnorm=  2.290e-03  size(V,2)=    75
+iter=     7  Rnorm=  1.058e-03  size(V,2)=   100
+iter=     8  Rnorm=  7.832e-04  size(V,2)=   125
+converged block 3 with Rnorm 0.0007831974702004343
+converged eigenvalue -6.901 with residual norm 1.14e-05
+converged eigenvalue -6.901 with residual norm 7.38e-06
+converged eigenvalue -6.901 with residual norm 1.73e-05
+converged eigenvalue -6.900 with residual norm 7.32e-06
+converged eigenvalue -6.900 with residual norm 1.78e-05
+converged eigenvalue -6.900 with residual norm 1.34e-05
+converged eigenvalue -6.812 with residual norm 1.59e-06
+converged eigenvalue -6.812 with residual norm 2.17e-06
+converged eigenvalue -6.751 with residual norm 1.34e-06
+converged eigenvalue -6.751 with residual norm 1.31e-06
+converged eigenvalue -6.751 with residual norm 2.18e-06
+converged eigenvalue -6.750 with residual norm 1.43e-06
+converged eigenvalue -6.750 with residual norm 3.25e-06
+converged eigenvalue -6.750 with residual norm 2.41e-06
+converged eigenvalue -6.718 with residual norm 5.08e-06
+converged eigenvalue -6.495 with residual norm 9.37e-06
+converged eigenvalue -6.495 with residual norm 1.41e-05
+converged eigenvalue -6.354 with residual norm 1.30e-05
+converged eigenvalue -6.354 with residual norm 1.41e-05
+converged eigenvalue -6.274 with residual norm 8.66e-05
+converged eigenvalue -6.274 with residual norm 7.43e-05
+Deflation eigenvalue -5.863: cutting through degenerate eigenvalues
+Deflation eigenvalue -5.863: cutting through degenerate eigenvalues
+Deflation eigenvalue -5.863: cutting through degenerate eigenvalues
+Deflation eigenvalue -5.863: cutting through degenerate eigenvalues
+Block 4
+Initial size of V for block 4 is 125
+Number of eigenvalues to find in this block: 25
+Number of auxiliary vectors: 400
+iter=     1  Rnorm=  1.053e+01  size(V,2)=   125
+iter=     2  Rnorm=  4.131e+00  size(V,2)=   150
+iter=     3  Rnorm=  3.769e+00  size(V,2)=   175
+iter=     4  Rnorm=  3.300e+00  size(V,2)=   200
+iter=     5  Rnorm=  2.801e+00  size(V,2)=   225
+iter=     6  Rnorm=  1.567e+00  size(V,2)=   250
+iter=     7  Rnorm=  1.037e+00  size(V,2)=   275
+iter=     8  Rnorm=  1.071e+00  size(V,2)=   300
+iter=     9  Rnorm=  5.475e-01  size(V,2)=   325
+iter=    10  Rnorm=  2.006e-01  size(V,2)=   350
+iter=    11  Rnorm=  7.408e-02  size(V,2)=   375
+iter=    12  Rnorm=  2.569e-02  size(V,2)=   400
+iter=    13  Rnorm=  1.017e-02  size(V,2)=    50
+iter=    14  Rnorm=  5.880e-03  size(V,2)=    75
+iter=    15  Rnorm=  3.827e-03  size(V,2)=   100
+iter=    16  Rnorm=  2.487e-03  size(V,2)=   125
+iter=    17  Rnorm=  1.493e-03  size(V,2)=   150
+iter=    18  Rnorm=  9.360e-04  size(V,2)=   175
+converged block 4 with Rnorm 0.0009360484786282088
+converged eigenvalue -5.864 with residual norm 2.09e-06
+converged eigenvalue -5.863 with residual norm 1.03e-06
+converged eigenvalue -5.863 with residual norm 1.04e-06
+converged eigenvalue -5.863 with residual norm 1.83e-06
+converged eigenvalue -5.863 with residual norm 5.19e-06
+converged eigenvalue -5.862 with residual norm 1.69e-06
+converged eigenvalue -5.829 with residual norm 4.31e-06
+converged eigenvalue -5.829 with residual norm 1.61e-06
+converged eigenvalue -5.829 with residual norm 6.27e-06
+converged eigenvalue -5.829 with residual norm 7.46e-06
+converged eigenvalue -5.829 with residual norm 3.08e-06
+converged eigenvalue -5.829 with residual norm 6.36e-06
+converged eigenvalue -5.704 with residual norm 1.71e-05
+converged eigenvalue -5.704 with residual norm 5.22e-06
+converged eigenvalue -5.704 with residual norm 7.13e-06
+converged eigenvalue -5.703 with residual norm 4.40e-06
+converged eigenvalue -5.703 with residual norm 2.76e-06
+converged eigenvalue -5.703 with residual norm 9.37e-06
+converged eigenvalue -4.833 with residual norm 7.16e-06
+converged eigenvalue -4.833 with residual norm 6.89e-06
+converged eigenvalue -4.693 with residual norm 2.93e-04
+converged eigenvalue -4.693 with residual norm 1.29e-04
+converged eigenvalue -4.298 with residual norm 1.52e-04
+converged eigenvalue -4.298 with residual norm 1.35e-04
+Deflation eigenvalue -4.064: cutting through degenerate eigenvalues
+Block 5
+Initial size of V for block 5 is 175
+Number of eigenvalues to find in this block: 25
+Number of auxiliary vectors: 400
+iter=     1  Rnorm=  8.525e+00  size(V,2)=   175
+iter=     2  Rnorm=  2.458e+00  size(V,2)=   200
+iter=     3  Rnorm=  1.893e+00  size(V,2)=   225
+iter=     4  Rnorm=  1.408e+00  size(V,2)=   250
+iter=     5  Rnorm=  1.161e+00  size(V,2)=   275
+iter=     6  Rnorm=  9.626e-01  size(V,2)=   300
+iter=     7  Rnorm=  7.287e-01  size(V,2)=   325
+iter=     8  Rnorm=  4.943e-01  size(V,2)=   350
+iter=     9  Rnorm=  3.748e-01  size(V,2)=   375
+iter=    10  Rnorm=  3.068e-01  size(V,2)=   400
+iter=    11  Rnorm=  1.611e-01  size(V,2)=    50
+iter=    12  Rnorm=  1.471e-01  size(V,2)=    75
+iter=    13  Rnorm=  1.377e-01  size(V,2)=   100
+iter=    14  Rnorm=  1.256e-01  size(V,2)=   125
+iter=    15  Rnorm=  1.019e-01  size(V,2)=   150
+iter=    16  Rnorm=  6.702e-02  size(V,2)=   175
+iter=    17  Rnorm=  4.856e-02  size(V,2)=   200
+iter=    18  Rnorm=  4.449e-02  size(V,2)=   225
+iter=    19  Rnorm=  3.801e-02  size(V,2)=   250
+iter=    20  Rnorm=  2.761e-02  size(V,2)=   275
+iter=    21  Rnorm=  2.040e-02  size(V,2)=   300
+iter=    22  Rnorm=  1.412e-02  size(V,2)=   325
+iter=    23  Rnorm=  1.040e-02  size(V,2)=   350
+iter=    24  Rnorm=  7.312e-03  size(V,2)=   375
+iter=    25  Rnorm=  4.564e-03  size(V,2)=   400
+iter=    26  Rnorm=  2.002e-03  size(V,2)=    50
+iter=    27  Rnorm=  1.260e-03  size(V,2)=    75
+iter=    28  Rnorm=  1.048e-03  size(V,2)=   100
+iter=    29  Rnorm=  8.275e-04  size(V,2)=   125
+converged block 5 with Rnorm 0.000827514245231141
+converged eigenvalue -4.064 with residual norm 4.55e-06
+converged eigenvalue -3.990 with residual norm 2.33e-05
+converged eigenvalue -3.990 with residual norm 5.12e-05
+converged eigenvalue -3.990 with residual norm 2.83e-05
+converged eigenvalue -3.989 with residual norm 1.54e-05
+converged eigenvalue -3.989 with residual norm 5.59e-05
+converged eigenvalue -3.989 with residual norm 2.67e-05
+converged eigenvalue -3.884 with residual norm 5.87e-05
+converged eigenvalue -3.883 with residual norm 5.89e-05
+converged eigenvalue -3.883 with residual norm 3.04e-05
+converged eigenvalue -3.883 with residual norm 2.44e-05
+converged eigenvalue -3.883 with residual norm 5.45e-05
+converged eigenvalue -3.883 with residual norm 1.32e-05
+converged eigenvalue -3.872 with residual norm 1.48e-05
+converged eigenvalue -3.872 with residual norm 2.90e-05
+converged eigenvalue -3.749 with residual norm 1.46e-04
+Deflation eigenvalue -3.703: cutting through degenerate eigenvalues
+Deflation eigenvalue -3.703: cutting through degenerate eigenvalues
+Deflation eigenvalue -3.703: cutting through degenerate eigenvalues
+Deflation eigenvalue -3.703: cutting through degenerate eigenvalues
+Deflation eigenvalue -3.703: cutting through degenerate eigenvalues
+Deflation eigenvalue -3.703: cutting through degenerate eigenvalues
+Deflation eigenvalue -3.701: cutting through degenerate eigenvalues
+Deflation eigenvalue -3.701: cutting through degenerate eigenvalues
+Deflation eigenvalue -3.696: cutting through degenerate eigenvalues
+Block 6
+Initial size of V for block 6 is 125
+Number of eigenvalues to find in this block: 25
+Number of auxiliary vectors: 400
+iter=     1  Rnorm=  7.041e+00  size(V,2)=   125
+iter=     2  Rnorm=  2.505e+00  size(V,2)=   150
+iter=     3  Rnorm=  1.999e+00  size(V,2)=   175
+iter=     4  Rnorm=  1.541e+00  size(V,2)=   200
+iter=     5  Rnorm=  1.181e+00  size(V,2)=   225
+iter=     6  Rnorm=  9.506e-01  size(V,2)=   250
+iter=     7  Rnorm=  7.203e-01  size(V,2)=   275
+iter=     8  Rnorm=  5.750e-01  size(V,2)=   300
+iter=     9  Rnorm=  3.953e-01  size(V,2)=   325
+iter=    10  Rnorm=  2.621e-01  size(V,2)=   350
+iter=    11  Rnorm=  2.488e-01  size(V,2)=   375
+iter=    12  Rnorm=  1.769e-01  size(V,2)=   400
+iter=    13  Rnorm=  8.709e-02  size(V,2)=    50
+iter=    14  Rnorm=  7.917e-02  size(V,2)=    75
+iter=    15  Rnorm=  9.347e-02  size(V,2)=   100
+iter=    16  Rnorm=  1.219e-01  size(V,2)=   125
+iter=    17  Rnorm=  1.341e-01  size(V,2)=   150
+iter=    18  Rnorm=  1.084e-01  size(V,2)=   175
+iter=    19  Rnorm=  6.993e-02  size(V,2)=   200
+iter=    20  Rnorm=  4.632e-02  size(V,2)=   225
+iter=    21  Rnorm=  3.310e-02  size(V,2)=   250
+iter=    22  Rnorm=  2.620e-02  size(V,2)=   275
+iter=    23  Rnorm=  2.209e-02  size(V,2)=   300
+iter=    24  Rnorm=  1.775e-02  size(V,2)=   325
+iter=    25  Rnorm=  1.077e-02  size(V,2)=   350
+iter=    26  Rnorm=  4.953e-03  size(V,2)=   375
+iter=    27  Rnorm=  1.840e-03  size(V,2)=   400
+iter=    28  Rnorm=  7.691e-04  size(V,2)=    50
+converged block 6 with Rnorm 0.0007690973492562363
+converged eigenvalue -3.703 with residual norm 1.63e-05
+converged eigenvalue -3.703 with residual norm 1.49e-05
+converged eigenvalue -3.703 with residual norm 2.46e-05
+converged eigenvalue -3.703 with residual norm 1.18e-05
+converged eigenvalue -3.703 with residual norm 1.69e-05
+converged eigenvalue -3.703 with residual norm 1.85e-05
+converged eigenvalue -3.701 with residual norm 3.62e-05
+converged eigenvalue -3.701 with residual norm 1.10e-05
+converged eigenvalue -3.696 with residual norm 3.44e-05
+converged eigenvalue -3.696 with residual norm 1.69e-05
+converged eigenvalue -3.667 with residual norm 8.72e-05
+converged eigenvalue -3.667 with residual norm 2.82e-05
+converged eigenvalue -3.602 with residual norm 7.71e-05
+converged eigenvalue -3.602 with residual norm 7.25e-05
+converged eigenvalue -3.584 with residual norm 2.71e-05
+converged eigenvalue -3.584 with residual norm 2.77e-05
+converged eigenvalue -3.584 with residual norm 2.63e-05
+converged eigenvalue -3.584 with residual norm 3.44e-05
+converged eigenvalue -3.584 with residual norm 2.05e-05
+converged eigenvalue -3.584 with residual norm 2.36e-05
+Deflation eigenvalue -3.527: cutting through degenerate eigenvalues
+Deflation eigenvalue -3.527: cutting through degenerate eigenvalues
+Deflation eigenvalue -3.527: cutting through degenerate eigenvalues
+Deflation eigenvalue -3.527: cutting through degenerate eigenvalues
+Deflation eigenvalue -3.527: cutting through degenerate eigenvalues
+ 91.772865 seconds (606.73 k allocations: 11.253 GiB, 1.90% gc time, 0.47% compilation time)
+Full diagonalization
+ 60.701326 seconds (25 allocations: 1.055 GiB, 0.01% gc time)
+1×119 adjoint(::Vector{Float64}) with eltype Float64:
+ 1.17316e-10  1.57089e-10  2.5492e-10  5.30823e-10  8.42171e-11  1.38336e-10  1.93488e-10  1.3185e-10  5.32907e-15  2.88286e-8  2.7436e-8  1.72392e-9  4.0748e-9  8.88178e-15  9.23706e-14  1.24345e-13  2.30926e-14  4.26326e-14  1.42109e-14  -6.21725e-15  7.10543e-15  2.66454e-15  7.99361e-15  2.66454e-15  -7.99361e-15  -4.78017e-10  -7.10543e-14  -3.02869e-13  -1.03917e-13  6.21725e-15  -5.59565e-10  -2.66454e-15  3.55271e-15  -9.76996e-15  -1.82077e-13  -1.89395e-10  -2.43983e-11  -1.42044e-10  -9.94262e-11  -4.22142e-11  -2.35829e-10  -4.19034e-11  -2.48672e-10  -1.43249e-10  -1.68132e-12  -3.41593e-12  1.42109e-13  1.64313e-13  1.34293e-12  3.61489e-13  2.61746e-12  1.36513e-12  8.51408e-12  2.13563e-11  5.60547e-11  5.51772e-11  7.32205e-11  2.2325e-9  -2.31863e-9  -3.84492e-12  -1.4726e-12  -1.44329e-12  -5.47118e-12  -5.27391e-11  -4.61231e-12  -3.30349e-11  -3.97815e-12  -8.07772e-11  -1.1798e-10  -1.42384e-11  -8.48726e-11  -2.18447e-10  -3.90248e-11  -6.36957e-11  -1.92042e-11  -4.98712e-12  -5.51914e-11  -5.24025e-12  1.15588e-11  3.74421e-8  8.45181e-9  1.38505e-8  1.01691e-8  -7.9563e-12  -9.06444e-10  -1.83491e-9  -4.60551e-10  -1.71971e-10  -3.69293e-9  -1.32502e-9  -4.3848e-9  -4.47963e-9  -1.83588e-9  -5.99255e-10  -3.226e-9  -1.86773e-10  -2.17199e-10  -1.05812e-9  2.72013e-8  -3.5005e-10  -2.18675e-10  -6.03175e-10  -1.69312e-10  -3.17089e-10  -4.53775e-10  -4.34873e-10  -8.6557e-11  -7.53863e-10  -2.17835e-10  -9.756e-9  -7.39902e-10  -1.69489e-9  -1.34857e-9  -4.42722e-10  -6.10217e-10  -3.77232e-10  -9.09378e-10  -4.26417e-10  -5.67441e-10
