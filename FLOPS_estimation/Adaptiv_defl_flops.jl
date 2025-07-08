@@ -5,7 +5,7 @@ using JLD2
 # Initialize global FLOP counter
 global NFLOPs = 0
 
-include("FLOP_count.jl")
+include("../uptodate_codes/FLOP_count.jl")
 
 function load_matrix(system::String, filename::String)
     if system == "He"
