@@ -106,7 +106,7 @@ function davidson(A::AbstractMatrix{T},
         if length(Σ) > 0
             current_group = [1]
             for i = 2:length(Σ)
-                if abs(Σ[i] - Σ[i-1]) < 0.01 * abs(Σ[i])
+                if abs(Σ[i] - Σ[i-1]) < 0.1 * abs(Σ[i])
                     push!(current_group, i)
                 else
                     push!(groups, current_group)
@@ -196,7 +196,8 @@ function main(system::String, l::Integer = 200)
     println("\nRunning Davidson algorithm for system $system seeking $l eigenvalues")
     
     # Matrix parameters
-    filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
+    # filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
+    filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
     Nlow = 16  # Starting dimension for the subspace
     Naux = Nlow * 16  # Auxiliary space size
     
@@ -212,7 +213,7 @@ function main(system::String, l::Integer = 200)
 
     # Perform Davidson algorithm
     println("\nStarting Davidson iteration...")
-    @time Σ, U = davidson(A, V, Naux, l, 1e-3, system)
+    @time Σ, U = davidson(A, V, Naux, l, 1e-2, system)
 
     # Sort results
     idx = sortperm(Σ)
@@ -221,7 +222,9 @@ function main(system::String, l::Integer = 200)
 
     # Perform exact diagonalization as reference
     println("\nPerforming full diagonalization for reference...")
-    Σexact, Uexact = load_eigenresults("../../MA_best/Eigenvalues_folder/eigen_results_$system.jld2")
+    # Σexact, Uexact = load_eigenresults("../../MA_best/Eigenvalues_folder/eigen_results_$system.jld2")
+    Σexact, Uexact = load_eigenresults("../../Final_codes_MA/eigen_results_$system.jld2")
+    
 
     # Display difference
     println("\nDifference between Davidson and exact eigenvalues:")
