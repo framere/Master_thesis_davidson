@@ -37,7 +37,7 @@ function load_matrix(system::String)
     return Hermitian(A)
 end
 
-function correction_equations(A, U, lambdas, R; tol=1e-2, maxiter=100)
+function correction_equations_cg(A, U, lambdas, R; tol=1e-2, maxiter=100)
     n, k = size(U)
     S = zeros(eltype(A), n, k)
 
@@ -63,22 +63,8 @@ function correction_equations(A, U, lambdas, R; tol=1e-2, maxiter=100)
         rhs = r - U * (U' * r)
         rhs = -rhs  # We want to solve M_j(s) = -r_perp
 
-        # Solve using MINRES - handle different return formats
-        try
-            # Try the newer IterativeSolvers interface
-            s_j, history = minres(M_op, rhs; abstol=tol, maxiter=maxiter, log=true)
-            
-            # Check convergence based on history
-            if !isempty(history) && history.isconverged[1]
-                println("MINRES converged for eigenvector $j in $(history.iters[1]) iterations")
-            else
-                @warn "MINRES did not fully converge for eigenvector $j"
-            end
-        catch e
-            # Fallback to simpler interface
-            println("Using fallback MINRES interface for eigenvector $j")
-            s_j = minres(M_op, rhs; abstol=tol, maxiter=maxiter)
-        end
+        # Solve using Conjugate Gradient
+        s_j = cg(M_op, rhs; abstol=tol, maxiter=maxiter)
 
         # Ensure strict orthogonality
         s_j = s_j - U * (U' * s_j)
@@ -89,8 +75,7 @@ function correction_equations(A, U, lambdas, R; tol=1e-2, maxiter=100)
     return S
 end
 
-# Alternative simpler version without convergence checking
-function correction_equations_simple(A, U, lambdas, R; tol=1e-2, maxiter=100)
+function correction_equations_minres(A, U, lambdas, R; tol=1e-2, maxiter=100)
     n, k = size(U)
     S = zeros(eltype(A), n, k)
 
@@ -116,7 +101,7 @@ function correction_equations_simple(A, U, lambdas, R; tol=1e-2, maxiter=100)
         rhs = r - U * (U' * r)
         rhs = -rhs  # We want to solve M_j(s) = -r_perp
 
-        # Solve using MINRES - simple interface
+        # Solve using MINRES
         s_j = minres(M_op, rhs; abstol=tol, maxiter=maxiter)
 
         # Ensure strict orthogonality
@@ -134,7 +119,9 @@ function davidson(
     V::Matrix{T},
     Naux::Integer,
     thresh::Float64,
-    system::String
+    system::String;
+    solver::Symbol = :cg,  # Choose between :cg and :minres
+    max_iter = 50
 )::Tuple{Vector{T},Matrix{T}} where T<:Number
     
     Nlow = size(V,2) # number of eigenvalues we are interested in
@@ -150,14 +137,20 @@ function davidson(
         # orthogonalize guess orbitals (using QR decomposition)
         qr_decomp = qr(V)
         V = Matrix(qr_decomp.Q)
-
+        
         # construct and diagonalize Rayleigh matrix
         H = Hermitian(V' * (A * V))
         Σ, U = eigen(H)
         Σ = Σ[1:Nlow]
         U = U[:, 1:Nlow]
-
         X = V * U # Ritz vectors
+        
+
+        if iter > max_iter
+            println("Reached maximum iterations ($max_iter) without convergence.")
+            return (Σ, X)  # Return the best found so far
+        end
+        
         R = A * X - X * Diagonal(Σ) # residual vectors
         Rnorm = norm(R) # Frobenius norm
       
@@ -170,8 +163,14 @@ function davidson(
             return (Σ, X)
         end
         
-        # Solve correction equations using MINRES
-        t = correction_equations_simple(A, X, Σ, R; tol=1e-3, maxiter=10)
+        # Solve correction equations using chosen solver
+        if solver == :cg
+            t = correction_equations_cg(A, X, Σ, R; tol=1e-2, maxiter=100)
+        elseif solver == :minres
+            t = correction_equations_minres(A, X, Σ, R; tol=1e-2, maxiter=100)
+        else
+            error("Unknown solver: $solver. Choose :cg or :minres")
+        end
         
         # update guess basis
         if size(V,2) + size(t,2) <= Naux
@@ -189,7 +188,7 @@ function davidson(
     end
 end
 
-function main(system::String, Nlow::Int)
+function main(system::String, Nlow::Int; solver::Symbol = :cg)
     system = system
     
     Naux = Nlow * 7 # let our auxiliary space be larger (but not too large)
@@ -205,8 +204,8 @@ function main(system::String, Nlow::Int)
     end
 
     # perform Davidson algorithm
-    println("Davidson")
-    @time Σ, U = davidson(A, V, Naux, 1e-4, system)
+    println("Davidson with $(solver == :cg ? "CG" : "MINRES") solver")
+    @time Σ, U = davidson(A, V, Naux, 1e-2, system, solver=solver)
 
     # perform exact diagonalization as a reference
     println("Full diagonalization")
@@ -217,11 +216,15 @@ function main(system::String, Nlow::Int)
 end
 
 N_lows = [16]
-molecules = ["Si", "He", "hBN"]
-
+molecules = ["He", "Si", "hBN"]
 for molecule in molecules
     for Nlow in N_lows
-        println("System: $molecule, Nlow: $Nlow")
-        main(molecule, Nlow)
+        println("Running for Nlow = $Nlow")
+        # Try both solvers
+        println("Using CG solver:")
+        main(molecule, Nlow, solver=:cg)
+
+        println("\nUsing MINRES solver:")
+        main(molecule, Nlow, solver=:minres)
     end
 end

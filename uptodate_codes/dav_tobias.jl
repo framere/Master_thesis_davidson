@@ -13,8 +13,8 @@ function load_matrix(system::String)
     end
 
     # read the matrix
-    filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
-    # filename = "../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
+    # filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
+    filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
     println("read ", filename)
     file = open(filename, "r")
     A = Array{Float64}(undef, N * N)
@@ -31,7 +31,7 @@ function main(system::String, Nlow::Int)
     system = system
     
     # Nlow = 200 # we are interested in the first Nlow eigenvalues
-    Naux = Nlow * 2 # let our auxiliary space be larger (but not too large)
+    Naux = Nlow * 7 # let our auxiliary space be larger (but not too large)
 
     # read the matrix
     A = load_matrix(system)
@@ -112,7 +112,8 @@ function davidson(
             C = 1.0 ./ (Σ[i] .- D) 
             t[:,i] = C .* R[:,i] # the new basis vectors
         end
-
+        println("size t: ", size(t)
+        )
         # update guess basis
         if size(V,2) <= Naux-Nlow
             V = hcat(V,t) # concatenate V and t
@@ -123,9 +124,9 @@ function davidson(
 end
 
 
-N_lows = [216, 288, 360]
+N_lows = [16]
 
 for Nlow in N_lows
     println("Running for Nlow = $Nlow")
-    main("hBN", Nlow)
+    main("He", Nlow)
 end
