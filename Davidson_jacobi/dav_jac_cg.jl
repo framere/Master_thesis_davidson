@@ -24,8 +24,8 @@ function load_matrix(system::String)
     end
 
     # read the matrix
-    # filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
-    filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
+    filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
+    # filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
     println("read ", filename)
     file = open(filename, "r")
     A = Array{Float64}(undef, N * N)
@@ -64,7 +64,7 @@ function correction_equations_cg(A, U, lambdas, R; tol=1e-2, maxiter=100)
         rhs = -rhs  # We want to solve M_j(s) = -r_perp
 
         # Solve using Conjugate Gradient
-        s_j = cg(M_op, rhs; abstol=tol, maxiter=maxiter)
+        s_j = cg(M_op, rhs; reltol=tol, maxiter=maxiter)
 
         # Ensure strict orthogonality
         s_j = s_j - U * (U' * s_j)
@@ -102,7 +102,7 @@ function correction_equations_minres(A, U, lambdas, R; tol=1e-2, maxiter=100)
         rhs = -rhs  # We want to solve M_j(s) = -r_perp
 
         # Solve using MINRES
-        s_j = minres(M_op, rhs; abstol=tol, maxiter=maxiter)
+        s_j = minres(M_op, rhs; reltol=tol, maxiter=maxiter)
 
         # Ensure strict orthogonality
         s_j = s_j - U * (U' * s_j)
@@ -209,13 +209,13 @@ function main(system::String, Nlow::Int; solver::Symbol = :cg)
 
     # perform exact diagonalization as a reference
     println("Full diagonalization")
-    Σexact, Uexact = load_eigenresults("../eigen_results_"*system*".jld2") 
+    Σexact, Uexact = load_eigenresults("../EV_calculation/eigen_results_"*system*".jld2") 
 
     display("text/plain", Σ')
     display("text/plain", (Σ-Σexact[1:Nlow])')
 end
 
-N_lows = [16]
+N_lows = [16, 30, 60, 90]
 molecules = ["He", "Si", "hBN"]
 for molecule in molecules
     for Nlow in N_lows
@@ -224,7 +224,7 @@ for molecule in molecules
         println("Using CG solver:")
         main(molecule, Nlow, solver=:cg)
 
-        println("\nUsing MINRES solver:")
-        main(molecule, Nlow, solver=:minres)
+        # println("\nUsing MINRES solver:")
+        # main(molecule, Nlow, solver=:minres)
     end
 end

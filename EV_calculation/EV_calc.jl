@@ -12,8 +12,8 @@ function load_matrix(system::String)
         error("Unknown system: $system")
     end
 
-    # filename = "../Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat"
-    filename = "../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat"
+    filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
+    # filename = "../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat"
     println("read ", filename)
     file = open(filename, "r")
     A = Array{Float64}(undef, N * N)

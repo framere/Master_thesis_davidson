@@ -1,5 +1,6 @@
 using LinearAlgebra
 using Printf
+using JLD2
 
 function load_matrix(system::String)
     if system == "He"
@@ -13,8 +14,8 @@ function load_matrix(system::String)
     end
 
     # read the matrix
-    # filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
-    filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
+    filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
+    # filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
     println("read ", filename)
     file = open(filename, "r")
     A = Array{Float64}(undef, N * N)
@@ -25,6 +26,15 @@ function load_matrix(system::String)
     A = -A  # for largest eigenvalues of original matrix
     return Hermitian(A)
 end
+
+function load_eigenresults(output_file="eigen_results.jld2")
+    # Unpack directly into variables
+    data = load(output_file)  # Returns a Dict-like object
+    Σexact = data["Σexact"]  # Access by key
+    Uexact = data["Uexact"]
+    return Σexact, Uexact
+end
+
 
 function main(system::String, Nlow::Int)
     # the two test systems He and hBN are hardcoded
@@ -52,7 +62,7 @@ function main(system::String, Nlow::Int)
 
     # perform exact diagonalization as a reference
     println("Full diagonalization")
-    @time Σexact, Uexact = eigen(A) 
+    Σexact, Uexact = load_eigenresults("../EV_calculation/eigen_results_"*system*".jld2") 
 
     #display("text/plain", Σexact[1:Nlow]')
     display("text/plain", Σ')
@@ -112,8 +122,7 @@ function davidson(
             C = 1.0 ./ (Σ[i] .- D) 
             t[:,i] = C .* R[:,i] # the new basis vectors
         end
-        println("size t: ", size(t)
-        )
+
         # update guess basis
         if size(V,2) <= Naux-Nlow
             V = hcat(V,t) # concatenate V and t
@@ -123,10 +132,11 @@ function davidson(
     end
 end
 
-
-N_lows = [16]
-
+N_lows = [16, 30, 60, 90]
+molecules = ["He", "hBN", "Si"]
 for Nlow in N_lows
     println("Running for Nlow = $Nlow")
-    main("He", Nlow)
+    for molecule in molecules
+        main(molecule, Nlow)
+    end
 end

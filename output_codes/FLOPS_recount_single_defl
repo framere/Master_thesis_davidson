@@ -1,0 +1,1114 @@
+Running for Nlow = 216
+read ../Davidson_algorithm/m_pp_hBN.dat
+Davidson
+Iter 1: V_size = 32, Converged = 0, Min ‖r‖ = 1.4106681802560104
+Iter 2: V_size = 64, Converged = 0, Min ‖r‖ = 0.8165537347096523
+Iter 3: V_size = 128, Converged = 0, Min ‖r‖ = 0.3147088484331293
+Iter 4: V_size = 256, Converged = 0, Min ‖r‖ = 0.04838484168775903
+Iter 5: V_size = 432, Converged = 0, Min ‖r‖ = 0.003703922707674605
+Iter 6: V_size = 432, Converged = 0, Min ‖r‖ = 0.0007567032241139416
+Iter 7: V_size = 432, Converged = 0, Min ‖r‖ = 0.0006379676366917201
+Iter 8: V_size = 432, Converged = 0, Min ‖r‖ = 6.103157734646081e-5
+Iter 9: V_size = 432, Converged = 0, Min ‖r‖ = 8.681129159298263e-6
+EV   1 converged λ = -7.9011775003, ‖r‖ = 1.36e-06, stable for 3 iters
+EV   2 converged λ = -7.9011063899, ‖r‖ = 3.37e-06, stable for 3 iters
+EV   3 converged λ = -7.9011055384, ‖r‖ = 4.68e-06, stable for 3 iters
+EV   4 converged λ = -7.9010380092, ‖r‖ = 2.06e-06, stable for 3 iters
+EV   5 converged λ = -7.9010363667, ‖r‖ = 1.64e-06, stable for 3 iters
+EV   6 converged λ = -7.9009731287, ‖r‖ = 1.00e-06, stable for 3 iters
+EV   7 converged λ = -7.4037576102, ‖r‖ = 1.30e-06, stable for 3 iters
+EV   8 converged λ = -7.4037573611, ‖r‖ = 1.17e-06, stable for 3 iters
+Iter 10: V_size = 416, Converged = 8, Min ‖r‖ = 1.002610580375048e-6
+EV   9 converged λ = -8.3244391633, ‖r‖ = 9.14e-06, stable for 3 iters
+EV  10 converged λ = -8.3242613604, ‖r‖ = 3.25e-05, stable for 3 iters
+EV  11 converged λ = -8.3242609711, ‖r‖ = 2.65e-05, stable for 3 iters
+EV  12 converged λ = -8.3240011422, ‖r‖ = 3.03e-05, stable for 3 iters
+EV  13 converged λ = -8.3240009609, ‖r‖ = 3.47e-05, stable for 3 iters
+EV  14 converged λ = -8.3237669953, ‖r‖ = 1.15e-05, stable for 3 iters
+EV  15 converged λ = -8.2461345663, ‖r‖ = 4.89e-06, stable for 3 iters
+Iter 11: V_size = 402, Converged = 15, Min ‖r‖ = 1.372963490681564e-6
+Iter 12: V_size = 402, Converged = 15, Min ‖r‖ = 2.5717688399829667e-7
+Iter 13: V_size = 402, Converged = 15, Min ‖r‖ = 5.039607437550942e-8
+EV  16 converged λ = -8.2497341312, ‖r‖ = 1.79e-06, stable for 3 iters
+EV  17 converged λ = -8.2497340900, ‖r‖ = 1.52e-06, stable for 3 iters
+EV  18 converged λ = -8.1481790832, ‖r‖ = 1.19e-06, stable for 3 iters
+EV  19 converged λ = -8.1481790559, ‖r‖ = 1.54e-06, stable for 3 iters
+EV  20 converged λ = -7.9666648854, ‖r‖ = 3.15e-07, stable for 3 iters
+EV  21 converged λ = -7.9666648440, ‖r‖ = 4.26e-07, stable for 3 iters
+EV  22 converged λ = -7.7687967720, ‖r‖ = 1.90e-07, stable for 3 iters
+EV  23 converged λ = -7.7686424943, ‖r‖ = 3.72e-07, stable for 3 iters
+EV  24 converged λ = -7.7686421110, ‖r‖ = 4.16e-07, stable for 3 iters
+EV  25 converged λ = -7.7685912297, ‖r‖ = 2.50e-07, stable for 3 iters
+EV  26 converged λ = -7.7685907124, ‖r‖ = 2.23e-07, stable for 3 iters
+EV  27 converged λ = -7.7684264557, ‖r‖ = 1.43e-07, stable for 3 iters
+EV  28 converged λ = -7.7383436917, ‖r‖ = 2.66e-06, stable for 3 iters
+EV  29 converged λ = -7.7376672736, ‖r‖ = 9.40e-07, stable for 3 iters
+EV  30 converged λ = -7.2399762259, ‖r‖ = 1.67e-07, stable for 3 iters
+EV  31 converged λ = -7.1807518126, ‖r‖ = 1.06e-05, stable for 3 iters
+EV  32 converged λ = -7.0536725908, ‖r‖ = 1.63e-05, stable for 3 iters
+EV  33 converged λ = -7.0536724397, ‖r‖ = 3.00e-05, stable for 3 iters
+EV  34 converged λ = -6.9005134754, ‖r‖ = 3.93e-05, stable for 3 iters
+EV  35 converged λ = -6.9002919450, ‖r‖ = 4.51e-05, stable for 3 iters
+EV  36 converged λ = -6.9002916955, ‖r‖ = 2.94e-05, stable for 3 iters
+EV  37 converged λ = -6.8124776058, ‖r‖ = 4.19e-05, stable for 3 iters
+EV  38 converged λ = -6.8124772461, ‖r‖ = 2.57e-05, stable for 3 iters
+EV  39 converged λ = -6.7508610682, ‖r‖ = 8.12e-08, stable for 3 iters
+EV  40 converged λ = -6.7506694120, ‖r‖ = 2.94e-07, stable for 3 iters
+EV  41 converged λ = -6.7506687550, ‖r‖ = 2.85e-07, stable for 3 iters
+EV  42 converged λ = -6.7498180088, ‖r‖ = 3.78e-07, stable for 3 iters
+EV  43 converged λ = -6.7498175070, ‖r‖ = 3.40e-07, stable for 3 iters
+EV  44 converged λ = -6.7497770205, ‖r‖ = 1.18e-07, stable for 3 iters
+EV  45 converged λ = -6.7178458795, ‖r‖ = 1.74e-08, stable for 3 iters
+EV  46 converged λ = -6.4948541726, ‖r‖ = 7.39e-06, stable for 3 iters
+EV  47 converged λ = -6.4948539818, ‖r‖ = 7.84e-06, stable for 3 iters
+EV  48 converged λ = -6.3536749792, ‖r‖ = 7.05e-06, stable for 3 iters
+EV  49 converged λ = -6.3536749073, ‖r‖ = 8.57e-06, stable for 3 iters
+EV  50 converged λ = -6.2737447312, ‖r‖ = 1.95e-05, stable for 3 iters
+EV  51 converged λ = -5.8635267664, ‖r‖ = 8.46e-07, stable for 3 iters
+EV  52 converged λ = -5.8632483013, ‖r‖ = 2.90e-06, stable for 3 iters
+EV  53 converged λ = -5.8632479731, ‖r‖ = 2.31e-06, stable for 3 iters
+EV  54 converged λ = -5.8627199017, ‖r‖ = 2.71e-06, stable for 3 iters
+EV  55 converged λ = -5.8627197967, ‖r‖ = 2.63e-06, stable for 3 iters
+EV  56 converged λ = -5.8623794675, ‖r‖ = 7.96e-07, stable for 3 iters
+EV  57 converged λ = -5.8294862651, ‖r‖ = 1.84e-08, stable for 3 iters
+EV  58 converged λ = -5.8293942964, ‖r‖ = 8.87e-08, stable for 3 iters
+EV  59 converged λ = -5.8293932833, ‖r‖ = 8.42e-08, stable for 3 iters
+EV  60 converged λ = -5.8293011578, ‖r‖ = 9.88e-08, stable for 3 iters
+EV  61 converged λ = -5.8293006166, ‖r‖ = 1.04e-07, stable for 3 iters
+EV  62 converged λ = -5.8292228318, ‖r‖ = 1.08e-08, stable for 3 iters
+EV  63 converged λ = -5.7036036431, ‖r‖ = 2.51e-05, stable for 3 iters
+EV  64 converged λ = -5.7031011615, ‖r‖ = 2.58e-05, stable for 3 iters
+Iter 14: V_size = 304, Converged = 64, Min ‖r‖ = 1.082130269915534e-8
+Iter 15: V_size = 304, Converged = 64, Min ‖r‖ = 1.2985562342865746e-7
+Iter 16: V_size = 304, Converged = 64, Min ‖r‖ = 2.1392688991587615e-8
+EV  65 converged λ = -7.7388205933, ‖r‖ = 1.24e-05, stable for 3 iters
+EV  66 converged λ = -7.7383436742, ‖r‖ = 9.86e-09, stable for 3 iters
+EV  67 converged λ = -7.7376670556, ‖r‖ = 3.74e-09, stable for 3 iters
+EV  68 converged λ = -7.7370665123, ‖r‖ = 1.09e-05, stable for 3 iters
+EV  69 converged λ = -7.1807357840, ‖r‖ = 9.02e-05, stable for 3 iters
+EV  70 converged λ = -6.9006214762, ‖r‖ = 7.27e-06, stable for 3 iters
+EV  71 converged λ = -6.9005133062, ‖r‖ = 1.63e-07, stable for 3 iters
+EV  72 converged λ = -6.9001534629, ‖r‖ = 1.28e-05, stable for 3 iters
+EV  73 converged λ = -6.2736986307, ‖r‖ = 1.40e-04, stable for 3 iters
+EV  74 converged λ = -5.7036034308, ‖r‖ = 2.89e-07, stable for 3 iters
+EV  75 converged λ = -5.7031009258, ‖r‖ = 4.38e-07, stable for 3 iters
+EV  76 converged λ = -4.8327876028, ‖r‖ = 6.40e-06, stable for 3 iters
+EV  77 converged λ = -4.8327874403, ‖r‖ = 9.08e-06, stable for 3 iters
+EV  78 converged λ = -4.6928336247, ‖r‖ = 3.36e-05, stable for 3 iters
+EV  79 converged λ = -4.2978307181, ‖r‖ = 4.23e-05, stable for 3 iters
+EV  80 converged λ = -4.0639165494, ‖r‖ = 2.63e-07, stable for 3 iters
+EV  81 converged λ = -3.9895502067, ‖r‖ = 2.75e-05, stable for 3 iters
+EV  82 converged λ = -3.9895501538, ‖r‖ = 8.69e-05, stable for 3 iters
+EV  83 converged λ = -3.9893484660, ‖r‖ = 4.13e-05, stable for 3 iters
+EV  84 converged λ = -3.9893484040, ‖r‖ = 5.20e-05, stable for 3 iters
+EV  85 converged λ = -3.8835498907, ‖r‖ = 2.94e-06, stable for 3 iters
+EV  86 converged λ = -3.8834797404, ‖r‖ = 7.34e-06, stable for 3 iters
+EV  87 converged λ = -3.8834796653, ‖r‖ = 6.00e-06, stable for 3 iters
+EV  88 converged λ = -3.8832358340, ‖r‖ = 7.97e-06, stable for 3 iters
+EV  89 converged λ = -3.8832358222, ‖r‖ = 7.46e-06, stable for 3 iters
+EV  90 converged λ = -3.8831608046, ‖r‖ = 3.82e-06, stable for 3 iters
+EV  91 converged λ = -3.8721565002, ‖r‖ = 1.31e-07, stable for 3 iters
+EV  92 converged λ = -3.8721563396, ‖r‖ = 1.26e-07, stable for 3 iters
+EV  93 converged λ = -3.7033050463, ‖r‖ = 3.73e-06, stable for 3 iters
+EV  94 converged λ = -3.7031727076, ‖r‖ = 5.99e-06, stable for 3 iters
+EV  95 converged λ = -3.7005170311, ‖r‖ = 1.69e-04, stable for 3 iters
+EV  96 converged λ = -3.6015686265, ‖r‖ = 1.48e-04, stable for 3 iters
+EV  97 converged λ = -3.6015686082, ‖r‖ = 1.56e-04, stable for 3 iters
+EV  98 converged λ = -3.5844508213, ‖r‖ = 1.04e-05, stable for 3 iters
+EV  99 converged λ = -3.5842293116, ‖r‖ = 1.39e-05, stable for 3 iters
+EV 100 converged λ = -3.5842292689, ‖r‖ = 1.11e-05, stable for 3 iters
+EV 101 converged λ = -3.5839753249, ‖r‖ = 2.27e-05, stable for 3 iters
+EV 102 converged λ = -3.5839750909, ‖r‖ = 1.62e-05, stable for 3 iters
+EV 103 converged λ = -3.5837273101, ‖r‖ = 8.81e-06, stable for 3 iters
+EV 104 converged λ = -3.4561700349, ‖r‖ = 6.38e-06, stable for 3 iters
+EV 105 converged λ = -3.4561690278, ‖r‖ = 8.89e-06, stable for 3 iters
+EV 106 converged λ = -3.4561687750, ‖r‖ = 7.21e-06, stable for 3 iters
+EV 107 converged λ = -3.4561470135, ‖r‖ = 5.73e-06, stable for 3 iters
+EV 108 converged λ = -3.4561467957, ‖r‖ = 8.02e-06, stable for 3 iters
+EV 109 converged λ = -3.4561424275, ‖r‖ = 4.31e-06, stable for 3 iters
+EV 110 converged λ = -3.4521363722, ‖r‖ = 7.04e-07, stable for 3 iters
+EV 111 converged λ = -3.3387694322, ‖r‖ = 1.20e-04, stable for 3 iters
+EV 112 converged λ = -3.3381202713, ‖r‖ = 6.92e-05, stable for 3 iters
+Iter 17: V_size = 208, Converged = 112, Min ‖r‖ = 3.738548360467461e-9
+Iter 18: V_size = 208, Converged = 112, Min ‖r‖ = 2.927592229641363e-7
+Iter 19: V_size = 208, Converged = 112, Min ‖r‖ = 1.420852128345165e-7
+EV 113 converged λ = -5.7036900887, ‖r‖ = 1.02e-05, stable for 3 iters
+EV 114 converged λ = -5.7030070513, ‖r‖ = 1.13e-05, stable for 3 iters
+EV 115 converged λ = -4.6928217790, ‖r‖ = 2.84e-05, stable for 3 iters
+EV 116 converged λ = -3.7033049023, ‖r‖ = 4.41e-07, stable for 3 iters
+EV 117 converged λ = -3.7032931527, ‖r‖ = 1.74e-07, stable for 3 iters
+EV 118 converged λ = -3.7031726664, ‖r‖ = 5.08e-07, stable for 3 iters
+EV 119 converged λ = -3.7031526946, ‖r‖ = 6.52e-08, stable for 3 iters
+EV 120 converged λ = -3.7005170063, ‖r‖ = 1.34e-05, stable for 3 iters
+EV 121 converged λ = -3.6956496822, ‖r‖ = 2.40e-05, stable for 3 iters
+EV 122 converged λ = -3.6666888304, ‖r‖ = 1.32e-04, stable for 3 iters
+EV 123 converged λ = -3.6666886700, ‖r‖ = 1.50e-04, stable for 3 iters
+EV 124 converged λ = -3.5274517323, ‖r‖ = 7.70e-05, stable for 3 iters
+EV 125 converged λ = -3.5273520970, ‖r‖ = 6.89e-05, stable for 3 iters
+EV 126 converged λ = -3.5273520368, ‖r‖ = 1.13e-04, stable for 3 iters
+EV 127 converged λ = -3.4983581981, ‖r‖ = 3.35e-04, stable for 3 iters
+EV 128 converged λ = -3.4983581467, ‖r‖ = 3.01e-04, stable for 3 iters
+EV 129 converged λ = -3.4664554335, ‖r‖ = 6.45e-05, stable for 3 iters
+EV 130 converged λ = -3.4664552942, ‖r‖ = 5.90e-05, stable for 3 iters
+EV 131 converged λ = -3.3933394450, ‖r‖ = 7.80e-05, stable for 3 iters
+EV 132 converged λ = -3.3933392204, ‖r‖ = 5.97e-05, stable for 3 iters
+EV 133 converged λ = -3.3932585585, ‖r‖ = 5.01e-05, stable for 3 iters
+EV 134 converged λ = -3.3932584342, ‖r‖ = 4.03e-05, stable for 3 iters
+EV 135 converged λ = -3.3028465660, ‖r‖ = 1.60e-04, stable for 3 iters
+EV 136 converged λ = -3.3028464359, ‖r‖ = 1.40e-04, stable for 3 iters
+EV 137 converged λ = -3.0619214466, ‖r‖ = 4.58e-06, stable for 3 iters
+EV 138 converged λ = -3.0619211187, ‖r‖ = 3.63e-06, stable for 3 iters
+EV 139 converged λ = -3.0619165790, ‖r‖ = 2.18e-06, stable for 3 iters
+EV 140 converged λ = -3.0617952791, ‖r‖ = 4.26e-06, stable for 3 iters
+EV 141 converged λ = -3.0617950002, ‖r‖ = 5.90e-06, stable for 3 iters
+EV 142 converged λ = -3.0617930911, ‖r‖ = 3.56e-06, stable for 3 iters
+EV 143 converged λ = -3.0382532440, ‖r‖ = 3.01e-04, stable for 3 iters
+EV 144 converged λ = -3.0382530320, ‖r‖ = 4.53e-04, stable for 3 iters
+EV 145 converged λ = -2.9815012296, ‖r‖ = 1.53e-06, stable for 3 iters
+EV 146 converged λ = -2.9815011160, ‖r‖ = 1.34e-06, stable for 3 iters
+EV 147 converged λ = -2.9491566867, ‖r‖ = 1.06e-05, stable for 3 iters
+EV 148 converged λ = -2.8872924321, ‖r‖ = 3.18e-04, stable for 3 iters
+EV 149 converged λ = -2.7428142808, ‖r‖ = 1.62e-03, stable for 3 iters
+EV 150 converged λ = -2.7426516164, ‖r‖ = 1.41e-03, stable for 3 iters
+Iter 20: V_size = 132, Converged = 150, Min ‖r‖ = 6.518993838034599e-8
+Iter 21: V_size = 198, Converged = 150, Min ‖r‖ = 1.389225445302656e-6
+Iter 22: V_size = 132, Converged = 150, Min ‖r‖ = 1.388285152367786e-7
+EV 151 converged λ = -4.2978384973, ‖r‖ = 6.47e-06, stable for 3 iters
+EV 152 converged λ = -3.9896307145, ‖r‖ = 1.41e-05, stable for 3 iters
+EV 153 converged λ = -3.9892711930, ‖r‖ = 1.28e-05, stable for 3 iters
+EV 154 converged λ = -3.7485342755, ‖r‖ = 2.31e-05, stable for 3 iters
+EV 155 converged λ = -3.6956389757, ‖r‖ = 2.19e-05, stable for 3 iters
+EV 156 converged λ = -3.5274516053, ‖r‖ = 1.84e-06, stable for 3 iters
+EV 157 converged λ = -3.4750141049, ‖r‖ = 9.66e-05, stable for 3 iters
+EV 158 converged λ = -3.3387693352, ‖r‖ = 1.09e-07, stable for 3 iters
+EV 159 converged λ = -3.3385529321, ‖r‖ = 4.73e-08, stable for 3 iters
+EV 160 converged λ = -3.3383809574, ‖r‖ = 3.97e-08, stable for 3 iters
+EV 161 converged λ = -3.3381201417, ‖r‖ = 1.28e-07, stable for 3 iters
+EV 162 converged λ = -2.8874480200, ‖r‖ = 4.94e-05, stable for 3 iters
+EV 163 converged λ = -2.7431773115, ‖r‖ = 7.10e-06, stable for 3 iters
+EV 164 converged λ = -2.7428142229, ‖r‖ = 2.00e-05, stable for 3 iters
+EV 165 converged λ = -2.7426516147, ‖r‖ = 1.40e-05, stable for 3 iters
+EV 166 converged λ = -2.7423378375, ‖r‖ = 5.80e-06, stable for 3 iters
+Iter 23: V_size = 100, Converged = 166, Min ‖r‖ = 3.9683822677866216e-8
+Iter 24: V_size = 150, Converged = 166, Min ‖r‖ = 5.215190781059494e-7
+Iter 25: V_size = 200, Converged = 166, Min ‖r‖ = 2.115887188706758e-7
+EV 167 converged λ = -3.5274855731, ‖r‖ = 3.16e-06, stable for 3 iters
+EV 168 converged λ = -3.5273257121, ‖r‖ = 1.04e-05, stable for 3 iters
+EV 169 converged λ = -3.4750132402, ‖r‖ = 4.17e-07, stable for 3 iters
+EV 170 converged λ = -3.3933878922, ‖r‖ = 6.85e-05, stable for 3 iters
+EV 171 converged λ = -3.3932204590, ‖r‖ = 4.96e-05, stable for 3 iters
+EV 172 converged λ = -2.8874479586, ‖r‖ = 1.68e-06, stable for 3 iters
+EV 173 converged λ = -2.8872925420, ‖r‖ = 1.61e-06, stable for 3 iters
+EV 174 converged λ = -2.8657385276, ‖r‖ = 1.84e-05, stable for 3 iters
+EV 175 converged λ = -2.8657384838, ‖r‖ = 8.94e-06, stable for 3 iters
+EV 176 converged λ = -2.8545875286, ‖r‖ = 8.87e-06, stable for 3 iters
+EV 177 converged λ = -2.8545874876, ‖r‖ = 4.78e-06, stable for 3 iters
+EV 178 converged λ = -2.6503786420, ‖r‖ = 1.01e-07, stable for 3 iters
+EV 179 converged λ = -2.6014422436, ‖r‖ = 7.95e-07, stable for 3 iters
+EV 180 converged λ = -2.5801303947, ‖r‖ = 2.23e-04, stable for 3 iters
+EV 181 converged λ = -2.4962766257, ‖r‖ = 3.08e-05, stable for 3 iters
+EV 182 converged λ = -2.4962765980, ‖r‖ = 1.22e-05, stable for 3 iters
+EV 183 converged λ = -2.4961957179, ‖r‖ = 1.20e-05, stable for 3 iters
+EV 184 converged λ = -2.4953086307, ‖r‖ = 9.74e-06, stable for 3 iters
+EV 185 converged λ = -2.4952984065, ‖r‖ = 1.56e-05, stable for 3 iters
+EV 186 converged λ = -2.4952983268, ‖r‖ = 2.68e-05, stable for 3 iters
+EV 187 converged λ = -2.4216270362, ‖r‖ = 2.28e-04, stable for 3 iters
+EV 188 converged λ = -2.4012715554, ‖r‖ = 9.16e-05, stable for 3 iters
+EV 189 converged λ = -2.4012713766, ‖r‖ = 1.88e-04, stable for 3 iters
+EV 190 converged λ = -2.4012149391, ‖r‖ = 6.48e-05, stable for 3 iters
+EV 191 converged λ = -2.4008392641, ‖r‖ = 5.03e-05, stable for 3 iters
+EV 192 converged λ = -2.4008385995, ‖r‖ = 8.41e-05, stable for 3 iters
+EV 193 converged λ = -2.4008385115, ‖r‖ = 1.76e-04, stable for 3 iters
+Iter 26: V_size = 46, Converged = 193, Min ‖r‖ = 1.0119001668528829e-7
+Iter 27: V_size = 69, Converged = 193, Min ‖r‖ = 1.8540984941520987e-5
+Iter 28: V_size = 92, Converged = 193, Min ‖r‖ = 1.1785587499959194e-5
+EV 194 converged λ = -2.8875505055, ‖r‖ = 6.89e-04, stable for 3 iters
+EV 195 converged λ = -2.8872406038, ‖r‖ = 4.41e-04, stable for 3 iters
+EV 196 converged λ = -2.6559677195, ‖r‖ = 8.85e-06, stable for 3 iters
+EV 197 converged λ = -2.5801302961, ‖r‖ = 1.47e-04, stable for 3 iters
+EV 198 converged λ = -2.5800969404, ‖r‖ = 2.90e-04, stable for 3 iters
+EV 199 converged λ = -2.5800967546, ‖r‖ = 8.87e-05, stable for 3 iters
+EV 200 converged λ = -2.4216267943, ‖r‖ = 5.07e-04, stable for 3 iters
+EV 201 converged λ = -2.3691645140, ‖r‖ = 5.31e-04, stable for 3 iters
+EV 202 converged λ = -2.2601073483, ‖r‖ = 2.44e-04, stable for 3 iters
+EV 203 converged λ = -2.2600822203, ‖r‖ = 6.39e-04, stable for 3 iters
+EV 204 converged λ = -2.2600777677, ‖r‖ = 1.92e-04, stable for 3 iters
+Iter 29: V_size = 24, Converged = 204, Min ‖r‖ = 8.850719170926346e-6
+Iter 30: V_size = 36, Converged = 204, Min ‖r‖ = 0.00037075843608752737
+Iter 31: V_size = 48, Converged = 204, Min ‖r‖ = 0.0002715106807903551
+EV 205 converged λ = -2.6559845318, ‖r‖ = 2.17e-04, stable for 3 iters
+EV 206 converged λ = -2.5801034065, ‖r‖ = 2.81e-04, stable for 3 iters
+EV 207 converged λ = -2.5800864390, ‖r‖ = 2.49e-04, stable for 3 iters
+EV 208 converged λ = -2.3691638790, ‖r‖ = 7.42e-04, stable for 3 iters
+EV 209 converged λ = -2.2821123581, ‖r‖ = 6.23e-04, stable for 3 iters
+Iter 32: V_size = 14, Converged = 209, Min ‖r‖ = 0.00021689961278341827
+Iter 33: V_size = 21, Converged = 209, Min ‖r‖ = 0.0006607498844182579
+Iter 34: V_size = 28, Converged = 209, Min ‖r‖ = 0.0005579807396651464
+EV 210 converged λ = -2.3903593575, ‖r‖ = 5.45e-04, stable for 3 iters
+Iter 35: V_size = 12, Converged = 210, Min ‖r‖ = 0.0005448358813291787
+Iter 36: V_size = 18, Converged = 210, Min ‖r‖ = 0.0009002318466570719
+Iter 37: V_size = 24, Converged = 210, Min ‖r‖ = 0.0008016830648003623
+Iter 38: V_size = 30, Converged = 210, Min ‖r‖ = 0.0009687873838459889
+Iter 39: V_size = 36, Converged = 210, Min ‖r‖ = 0.0011515805962579162
+Iter 40: V_size = 42, Converged = 210, Min ‖r‖ = 0.0008945903528055186
+EV 211 converged λ = -2.3903593698, ‖r‖ = 6.29e-04, stable for 3 iters
+Iter 41: V_size = 10, Converged = 211, Min ‖r‖ = 0.0006287732083614545
+Iter 42: V_size = 15, Converged = 211, Min ‖r‖ = 0.0008515449181621672
+Iter 43: V_size = 20, Converged = 211, Min ‖r‖ = 0.0005252566342357241
+EV 212 converged λ = -2.2825268522, ‖r‖ = 4.14e-04, stable for 3 iters
+Iter 44: V_size = 8, Converged = 212, Min ‖r‖ = 0.00041353406466265675
+Iter 45: V_size = 12, Converged = 212, Min ‖r‖ = 0.0046639784865069945
+Iter 46: V_size = 16, Converged = 212, Min ‖r‖ = 0.0039185714750843235
+Iter 47: V_size = 20, Converged = 212, Min ‖r‖ = 0.0033090395248078536
+Iter 48: V_size = 24, Converged = 212, Min ‖r‖ = 0.0024192538721342343
+Iter 49: V_size = 28, Converged = 212, Min ‖r‖ = 0.001975135172852508
+Iter 50: V_size = 32, Converged = 212, Min ‖r‖ = 0.001850051565873257
+Iter 51: V_size = 36, Converged = 212, Min ‖r‖ = 0.0019516914793380707
+Iter 52: V_size = 40, Converged = 212, Min ‖r‖ = 0.002533630866150903
+Iter 53: V_size = 44, Converged = 212, Min ‖r‖ = 0.002712837207104938
+Iter 54: V_size = 48, Converged = 212, Min ‖r‖ = 0.002771472452538766
+Iter 55: V_size = 52, Converged = 212, Min ‖r‖ = 0.002489420641128226
+Iter 56: V_size = 56, Converged = 212, Min ‖r‖ = 0.0023399809291567023
+Iter 57: V_size = 60, Converged = 212, Min ‖r‖ = 0.0019999027467135708
+Iter 58: V_size = 64, Converged = 212, Min ‖r‖ = 0.0015888421052995382
+Iter 59: V_size = 68, Converged = 212, Min ‖r‖ = 0.0011580364116501728
+Iter 60: V_size = 72, Converged = 212, Min ‖r‖ = 0.0008233671760371423
+EV 213 converged λ = -2.2870170693, ‖r‖ = 6.12e-04, stable for 3 iters
+Iter 61: V_size = 6, Converged = 213, Min ‖r‖ = 0.0006118244468939177
+Iter 62: V_size = 9, Converged = 213, Min ‖r‖ = 0.0018123204319198426
+Iter 63: V_size = 12, Converged = 213, Min ‖r‖ = 0.00142782009713947
+Iter 64: V_size = 15, Converged = 213, Min ‖r‖ = 0.0014048787780763055
+Iter 65: V_size = 18, Converged = 213, Min ‖r‖ = 0.0012764987541362257
+Iter 66: V_size = 21, Converged = 213, Min ‖r‖ = 0.0013416864352470232
+Iter 67: V_size = 24, Converged = 213, Min ‖r‖ = 0.0014926453609599825
+Iter 68: V_size = 27, Converged = 213, Min ‖r‖ = 0.0014221930760046218
+Iter 69: V_size = 30, Converged = 213, Min ‖r‖ = 0.001134218151500369
+Iter 70: V_size = 33, Converged = 213, Min ‖r‖ = 0.0008311454814363397
+EV 214 converged λ = -2.2825204393, ‖r‖ = 6.71e-04, stable for 3 iters
+Iter 71: V_size = 4, Converged = 214, Min ‖r‖ = 0.0006706413700642198
+EV 215 converged λ = -2.2826093860, ‖r‖ = 7.30e-04, stable for 3 iters
+Iter 72: V_size = 2, Converged = 215, Min ‖r‖ = 0.0007296175494960322
+Iter 73: V_size = 3, Converged = 215, Min ‖r‖ = 0.0013584871760520647
+Iter 74: V_size = 4, Converged = 215, Min ‖r‖ = 0.0012706472732389976
+Iter 75: V_size = 5, Converged = 215, Min ‖r‖ = 0.001071808089513032
+Iter 76: V_size = 6, Converged = 215, Min ‖r‖ = 0.0009642005637333825
+Iter 77: V_size = 7, Converged = 215, Min ‖r‖ = 0.0008272997014117377
+EV 216 converged λ = -2.2870097388, ‖r‖ = 8.02e-04, stable for 3 iters
+Converged all eigenvalues.
+ 74.716026 seconds (20.55 M allocations: 352.854 GiB, 7.53% gc time, 0.54% compilation time)
+Full diagonalization
+ 51.454505 seconds (25 allocations: 1.055 GiB, 0.00% gc time)
+1×216 adjoint(::Vector{Float64}) with eltype Float64:
+ 1.20242e-11  1.48395e-10  1.00311e-10  1.31754e-10  1.70349e-10  1.88543e-11  4.72511e-13  3.35731e-13  3.41593e-12  2.06057e-13  3.42837e-13  9.76996e-15  3.90799e-14  2.72671e-13  1.6831e-12  3.2907e-12  6.43929e-13  4.0945e-13  1.46549e-13  1.77636e-15  2.93099e-14  2.84217e-14  1.42109e-14  8.88178e-15  3.55271e-15  2.29203e-11  1.11822e-12  -1.24345e-14  1.35003e-13  1.24345e-14  1.82689e-11  2.6823e-13  2.22045e-13  -5.32907e-15  3.05977e-11  1.45577e-9  4.67706e-11  1.59282e-10  9.80105e-12  2.85404e-10  -1.95399e-14  3.75778e-10  1.56215e-10  2.99023e-11  3.29569e-10  1.20507e-10  -6.21725e-15  1.42109e-14  6.21725e-15  3.90799e-14  2.4869e-14  4.44089e-15  -4.44089e-15  1.05445e-11  1.18403e-11  9.58789e-12  1.42499e-11  8.0643e-11  4.17039e-9  1.58984e-13  1.90159e-12  1.19638e-12  1.63425e-12  1.51967e-12  1.4122e-13  -3.55271e-15  -2.66454e-15  -9.76996e-15  -1.77636e-15  2.66454e-15  1.77636e-15  5.76463e-11  1.22871e-10  1.15463e-14  1.53966e-10  3.01981e-14  2.72289e-11  1.228e-11  2.52713e-11  3.70353e-10  2.65064e-10  3.13252e-11  6.48572e-10  2.4869e-14  4.3594e-10  2.93147e-10  3.02451e-9  6.52618e-10  8.7957e-10  2.9647e-11  3.72413e-12  2.32858e-11  1.53468e-11  2.74767e-11  2.41731e-11  6.46283e-12  5.77316e-15  8.88178e-16  2.09851e-10  6.87406e-12  9.90319e-14  1.68754e-14  1.66169e-11  1.25233e-13  0.0  1.29999e-8  8.03326e-11  2.82645e-10  1.93417e-10  8.844e-9  1.20223e-8  1.26228e-8  1.12017e-8  5.35323e-11  1.01894e-10  6.3419e-11  2.64031e-10  1.43117e-10  4.07119e-11  1.85859e-10  2.98116e-9  -2.03748e-12  2.59328e-9  7.00085e-9  1.03496e-10  7.56221e-8  5.1337e-8  3.78763e-9  -7.81597e-14  2.59279e-9  1.96616e-9  2.50648e-11  4.30287e-11  2.98779e-11  1.74105e-11  3.51514e-11  1.20894e-11  3.0731e-13  2.47521e-9  3.47464e-9  2.1039e-9  1.52061e-9  1.35754e-9  6.21274e-9  2.90411e-9  -9.68114e-14  8.88178e-16  -4.44089e-16  2.60005e-9  -9.20153e-13  1.74342e-8  1.23811e-8  1.88325e-11  1.12084e-11  3.59135e-12  1.55369e-11  3.33564e-11  1.24896e-11  7.282e-8  2.03471e-7  2.29861e-12  1.61116e-12  1.18745e-10  3.00915e-6  1.6611e-9  1.08794e-10  1.52681e-10  1.06636e-7  1.16793e-6  3.92931e-10  1.01652e-10  4.37899e-11  2.33236e-11  6.80824e-11  -2.17495e-8  -6.64171e-8  5.21876e-8  -7.1567e-8  1.43991e-11  1.43627e-8  -2.59355e-10  -7.10543e-15  2.78444e-13  4.35908e-8  -4.43405e-8  -7.02317e-8  -1.3183e-7  6.92177e-10  1.01777e-8  9.55503e-10  1.40234e-10  3.27591e-11  1.02325e-10  2.4443e-10  6.29672e-10  1.20534e-7  3.04519e-7  1.9428e-8  4.94688e-8  4.26923e-9  2.47795e-9  1.14757e-8  5.37586e-8  2.004e-7  1.18077e-7  2.49553e-7  8.54876e-7  2.62237e-6  8.07354e-6  1.03034e-5  1.77221e-7  6.5794e-6  -1.57394e-6  0.0220034  0.0219115  0.0115684
+Total estimated FLOPs: 7722299436372
+Running for Nlow = 288
+read ../Davidson_algorithm/m_pp_hBN.dat
+Davidson
+Iter 1: V_size = 32, Converged = 0, Min ‖r‖ = 1.4106681802560104
+Iter 2: V_size = 64, Converged = 0, Min ‖r‖ = 0.8165537347096523
+Iter 3: V_size = 128, Converged = 0, Min ‖r‖ = 0.3147088484331293
+Iter 4: V_size = 256, Converged = 0, Min ‖r‖ = 0.04838484168775903
+Iter 5: V_size = 512, Converged = 0, Min ‖r‖ = 0.003703922707906682
+Iter 6: V_size = 576, Converged = 0, Min ‖r‖ = 0.0007536670774941458
+Iter 7: V_size = 576, Converged = 0, Min ‖r‖ = 0.000664051907959977
+Iter 8: V_size = 576, Converged = 0, Min ‖r‖ = 4.998966235014762e-5
+Iter 9: V_size = 576, Converged = 0, Min ‖r‖ = 3.7339547795138366e-6
+EV   1 converged λ = -7.9011775003, ‖r‖ = 4.84e-07, stable for 3 iters
+EV   2 converged λ = -7.9011063899, ‖r‖ = 9.23e-07, stable for 3 iters
+EV   3 converged λ = -7.9011055384, ‖r‖ = 1.73e-06, stable for 3 iters
+EV   4 converged λ = -7.9010380092, ‖r‖ = 8.12e-07, stable for 3 iters
+EV   5 converged λ = -7.9010363667, ‖r‖ = 5.62e-07, stable for 3 iters
+EV   6 converged λ = -7.9009731287, ‖r‖ = 3.27e-07, stable for 3 iters
+EV   7 converged λ = -7.4037576102, ‖r‖ = 6.53e-07, stable for 3 iters
+EV   8 converged λ = -7.4037573611, ‖r‖ = 5.33e-07, stable for 3 iters
+Iter 10: V_size = 560, Converged = 8, Min ‖r‖ = 3.271453374950105e-7
+EV   9 converged λ = -8.3244391633, ‖r‖ = 2.26e-06, stable for 3 iters
+EV  10 converged λ = -8.3242613606, ‖r‖ = 5.00e-06, stable for 3 iters
+EV  11 converged λ = -8.3242609712, ‖r‖ = 4.51e-06, stable for 3 iters
+EV  12 converged λ = -8.3240011424, ‖r‖ = 5.06e-06, stable for 3 iters
+EV  13 converged λ = -8.3240009611, ‖r‖ = 8.51e-06, stable for 3 iters
+EV  14 converged λ = -8.3237669953, ‖r‖ = 2.91e-06, stable for 3 iters
+EV  15 converged λ = -8.2461345663, ‖r‖ = 1.04e-06, stable for 3 iters
+EV  16 converged λ = -7.9666648853, ‖r‖ = 2.22e-05, stable for 3 iters
+Iter 11: V_size = 544, Converged = 16, Min ‖r‖ = 4.0096024684831234e-7
+Iter 12: V_size = 544, Converged = 16, Min ‖r‖ = 5.274511914650686e-8
+Iter 13: V_size = 544, Converged = 16, Min ‖r‖ = 7.922208894372092e-9
+EV  17 converged λ = -8.2497341312, ‖r‖ = 2.03e-07, stable for 3 iters
+EV  18 converged λ = -8.2497340900, ‖r‖ = 8.77e-08, stable for 3 iters
+EV  19 converged λ = -8.1481790832, ‖r‖ = 1.08e-07, stable for 3 iters
+EV  20 converged λ = -8.1481790559, ‖r‖ = 1.46e-07, stable for 3 iters
+EV  21 converged λ = -7.9666648440, ‖r‖ = 3.26e-08, stable for 3 iters
+EV  22 converged λ = -7.7687967720, ‖r‖ = 1.97e-08, stable for 3 iters
+EV  23 converged λ = -7.7686424943, ‖r‖ = 3.33e-08, stable for 3 iters
+EV  24 converged λ = -7.7686421110, ‖r‖ = 4.43e-08, stable for 3 iters
+EV  25 converged λ = -7.7685912297, ‖r‖ = 3.17e-08, stable for 3 iters
+EV  26 converged λ = -7.7685907124, ‖r‖ = 2.61e-08, stable for 3 iters
+EV  27 converged λ = -7.7684264557, ‖r‖ = 1.50e-08, stable for 3 iters
+EV  28 converged λ = -7.7383436917, ‖r‖ = 3.06e-07, stable for 3 iters
+EV  29 converged λ = -7.7383436742, ‖r‖ = 3.02e-07, stable for 3 iters
+EV  30 converged λ = -7.7376672736, ‖r‖ = 1.35e-07, stable for 3 iters
+EV  31 converged λ = -7.7376670556, ‖r‖ = 1.34e-07, stable for 3 iters
+EV  32 converged λ = -7.2399762259, ‖r‖ = 1.64e-08, stable for 3 iters
+EV  33 converged λ = -7.1807518126, ‖r‖ = 2.33e-06, stable for 3 iters
+EV  34 converged λ = -7.0536725909, ‖r‖ = 2.27e-06, stable for 3 iters
+EV  35 converged λ = -7.0536724398, ‖r‖ = 2.47e-06, stable for 3 iters
+EV  36 converged λ = -6.9005134757, ‖r‖ = 5.24e-06, stable for 3 iters
+EV  37 converged λ = -6.9005133062, ‖r‖ = 4.37e-06, stable for 3 iters
+EV  38 converged λ = -6.9002919454, ‖r‖ = 5.93e-06, stable for 3 iters
+EV  39 converged λ = -6.9002916956, ‖r‖ = 4.57e-06, stable for 3 iters
+EV  40 converged λ = -6.8124776062, ‖r‖ = 3.75e-06, stable for 3 iters
+EV  41 converged λ = -6.8124772462, ‖r‖ = 2.85e-06, stable for 3 iters
+EV  42 converged λ = -6.7508610682, ‖r‖ = 9.73e-09, stable for 3 iters
+EV  43 converged λ = -6.7506694120, ‖r‖ = 2.69e-08, stable for 3 iters
+EV  44 converged λ = -6.7506687550, ‖r‖ = 2.90e-08, stable for 3 iters
+EV  45 converged λ = -6.7498180088, ‖r‖ = 3.14e-08, stable for 3 iters
+EV  46 converged λ = -6.7498175070, ‖r‖ = 3.24e-08, stable for 3 iters
+EV  47 converged λ = -6.7497770205, ‖r‖ = 1.67e-08, stable for 3 iters
+EV  48 converged λ = -6.7178458795, ‖r‖ = 1.56e-09, stable for 3 iters
+EV  49 converged λ = -6.4948541726, ‖r‖ = 6.57e-07, stable for 3 iters
+EV  50 converged λ = -6.4948539818, ‖r‖ = 8.30e-07, stable for 3 iters
+EV  51 converged λ = -6.3536749792, ‖r‖ = 7.02e-07, stable for 3 iters
+EV  52 converged λ = -6.3536749074, ‖r‖ = 7.06e-07, stable for 3 iters
+EV  53 converged λ = -6.2737447313, ‖r‖ = 3.28e-06, stable for 3 iters
+EV  54 converged λ = -5.8635267664, ‖r‖ = 8.92e-08, stable for 3 iters
+EV  55 converged λ = -5.8632483013, ‖r‖ = 1.89e-07, stable for 3 iters
+EV  56 converged λ = -5.8632479731, ‖r‖ = 2.08e-07, stable for 3 iters
+EV  57 converged λ = -5.8627199017, ‖r‖ = 3.44e-07, stable for 3 iters
+EV  58 converged λ = -5.8627197967, ‖r‖ = 2.97e-07, stable for 3 iters
+EV  59 converged λ = -5.8623794675, ‖r‖ = 1.07e-07, stable for 3 iters
+EV  60 converged λ = -5.8294862651, ‖r‖ = 2.67e-09, stable for 3 iters
+EV  61 converged λ = -5.8293942964, ‖r‖ = 6.84e-09, stable for 3 iters
+EV  62 converged λ = -5.8293932833, ‖r‖ = 7.74e-09, stable for 3 iters
+EV  63 converged λ = -5.8293011578, ‖r‖ = 8.51e-09, stable for 3 iters
+EV  64 converged λ = -5.8293006166, ‖r‖ = 9.43e-09, stable for 3 iters
+EV  65 converged λ = -5.8292228318, ‖r‖ = 1.44e-09, stable for 3 iters
+EV  66 converged λ = -5.7036036432, ‖r‖ = 1.76e-06, stable for 3 iters
+EV  67 converged λ = -5.7031011616, ‖r‖ = 2.02e-06, stable for 3 iters
+EV  68 converged λ = -5.7031009258, ‖r‖ = 2.12e-06, stable for 3 iters
+EV  69 converged λ = -4.8327876026, ‖r‖ = 3.18e-05, stable for 3 iters
+EV  70 converged λ = -4.8327874397, ‖r‖ = 4.91e-05, stable for 3 iters
+EV  71 converged λ = -4.0639165494, ‖r‖ = 3.14e-07, stable for 3 iters
+EV  72 converged λ = -3.9895502038, ‖r‖ = 9.49e-05, stable for 3 iters
+EV  73 converged λ = -3.9893484662, ‖r‖ = 3.71e-05, stable for 3 iters
+EV  74 converged λ = -3.8835498907, ‖r‖ = 4.99e-06, stable for 3 iters
+EV  75 converged λ = -3.8834797403, ‖r‖ = 1.65e-05, stable for 3 iters
+EV  76 converged λ = -3.8834796652, ‖r‖ = 9.87e-06, stable for 3 iters
+EV  77 converged λ = -3.8832358340, ‖r‖ = 9.45e-06, stable for 3 iters
+EV  78 converged λ = -3.8832358222, ‖r‖ = 7.46e-06, stable for 3 iters
+EV  79 converged λ = -3.8831608046, ‖r‖ = 3.32e-06, stable for 3 iters
+EV  80 converged λ = -3.8721565002, ‖r‖ = 1.62e-07, stable for 3 iters
+EV  81 converged λ = -3.8721563396, ‖r‖ = 1.41e-07, stable for 3 iters
+EV  82 converged λ = -3.7033050463, ‖r‖ = 5.44e-06, stable for 3 iters
+EV  83 converged λ = -3.7031727075, ‖r‖ = 7.93e-06, stable for 3 iters
+EV  84 converged λ = -3.6015686286, ‖r‖ = 1.52e-04, stable for 3 iters
+EV  85 converged λ = -3.5842293116, ‖r‖ = 1.34e-05, stable for 3 iters
+EV  86 converged λ = -3.5839753250, ‖r‖ = 1.92e-05, stable for 3 iters
+Iter 14: V_size = 404, Converged = 86, Min ‖r‖ = 1.441318814304221e-9
+Iter 15: V_size = 404, Converged = 86, Min ‖r‖ = 2.5290591955884086e-7
+Iter 16: V_size = 404, Converged = 86, Min ‖r‖ = 5.48375633436379e-8
+EV  87 converged λ = -7.7388205933, ‖r‖ = 1.38e-06, stable for 3 iters
+EV  88 converged λ = -7.7370665124, ‖r‖ = 1.28e-06, stable for 3 iters
+EV  89 converged λ = -7.1807357854, ‖r‖ = 4.82e-06, stable for 3 iters
+EV  90 converged λ = -6.9006214763, ‖r‖ = 5.64e-07, stable for 3 iters
+EV  91 converged λ = -6.9001534630, ‖r‖ = 1.03e-06, stable for 3 iters
+EV  92 converged λ = -6.2736986348, ‖r‖ = 1.49e-05, stable for 3 iters
+EV  93 converged λ = -5.7036900887, ‖r‖ = 8.42e-06, stable for 3 iters
+EV  94 converged λ = -5.7036034308, ‖r‖ = 1.14e-08, stable for 3 iters
+EV  95 converged λ = -5.7030070511, ‖r‖ = 3.30e-05, stable for 3 iters
+EV  96 converged λ = -4.6928336250, ‖r‖ = 5.26e-06, stable for 3 iters
+EV  97 converged λ = -4.6928217775, ‖r‖ = 7.52e-05, stable for 3 iters
+EV  98 converged λ = -3.9895501568, ‖r‖ = 3.48e-06, stable for 3 iters
+EV  99 converged λ = -3.9893484049, ‖r‖ = 1.54e-06, stable for 3 iters
+EV 100 converged λ = -3.7033049023, ‖r‖ = 1.57e-07, stable for 3 iters
+EV 101 converged λ = -3.7032931527, ‖r‖ = 9.57e-08, stable for 3 iters
+EV 102 converged λ = -3.7031726664, ‖r‖ = 3.44e-07, stable for 3 iters
+EV 103 converged λ = -3.7031526946, ‖r‖ = 5.28e-08, stable for 3 iters
+EV 104 converged λ = -3.7005170441, ‖r‖ = 7.71e-06, stable for 3 iters
+EV 105 converged λ = -3.7005170063, ‖r‖ = 9.10e-06, stable for 3 iters
+EV 106 converged λ = -3.6956496824, ‖r‖ = 1.19e-05, stable for 3 iters
+EV 107 converged λ = -3.6666888389, ‖r‖ = 2.96e-05, stable for 3 iters
+EV 108 converged λ = -3.6666886807, ‖r‖ = 5.55e-05, stable for 3 iters
+EV 109 converged λ = -3.6015686197, ‖r‖ = 6.69e-06, stable for 3 iters
+EV 110 converged λ = -3.5844508214, ‖r‖ = 4.60e-07, stable for 3 iters
+EV 111 converged λ = -3.5842292689, ‖r‖ = 6.33e-07, stable for 3 iters
+EV 112 converged λ = -3.5839750911, ‖r‖ = 5.36e-07, stable for 3 iters
+EV 113 converged λ = -3.5837273102, ‖r‖ = 2.29e-07, stable for 3 iters
+EV 114 converged λ = -3.5274517341, ‖r‖ = 5.11e-05, stable for 3 iters
+EV 115 converged λ = -3.5273520994, ‖r‖ = 1.99e-05, stable for 3 iters
+EV 116 converged λ = -3.4983582694, ‖r‖ = 9.58e-05, stable for 3 iters
+EV 117 converged λ = -3.4983581905, ‖r‖ = 1.26e-04, stable for 3 iters
+EV 118 converged λ = -3.4664554358, ‖r‖ = 2.08e-05, stable for 3 iters
+EV 119 converged λ = -3.4664552961, ‖r‖ = 1.22e-05, stable for 3 iters
+EV 120 converged λ = -3.4561700349, ‖r‖ = 7.96e-07, stable for 3 iters
+EV 121 converged λ = -3.4561690278, ‖r‖ = 2.63e-07, stable for 3 iters
+EV 122 converged λ = -3.4561687750, ‖r‖ = 2.41e-07, stable for 3 iters
+EV 123 converged λ = -3.4561470135, ‖r‖ = 2.50e-07, stable for 3 iters
+EV 124 converged λ = -3.4561467957, ‖r‖ = 1.83e-07, stable for 3 iters
+EV 125 converged λ = -3.4561424275, ‖r‖ = 2.58e-07, stable for 3 iters
+EV 126 converged λ = -3.4521363722, ‖r‖ = 3.62e-08, stable for 3 iters
+EV 127 converged λ = -3.3933394484, ‖r‖ = 1.83e-05, stable for 3 iters
+EV 128 converged λ = -3.3932585598, ‖r‖ = 2.08e-05, stable for 3 iters
+EV 129 converged λ = -3.3932584353, ‖r‖ = 2.15e-05, stable for 3 iters
+EV 130 converged λ = -3.3387694351, ‖r‖ = 2.43e-06, stable for 3 iters
+EV 131 converged λ = -3.3387693352, ‖r‖ = 1.74e-06, stable for 3 iters
+EV 132 converged λ = -3.3385529321, ‖r‖ = 1.23e-06, stable for 3 iters
+EV 133 converged λ = -3.3383809574, ‖r‖ = 1.59e-06, stable for 3 iters
+EV 134 converged λ = -3.3381202739, ‖r‖ = 1.41e-06, stable for 3 iters
+EV 135 converged λ = -3.3381201417, ‖r‖ = 1.02e-06, stable for 3 iters
+EV 136 converged λ = -3.3028465822, ‖r‖ = 4.92e-05, stable for 3 iters
+EV 137 converged λ = -3.3028464473, ‖r‖ = 4.53e-05, stable for 3 iters
+EV 138 converged λ = -3.0619214467, ‖r‖ = 5.10e-07, stable for 3 iters
+EV 139 converged λ = -3.0619211187, ‖r‖ = 5.53e-07, stable for 3 iters
+EV 140 converged λ = -3.0619165790, ‖r‖ = 8.00e-07, stable for 3 iters
+EV 141 converged λ = -3.0617952791, ‖r‖ = 1.04e-06, stable for 3 iters
+EV 142 converged λ = -3.0617950002, ‖r‖ = 6.38e-07, stable for 3 iters
+EV 143 converged λ = -3.0617930911, ‖r‖ = 5.31e-07, stable for 3 iters
+EV 144 converged λ = -3.0382533013, ‖r‖ = 1.56e-04, stable for 3 iters
+EV 145 converged λ = -3.0382532322, ‖r‖ = 7.25e-05, stable for 3 iters
+EV 146 converged λ = -2.9815012296, ‖r‖ = 3.06e-07, stable for 3 iters
+EV 147 converged λ = -2.9815011160, ‖r‖ = 2.61e-07, stable for 3 iters
+EV 148 converged λ = -2.9491566868, ‖r‖ = 2.27e-06, stable for 3 iters
+EV 149 converged λ = -2.8874480124, ‖r‖ = 1.18e-04, stable for 3 iters
+EV 150 converged λ = -2.8874479526, ‖r‖ = 9.24e-05, stable for 3 iters
+EV 151 converged λ = -2.8872925411, ‖r‖ = 4.12e-05, stable for 3 iters
+EV 152 converged λ = -2.8872925362, ‖r‖ = 6.10e-05, stable for 3 iters
+EV 153 converged λ = -2.8545875216, ‖r‖ = 1.01e-04, stable for 3 iters
+EV 154 converged λ = -2.8545874785, ‖r‖ = 1.15e-04, stable for 3 iters
+EV 155 converged λ = -2.7431773111, ‖r‖ = 2.37e-05, stable for 3 iters
+EV 156 converged λ = -2.7428142587, ‖r‖ = 2.08e-05, stable for 3 iters
+EV 157 converged λ = -2.7428141560, ‖r‖ = 2.26e-05, stable for 3 iters
+EV 158 converged λ = -2.7426516672, ‖r‖ = 4.07e-05, stable for 3 iters
+EV 159 converged λ = -2.7426515424, ‖r‖ = 2.97e-05, stable for 3 iters
+EV 160 converged λ = -2.7423378374, ‖r‖ = 1.21e-05, stable for 3 iters
+EV 161 converged λ = -2.6503786420, ‖r‖ = 2.34e-06, stable for 3 iters
+EV 162 converged λ = -2.4962766205, ‖r‖ = 7.64e-05, stable for 3 iters
+EV 163 converged λ = -2.4952984004, ‖r‖ = 7.76e-05, stable for 3 iters
+EV 164 converged λ = -2.4012715505, ‖r‖ = 1.30e-04, stable for 3 iters
+EV 165 converged λ = -2.4012713620, ‖r‖ = 2.22e-04, stable for 3 iters
+EV 166 converged λ = -2.4012149384, ‖r‖ = 5.96e-05, stable for 3 iters
+EV 167 converged λ = -2.4008392578, ‖r‖ = 8.92e-05, stable for 3 iters
+EV 168 converged λ = -2.4008385939, ‖r‖ = 1.00e-04, stable for 3 iters
+EV 169 converged λ = -2.4008385250, ‖r‖ = 1.91e-04, stable for 3 iters
+EV 170 converged λ = -2.2600778582, ‖r‖ = 1.21e-04, stable for 3 iters
+EV 171 converged λ = -2.2599973941, ‖r‖ = 1.19e-04, stable for 3 iters
+EV 172 converged λ = -2.1403460156, ‖r‖ = 3.34e-05, stable for 3 iters
+EV 173 converged λ = -2.0751423991, ‖r‖ = 6.21e-04, stable for 3 iters
+EV 174 converged λ = -1.9059518047, ‖r‖ = 3.39e-04, stable for 3 iters
+Iter 17: V_size = 228, Converged = 174, Min ‖r‖ = 1.1361462246709845e-8
+Iter 18: V_size = 228, Converged = 174, Min ‖r‖ = 1.2763356158793734e-6
+Iter 19: V_size = 228, Converged = 174, Min ‖r‖ = 3.404368868075864e-7
+EV 175 converged λ = -4.2978384969, ‖r‖ = 3.41e-05, stable for 3 iters
+EV 176 converged λ = -4.2978307188, ‖r‖ = 9.31e-08, stable for 3 iters
+EV 177 converged λ = -3.9896307144, ‖r‖ = 3.58e-05, stable for 3 iters
+EV 178 converged λ = -3.9892711928, ‖r‖ = 2.70e-05, stable for 3 iters
+EV 179 converged λ = -3.6956389675, ‖r‖ = 1.41e-04, stable for 3 iters
+EV 180 converged λ = -3.5274855635, ‖r‖ = 1.50e-04, stable for 3 iters
+EV 181 converged λ = -3.5274516053, ‖r‖ = 3.01e-06, stable for 3 iters
+EV 182 converged λ = -3.5273520438, ‖r‖ = 1.13e-06, stable for 3 iters
+EV 183 converged λ = -3.5273257006, ‖r‖ = 1.60e-04, stable for 3 iters
+EV 184 converged λ = -3.4750140880, ‖r‖ = 2.17e-04, stable for 3 iters
+EV 185 converged λ = -3.4750132398, ‖r‖ = 2.93e-05, stable for 3 iters
+EV 186 converged λ = -3.3933878835, ‖r‖ = 1.51e-04, stable for 3 iters
+EV 187 converged λ = -3.3933392225, ‖r‖ = 6.66e-07, stable for 3 iters
+EV 188 converged λ = -3.3932204380, ‖r‖ = 2.43e-04, stable for 3 iters
+EV 189 converged λ = -2.8657385214, ‖r‖ = 1.00e-04, stable for 3 iters
+EV 190 converged λ = -2.8657384786, ‖r‖ = 9.06e-05, stable for 3 iters
+EV 191 converged λ = -2.6559676900, ‖r‖ = 1.87e-04, stable for 3 iters
+EV 192 converged λ = -2.6014422436, ‖r‖ = 1.10e-06, stable for 3 iters
+EV 193 converged λ = -2.5801303533, ‖r‖ = 3.04e-04, stable for 3 iters
+EV 194 converged λ = -2.5801301667, ‖r‖ = 3.07e-04, stable for 3 iters
+EV 195 converged λ = -2.4962765979, ‖r‖ = 1.81e-05, stable for 3 iters
+EV 196 converged λ = -2.4961957178, ‖r‖ = 8.96e-06, stable for 3 iters
+EV 197 converged λ = -2.4953086305, ‖r‖ = 1.53e-05, stable for 3 iters
+EV 198 converged λ = -2.4952983271, ‖r‖ = 1.80e-05, stable for 3 iters
+EV 199 converged λ = -2.4216270975, ‖r‖ = 2.16e-04, stable for 3 iters
+EV 200 converged λ = -2.4216270751, ‖r‖ = 1.36e-04, stable for 3 iters
+EV 201 converged λ = -2.2825268922, ‖r‖ = 3.20e-04, stable for 3 iters
+EV 202 converged λ = -2.2601069661, ‖r‖ = 3.94e-05, stable for 3 iters
+EV 203 converged λ = -2.2600777418, ‖r‖ = 3.45e-05, stable for 3 iters
+EV 204 converged λ = -2.2599971029, ‖r‖ = 5.45e-05, stable for 3 iters
+EV 205 converged λ = -2.2599565648, ‖r‖ = 9.60e-05, stable for 3 iters
+Iter 20: V_size = 166, Converged = 205, Min ‖r‖ = 9.306498081355454e-8
+Iter 21: V_size = 249, Converged = 205, Min ‖r‖ = 9.924610953459645e-5
+Iter 22: V_size = 166, Converged = 205, Min ‖r‖ = 5.8721334885166854e-6
+EV 206 converged λ = -3.7485342756, ‖r‖ = 4.39e-06, stable for 3 iters
+EV 207 converged λ = -2.8872417713, ‖r‖ = 3.70e-05, stable for 3 iters
+EV 208 converged λ = -2.5800968087, ‖r‖ = 7.80e-06, stable for 3 iters
+EV 209 converged λ = -2.3691647630, ‖r‖ = 2.66e-05, stable for 3 iters
+EV 210 converged λ = -2.3691647329, ‖r‖ = 3.79e-05, stable for 3 iters
+Iter 23: V_size = 156, Converged = 210, Min ‖r‖ = 4.394974329692585e-6
+Iter 24: V_size = 234, Converged = 210, Min ‖r‖ = 4.5783196058159355e-6
+Iter 25: V_size = 156, Converged = 210, Min ‖r‖ = 2.371667492892483e-6
+EV 211 converged λ = -2.8875535143, ‖r‖ = 9.70e-06, stable for 3 iters
+EV 212 converged λ = -2.6559845417, ‖r‖ = 5.53e-05, stable for 3 iters
+EV 213 converged λ = -2.5801033378, ‖r‖ = 1.85e-05, stable for 3 iters
+EV 214 converged λ = -2.5800967553, ‖r‖ = 1.32e-06, stable for 3 iters
+EV 215 converged λ = -2.5800864482, ‖r‖ = 7.08e-05, stable for 3 iters
+EV 216 converged λ = -2.3903595699, ‖r‖ = 2.07e-05, stable for 3 iters
+EV 217 converged λ = -2.3903594754, ‖r‖ = 1.17e-05, stable for 3 iters
+EV 218 converged λ = -2.2870196678, ‖r‖ = 1.46e-04, stable for 3 iters
+EV 219 converged λ = -2.2825270220, ‖r‖ = 7.08e-06, stable for 3 iters
+EV 220 converged λ = -2.2821107841, ‖r‖ = 5.49e-06, stable for 3 iters
+EV 221 converged λ = -2.2821107488, ‖r‖ = 6.43e-06, stable for 3 iters
+EV 222 converged λ = -2.2716461160, ‖r‖ = 4.95e-05, stable for 3 iters
+EV 223 converged λ = -2.2716460684, ‖r‖ = 2.05e-05, stable for 3 iters
+EV 224 converged λ = -2.2487375365, ‖r‖ = 1.20e-05, stable for 3 iters
+EV 225 converged λ = -2.2487375267, ‖r‖ = 2.58e-05, stable for 3 iters
+EV 226 converged λ = -2.2151158818, ‖r‖ = 3.97e-05, stable for 3 iters
+EV 227 converged λ = -2.2151158584, ‖r‖ = 8.62e-05, stable for 3 iters
+EV 228 converged λ = -2.0919021103, ‖r‖ = 1.23e-04, stable for 3 iters
+EV 229 converged λ = -2.0912514338, ‖r‖ = 1.46e-04, stable for 3 iters
+EV 230 converged λ = -2.0912513843, ‖r‖ = 1.58e-04, stable for 3 iters
+EV 231 converged λ = -2.0769763333, ‖r‖ = 2.47e-05, stable for 3 iters
+EV 232 converged λ = -2.0769762575, ‖r‖ = 1.80e-05, stable for 3 iters
+EV 233 converged λ = -2.0767988199, ‖r‖ = 1.09e-05, stable for 3 iters
+EV 234 converged λ = -2.0766661038, ‖r‖ = 1.27e-05, stable for 3 iters
+EV 235 converged λ = -2.0764240776, ‖r‖ = 5.33e-06, stable for 3 iters
+EV 236 converged λ = -2.0764240480, ‖r‖ = 1.12e-05, stable for 3 iters
+EV 237 converged λ = -2.0751500296, ‖r‖ = 8.88e-06, stable for 3 iters
+EV 238 converged λ = -2.0751415478, ‖r‖ = 8.93e-06, stable for 3 iters
+EV 239 converged λ = -2.0751128483, ‖r‖ = 9.03e-06, stable for 3 iters
+EV 240 converged λ = -2.0751030126, ‖r‖ = 1.10e-05, stable for 3 iters
+EV 241 converged λ = -2.0751029570, ‖r‖ = 8.38e-06, stable for 3 iters
+EV 242 converged λ = -1.9435176589, ‖r‖ = 1.34e-04, stable for 3 iters
+EV 243 converged λ = -1.9435175841, ‖r‖ = 1.74e-04, stable for 3 iters
+EV 244 converged λ = -1.9434235248, ‖r‖ = 8.72e-05, stable for 3 iters
+EV 245 converged λ = -1.9432181664, ‖r‖ = 1.83e-04, stable for 3 iters
+EV 246 converged λ = -1.9431444185, ‖r‖ = 9.71e-05, stable for 3 iters
+EV 247 converged λ = -1.9431443065, ‖r‖ = 1.31e-04, stable for 3 iters
+EV 248 converged λ = -1.8926983793, ‖r‖ = 3.70e-05, stable for 3 iters
+EV 249 converged λ = -1.8926389745, ‖r‖ = 5.41e-05, stable for 3 iters
+Iter 26: V_size = 78, Converged = 249, Min ‖r‖ = 1.3165706025087397e-6
+Iter 27: V_size = 117, Converged = 249, Min ‖r‖ = 2.628694775032961e-5
+Iter 28: V_size = 156, Converged = 249, Min ‖r‖ = 1.704147329195115e-5
+EV 250 converged λ = -2.2870176253, ‖r‖ = 5.47e-04, stable for 3 iters
+EV 251 converged λ = -2.2826196506, ‖r‖ = 3.06e-04, stable for 3 iters
+EV 252 converged λ = -2.2819935713, ‖r‖ = 3.98e-04, stable for 3 iters
+EV 253 converged λ = -2.2061918606, ‖r‖ = 9.92e-06, stable for 3 iters
+EV 254 converged λ = -2.1107333895, ‖r‖ = 3.13e-04, stable for 3 iters
+EV 255 converged λ = -2.1107158267, ‖r‖ = 1.91e-04, stable for 3 iters
+EV 256 converged λ = -2.1107154769, ‖r‖ = 1.97e-04, stable for 3 iters
+EV 257 converged λ = -2.0919021115, ‖r‖ = 3.46e-05, stable for 3 iters
+EV 258 converged λ = -1.9863010409, ‖r‖ = 2.80e-04, stable for 3 iters
+EV 259 converged λ = -1.9173767202, ‖r‖ = 1.01e-03, stable for 3 iters
+EV 260 converged λ = -1.9059517955, ‖r‖ = 2.38e-05, stable for 3 iters
+Iter 29: V_size = 56, Converged = 260, Min ‖r‖ = 9.921147876352368e-6
+Iter 30: V_size = 84, Converged = 260, Min ‖r‖ = 4.4986465144618426e-5
+Iter 31: V_size = 112, Converged = 260, Min ‖r‖ = 2.6492370396720585e-5
+EV 261 converged λ = -2.2062093552, ‖r‖ = 5.10e-04, stable for 3 iters
+EV 262 converged λ = -2.1107412064, ‖r‖ = 2.23e-04, stable for 3 iters
+EV 263 converged λ = -2.1107343887, ‖r‖ = 1.03e-04, stable for 3 iters
+EV 264 converged λ = -2.1107111447, ‖r‖ = 3.47e-04, stable for 3 iters
+EV 265 converged λ = -2.0920224761, ‖r‖ = 9.36e-04, stable for 3 iters
+EV 266 converged λ = -2.0911632900, ‖r‖ = 4.86e-04, stable for 3 iters
+EV 267 converged λ = -2.0366964786, ‖r‖ = 3.22e-04, stable for 3 iters
+EV 268 converged λ = -1.9863010199, ‖r‖ = 2.84e-04, stable for 3 iters
+EV 269 converged λ = -1.9210804294, ‖r‖ = 2.58e-04, stable for 3 iters
+Iter 32: V_size = 38, Converged = 269, Min ‖r‖ = 2.3479448564342134e-5
+Iter 33: V_size = 57, Converged = 269, Min ‖r‖ = 1.7673487269814167e-5
+Iter 34: V_size = 76, Converged = 269, Min ‖r‖ = 1.6830617118354387e-5
+EV 270 converged λ = -1.9235995028, ‖r‖ = 5.56e-04, stable for 3 iters
+EV 271 converged λ = -1.9210804201, ‖r‖ = 1.94e-04, stable for 3 iters
+EV 272 converged λ = -1.9195687778, ‖r‖ = 5.59e-04, stable for 3 iters
+EV 273 converged λ = -1.9195668877, ‖r‖ = 1.18e-03, stable for 3 iters
+EV 274 converged λ = -1.9176342577, ‖r‖ = 3.11e-04, stable for 3 iters
+EV 275 converged λ = -1.9176340329, ‖r‖ = 3.08e-04, stable for 3 iters
+EV 276 converged λ = -1.9173766464, ‖r‖ = 2.40e-04, stable for 3 iters
+EV 277 converged λ = -1.8927207371, ‖r‖ = 2.23e-05, stable for 3 iters
+EV 278 converged λ = -1.8926983371, ‖r‖ = 1.74e-05, stable for 3 iters
+EV 279 converged λ = -1.8926388117, ‖r‖ = 2.70e-05, stable for 3 iters
+EV 280 converged λ = -1.8926219454, ‖r‖ = 4.50e-05, stable for 3 iters
+EV 281 converged λ = -1.8774721118, ‖r‖ = 3.36e-05, stable for 3 iters
+Iter 35: V_size = 14, Converged = 281, Min ‖r‖ = 1.7358049070647816e-5
+Iter 36: V_size = 21, Converged = 281, Min ‖r‖ = 0.0010604557533112008
+EV 282 converged λ = -2.0366881012, ‖r‖ = 3.91e-03, stable for 3 iters
+Iter 37: V_size = 12, Converged = 282, Min ‖r‖ = 0.0009278672935606338
+Iter 38: V_size = 18, Converged = 282, Min ‖r‖ = 0.0008593846353275427
+Iter 39: V_size = 24, Converged = 282, Min ‖r‖ = 0.001011724917188338
+Iter 40: V_size = 30, Converged = 282, Min ‖r‖ = 0.0011202027914054152
+Iter 41: V_size = 36, Converged = 282, Min ‖r‖ = 0.0008326196000188493
+Iter 42: V_size = 42, Converged = 282, Min ‖r‖ = 0.0006880240132894584
+EV 283 converged λ = -1.9178007281, ‖r‖ = 2.22e-03, stable for 3 iters
+EV 284 converged λ = -1.8849301101, ‖r‖ = 6.11e-04, stable for 3 iters
+Iter 43: V_size = 8, Converged = 284, Min ‖r‖ = 0.0006112686192274211
+Iter 44: V_size = 12, Converged = 284, Min ‖r‖ = 0.0013336229321889706
+Iter 45: V_size = 16, Converged = 284, Min ‖r‖ = 0.0011945557640340408
+EV 285 converged λ = -1.8849289946, ‖r‖ = 1.04e-03, stable for 3 iters
+Iter 46: V_size = 6, Converged = 285, Min ‖r‖ = 0.0010439571614395155
+Iter 47: V_size = 9, Converged = 285, Min ‖r‖ = 0.0032577893403097115
+Iter 48: V_size = 12, Converged = 285, Min ‖r‖ = 0.00288543790492258
+Iter 49: V_size = 15, Converged = 285, Min ‖r‖ = 0.0024844484646889837
+Iter 50: V_size = 18, Converged = 285, Min ‖r‖ = 0.0019159951561545964
+Iter 51: V_size = 21, Converged = 285, Min ‖r‖ = 0.0014711596149645833
+Iter 52: V_size = 24, Converged = 285, Min ‖r‖ = 0.0011352745957714492
+EV 286 converged λ = -1.9236246091, ‖r‖ = 9.09e-04, stable for 3 iters
+Iter 53: V_size = 4, Converged = 286, Min ‖r‖ = 0.0009086182109170333
+Iter 54: V_size = 6, Converged = 286, Min ‖r‖ = 0.001912230478465351
+Iter 55: V_size = 8, Converged = 286, Min ‖r‖ = 0.0015941422793946498
+EV 287 converged λ = -1.9172293107, ‖r‖ = 1.31e-03, stable for 3 iters
+Iter 56: V_size = 2, Converged = 287, Min ‖r‖ = 0.0013110573630028637
+Iter 57: V_size = 3, Converged = 287, Min ‖r‖ = 0.0023334771777870126
+Iter 58: V_size = 4, Converged = 287, Min ‖r‖ = 0.002197858469313166
+EV 288 converged λ = -2.0102693328, ‖r‖ = 2.13e-03, stable for 3 iters
+Converged all eigenvalues.
+102.270957 seconds (31.74 M allocations: 548.315 GiB, 7.68% gc time)
+Full diagonalization
+ 51.217371 seconds (25 allocations: 1.055 GiB, 0.00% gc time)
+1×288 adjoint(::Vector{Float64}) with eltype Float64:
+ 6.98108e-13  3.33422e-12  2.72138e-12  3.43725e-12  9.73088e-12  1.15463e-12  1.77636e-14  5.32907e-15  1.47438e-13  3.55271e-15  -8.88178e-15  7.00124e-11  7.10543e-15  1.86517e-14  1.11022e-13  4.23661e-13  9.85878e-14  4.52971e-14  4.44089e-15  -4.44089e-15  9.76996e-15  9.76996e-15  1.77636e-15  7.10543e-15  -2.66454e-15  2.84217e-13  1.5099e-14  9.76996e-15  8.88178e-16  1.77636e-14  2.28262e-13  6.21725e-14  4.26326e-14  -1.77636e-15  9.14824e-13  3.52607e-12  8.47322e-13  1.00897e-12  3.9968e-14  4.70735e-12  3.31468e-12  6.01652e-12  3.61045e-12  1.78524e-13  2.41229e-12  1.40155e-12  -8.88178e-16  0.0  -4.44089e-15  5.32907e-15  3.55271e-15  -9.76996e-15  -4.44089e-15  7.72715e-14  1.09246e-13  8.52651e-14  9.14824e-14  2.08811e-12  4.49143e-11  5.32907e-15  2.66454e-15  4.44089e-15  2.4869e-14  1.5099e-14  0.0  -7.10543e-15  -8.88178e-16  -4.44089e-15  -3.55271e-15  -7.99361e-15  -2.66454e-15  1.59703e-11  6.76792e-13  -1.15463e-14  8.95284e-13  9.89431e-13  2.52848e-10  2.70328e-10  6.38098e-10  8.2121e-12  1.78862e-9  3.94593e-10  -2.66454e-15  3.01981e-14  5.4341e-10  3.26496e-9  3.8991e-13  4.63237e-10  -2.46825e-12  2.68585e-10  9.67315e-12  1.03864e-10  3.67253e-11  3.29985e-11  2.03388e-11  4.25482e-12  6.66134e-15  7.10543e-15  1.15222e-10  1.12839e-11  1.02141e-14  2.66454e-15  2.5052e-11  5.32907e-14  2.66454e-15  2.47087e-11  3.56493e-11  5.74913e-11  8.41637e-9  3.68009e-10  1.32257e-9  1.04479e-8  -3.10485e-10  9.05942e-14  7.88045e-11  1.77192e-13  1.52617e-10  1.1946e-13  2.08722e-14  9.79178e-9  1.18575e-9  3.83293e-12  1.80554e-10  5.59108e-13  1.16064e-8  4.37399e-9  7.53118e-9  2.06584e-8  3.8927e-10  2.05603e-10  6.73821e-11  2.96208e-13  3.37508e-14  2.70894e-14  3.06422e-14  1.5099e-14  2.79776e-14  1.77636e-15  1.12229e-8  1.63961e-10  1.96732e-13  2.14834e-10  2.37398e-10  2.71965e-8  3.05711e-12  1.56364e-12  7.76712e-13  1.28564e-12  1.0445e-12  5.49338e-13  1.22646e-9  1.03621e-9  1.55431e-13  1.7808e-13  3.84137e-13  6.6569e-13  2.47802e-13  1.84741e-13  1.55251e-8  3.25763e-9  6.21725e-14  4.13003e-14  3.45102e-12  4.10343e-10  9.297e-9  6.13882e-9  1.04033e-9  2.5279e-9  4.01275e-10  6.64699e-9  5.35774e-9  7.05192e-9  9.04985e-9  4.53009e-10  3.73626e-10  3.94134e-10  1.38289e-9  7.06231e-10  1.1435e-10  4.43326e-9  2.92598e-8  4.68736e-12  1.12843e-12  8.49596e-8  8.50587e-8  -1.46262e-9  -9.79354e-11  -6.36784e-11  1.02879e-9  6.1703e-9  3.04438e-10  8.5929e-11  2.5617e-10  6.31994e-9  3.2472e-10  5.92592e-8  2.36407e-8  2.43446e-8  6.40163e-8  4.89575e-9  8.79613e-9  1.70874e-8  4.02781e-8  2.78075e-10  9.44675e-11  5.26983e-10  9.54787e-10  2.38646e-8  1.87112e-7  3.87758e-8  7.47597e-9  1.26559e-7  2.75704e-11  2.45701e-11  1.79981e-7  2.10102e-9  4.41224e-10  1.34022e-9  1.80865e-8  5.63297e-10  2.41034e-8  8.33477e-10  8.51061e-9  1.27127e-10  5.26839e-10  1.85721e-9  6.49016e-9  1.17863e-7  6.71365e-11  1.23084e-9  3.29883e-8  4.64208e-8  9.72161e-7  7.20491e-8  3.2781e-7  7.45515e-8  4.9081e-7  2.27713e-8  7.2167e-9  3.24428e-8  6.66274e-8  1.22636e-7  9.35414e-10  5.14742e-10  1.04857e-9  2.44702e-9  4.27288e-10  5.26637e-10  1.08607e-8  -8.42467e-7  -4.22043e-8  -6.24591e-9  -5.04795e-9  -6.01478e-10  1.62726e-7  8.45455e-6  2.70511e-6  7.47241e-8  3.13147e-8  7.05724e-8  9.92042e-8  3.13813e-8  1.09273e-7  2.40479e-8  6.23583e-8  8.46322e-7  5.75168e-7  7.40606e-8  7.47175e-8  2.56686e-7  2.09849e-6  4.88057e-6  9.95486e-8  2.92569e-7  -2.03211e-9  3.62472e-8  1.06544e-6  -7.84226e-9  -3.8795e-8  1.33837e-9  4.35732e-9  4.89229e-10  9.92453e-9  1.86468e-9  5.56785e-9  4.30494e-7  1.45148e-6  4.74388e-9
+Total estimated FLOPs: 8052483794255
+Running for Nlow = 360
+read ../Davidson_algorithm/m_pp_hBN.dat
+Davidson
+Iter 1: V_size = 32, Converged = 0, Min ‖r‖ = 1.4106681802560104
+Iter 2: V_size = 64, Converged = 0, Min ‖r‖ = 0.8165537347096523
+Iter 3: V_size = 128, Converged = 0, Min ‖r‖ = 0.3147088484331293
+Iter 4: V_size = 256, Converged = 0, Min ‖r‖ = 0.04838484168775903
+Iter 5: V_size = 512, Converged = 0, Min ‖r‖ = 0.003703922707906682
+Iter 6: V_size = 720, Converged = 0, Min ‖r‖ = 0.0007536670775233018
+Iter 7: V_size = 720, Converged = 0, Min ‖r‖ = 0.0005747318366750352
+Iter 8: V_size = 720, Converged = 0, Min ‖r‖ = 3.817308806734195e-5
+Iter 9: V_size = 720, Converged = 0, Min ‖r‖ = 2.0901733916433055e-6
+EV   1 converged λ = -7.9011775003, ‖r‖ = 2.24e-07, stable for 3 iters
+EV   2 converged λ = -7.9011063899, ‖r‖ = 4.37e-07, stable for 3 iters
+EV   3 converged λ = -7.9011055384, ‖r‖ = 8.50e-07, stable for 3 iters
+EV   4 converged λ = -7.9010380092, ‖r‖ = 4.17e-07, stable for 3 iters
+EV   5 converged λ = -7.9010363667, ‖r‖ = 3.35e-07, stable for 3 iters
+EV   6 converged λ = -7.9009731287, ‖r‖ = 1.44e-07, stable for 3 iters
+Iter 10: V_size = 708, Converged = 6, Min ‖r‖ = 1.4403215453314586e-7
+EV   7 converged λ = -8.3244391633, ‖r‖ = 7.19e-07, stable for 3 iters
+EV   8 converged λ = -8.3242613606, ‖r‖ = 2.48e-06, stable for 3 iters
+EV   9 converged λ = -8.3242609712, ‖r‖ = 1.47e-06, stable for 3 iters
+EV  10 converged λ = -8.3240011424, ‖r‖ = 2.36e-06, stable for 3 iters
+EV  11 converged λ = -8.3240009611, ‖r‖ = 3.31e-06, stable for 3 iters
+EV  12 converged λ = -8.3237669953, ‖r‖ = 1.02e-06, stable for 3 iters
+EV  13 converged λ = -8.2461345663, ‖r‖ = 4.10e-07, stable for 3 iters
+EV  14 converged λ = -7.9666648854, ‖r‖ = 8.39e-06, stable for 3 iters
+EV  15 converged λ = -7.9666648439, ‖r‖ = 1.10e-05, stable for 3 iters
+Iter 11: V_size = 690, Converged = 15, Min ‖r‖ = 1.9676821834119037e-8
+Iter 12: V_size = 690, Converged = 15, Min ‖r‖ = 1.6837996580444038e-9
+Iter 13: V_size = 690, Converged = 15, Min ‖r‖ = 1.4728378771151807e-10
+EV  16 converged λ = -8.2497341312, ‖r‖ = 2.72e-08, stable for 3 iters
+EV  17 converged λ = -8.2497340900, ‖r‖ = 2.09e-08, stable for 3 iters
+EV  18 converged λ = -8.1481790832, ‖r‖ = 3.29e-08, stable for 3 iters
+EV  19 converged λ = -8.1481790559, ‖r‖ = 4.91e-08, stable for 3 iters
+EV  20 converged λ = -7.7687967720, ‖r‖ = 2.78e-09, stable for 3 iters
+EV  21 converged λ = -7.7686424943, ‖r‖ = 6.02e-09, stable for 3 iters
+EV  22 converged λ = -7.7686421110, ‖r‖ = 7.30e-09, stable for 3 iters
+EV  23 converged λ = -7.7685912297, ‖r‖ = 6.31e-09, stable for 3 iters
+EV  24 converged λ = -7.7685907124, ‖r‖ = 4.59e-09, stable for 3 iters
+EV  25 converged λ = -7.7684264557, ‖r‖ = 1.95e-09, stable for 3 iters
+EV  26 converged λ = -7.7383436917, ‖r‖ = 4.77e-08, stable for 3 iters
+EV  27 converged λ = -7.7383436742, ‖r‖ = 4.32e-08, stable for 3 iters
+EV  28 converged λ = -7.7376672736, ‖r‖ = 2.63e-08, stable for 3 iters
+EV  29 converged λ = -7.7376670556, ‖r‖ = 2.03e-08, stable for 3 iters
+EV  30 converged λ = -7.4037576102, ‖r‖ = 1.71e-11, stable for 3 iters
+EV  31 converged λ = -7.4037573611, ‖r‖ = 1.37e-11, stable for 3 iters
+EV  32 converged λ = -7.2399762259, ‖r‖ = 1.77e-09, stable for 3 iters
+EV  33 converged λ = -7.1807518126, ‖r‖ = 5.34e-07, stable for 3 iters
+EV  34 converged λ = -7.0536725909, ‖r‖ = 6.15e-07, stable for 3 iters
+EV  35 converged λ = -7.0536724398, ‖r‖ = 4.17e-07, stable for 3 iters
+EV  36 converged λ = -6.9006214762, ‖r‖ = 2.27e-05, stable for 3 iters
+EV  37 converged λ = -6.9005134757, ‖r‖ = 1.05e-06, stable for 3 iters
+EV  38 converged λ = -6.9005133062, ‖r‖ = 6.75e-07, stable for 3 iters
+EV  39 converged λ = -6.9002919454, ‖r‖ = 1.23e-06, stable for 3 iters
+EV  40 converged λ = -6.9002916956, ‖r‖ = 5.95e-07, stable for 3 iters
+EV  41 converged λ = -6.8124776062, ‖r‖ = 1.19e-06, stable for 3 iters
+EV  42 converged λ = -6.8124772462, ‖r‖ = 5.70e-07, stable for 3 iters
+EV  43 converged λ = -6.7508610682, ‖r‖ = 1.34e-09, stable for 3 iters
+EV  44 converged λ = -6.7506694120, ‖r‖ = 4.55e-09, stable for 3 iters
+EV  45 converged λ = -6.7506687550, ‖r‖ = 4.80e-09, stable for 3 iters
+EV  46 converged λ = -6.7498180088, ‖r‖ = 5.51e-09, stable for 3 iters
+EV  47 converged λ = -6.7498175070, ‖r‖ = 5.69e-09, stable for 3 iters
+EV  48 converged λ = -6.7497770205, ‖r‖ = 1.95e-09, stable for 3 iters
+EV  49 converged λ = -6.7178458795, ‖r‖ = 2.36e-10, stable for 3 iters
+EV  50 converged λ = -6.4948541726, ‖r‖ = 1.37e-07, stable for 3 iters
+EV  51 converged λ = -6.4948539818, ‖r‖ = 1.42e-07, stable for 3 iters
+EV  52 converged λ = -6.3536749792, ‖r‖ = 9.41e-08, stable for 3 iters
+EV  53 converged λ = -6.3536749074, ‖r‖ = 8.57e-08, stable for 3 iters
+EV  54 converged λ = -6.2737447313, ‖r‖ = 5.25e-07, stable for 3 iters
+EV  55 converged λ = -5.8635267664, ‖r‖ = 1.31e-08, stable for 3 iters
+EV  56 converged λ = -5.8632483013, ‖r‖ = 3.56e-08, stable for 3 iters
+EV  57 converged λ = -5.8632479731, ‖r‖ = 4.06e-08, stable for 3 iters
+EV  58 converged λ = -5.8627199017, ‖r‖ = 5.59e-08, stable for 3 iters
+EV  59 converged λ = -5.8627197967, ‖r‖ = 5.34e-08, stable for 3 iters
+EV  60 converged λ = -5.8623794675, ‖r‖ = 1.26e-08, stable for 3 iters
+EV  61 converged λ = -5.8294862651, ‖r‖ = 2.45e-10, stable for 3 iters
+EV  62 converged λ = -5.8293942964, ‖r‖ = 1.38e-09, stable for 3 iters
+EV  63 converged λ = -5.8293932833, ‖r‖ = 2.12e-09, stable for 3 iters
+EV  64 converged λ = -5.8293011578, ‖r‖ = 1.80e-09, stable for 3 iters
+EV  65 converged λ = -5.8293006166, ‖r‖ = 2.51e-09, stable for 3 iters
+EV  66 converged λ = -5.8292228318, ‖r‖ = 2.44e-10, stable for 3 iters
+EV  67 converged λ = -5.7036036432, ‖r‖ = 2.80e-07, stable for 3 iters
+EV  68 converged λ = -5.7036034308, ‖r‖ = 1.71e-07, stable for 3 iters
+EV  69 converged λ = -5.7031011616, ‖r‖ = 2.21e-07, stable for 3 iters
+EV  70 converged λ = -5.7031009258, ‖r‖ = 2.63e-07, stable for 3 iters
+EV  71 converged λ = -4.8327876028, ‖r‖ = 5.29e-06, stable for 3 iters
+EV  72 converged λ = -4.8327874403, ‖r‖ = 9.05e-06, stable for 3 iters
+EV  73 converged λ = -4.6928336245, ‖r‖ = 4.36e-05, stable for 3 iters
+EV  74 converged λ = -4.0639165494, ‖r‖ = 5.74e-08, stable for 3 iters
+EV  75 converged λ = -3.9895502070, ‖r‖ = 1.08e-05, stable for 3 iters
+EV  76 converged λ = -3.9893484666, ‖r‖ = 6.41e-06, stable for 3 iters
+EV  77 converged λ = -3.8835498907, ‖r‖ = 5.12e-07, stable for 3 iters
+EV  78 converged λ = -3.8834797404, ‖r‖ = 1.87e-06, stable for 3 iters
+EV  79 converged λ = -3.8834796653, ‖r‖ = 1.18e-06, stable for 3 iters
+EV  80 converged λ = -3.8832358340, ‖r‖ = 2.37e-06, stable for 3 iters
+EV  81 converged λ = -3.8832358222, ‖r‖ = 1.45e-06, stable for 3 iters
+EV  82 converged λ = -3.8831608046, ‖r‖ = 4.45e-07, stable for 3 iters
+EV  83 converged λ = -3.8721565002, ‖r‖ = 3.67e-08, stable for 3 iters
+EV  84 converged λ = -3.8721563396, ‖r‖ = 2.66e-08, stable for 3 iters
+EV  85 converged λ = -3.7033050463, ‖r‖ = 1.17e-06, stable for 3 iters
+EV  86 converged λ = -3.7031727076, ‖r‖ = 1.21e-06, stable for 3 iters
+EV  87 converged λ = -3.7005170439, ‖r‖ = 2.09e-05, stable for 3 iters
+EV  88 converged λ = -3.6015686390, ‖r‖ = 1.61e-05, stable for 3 iters
+EV  89 converged λ = -3.5842293117, ‖r‖ = 1.74e-06, stable for 3 iters
+EV  90 converged λ = -3.5839753252, ‖r‖ = 3.68e-06, stable for 3 iters
+EV  91 converged λ = -3.4561690278, ‖r‖ = 8.90e-07, stable for 3 iters
+EV  92 converged λ = -3.4561470135, ‖r‖ = 7.75e-07, stable for 3 iters
+EV  93 converged λ = -3.3387694351, ‖r‖ = 4.43e-06, stable for 3 iters
+EV  94 converged λ = -3.3381202739, ‖r‖ = 4.39e-06, stable for 3 iters
+EV  95 converged λ = -3.0619214467, ‖r‖ = 1.56e-06, stable for 3 iters
+EV  96 converged λ = -3.0617952791, ‖r‖ = 1.12e-06, stable for 3 iters
+EV  97 converged λ = -2.9815012296, ‖r‖ = 5.50e-07, stable for 3 iters
+EV  98 converged λ = -2.8545875095, ‖r‖ = 1.74e-04, stable for 3 iters
+EV  99 converged λ = -2.7431773115, ‖r‖ = 1.10e-05, stable for 3 iters
+EV 100 converged λ = -2.7428142589, ‖r‖ = 2.09e-05, stable for 3 iters
+EV 101 converged λ = -2.7428141551, ‖r‖ = 4.86e-05, stable for 3 iters
+EV 102 converged λ = -2.7426516675, ‖r‖ = 4.47e-05, stable for 3 iters
+EV 103 converged λ = -2.7426515425, ‖r‖ = 3.50e-05, stable for 3 iters
+EV 104 converged λ = -2.7423378374, ‖r‖ = 1.12e-05, stable for 3 iters
+EV 105 converged λ = -2.4962766242, ‖r‖ = 5.97e-05, stable for 3 iters
+EV 106 converged λ = -2.4962765965, ‖r‖ = 5.11e-05, stable for 3 iters
+EV 107 converged λ = -2.4961957177, ‖r‖ = 1.62e-05, stable for 3 iters
+EV 108 converged λ = -2.4953086305, ‖r‖ = 2.31e-05, stable for 3 iters
+EV 109 converged λ = -2.4952984053, ‖r‖ = 4.65e-05, stable for 3 iters
+EV 110 converged λ = -2.4952983253, ‖r‖ = 5.81e-05, stable for 3 iters
+EV 111 converged λ = -2.4012715707, ‖r‖ = 7.63e-05, stable for 3 iters
+EV 112 converged λ = -2.4012714170, ‖r‖ = 1.12e-04, stable for 3 iters
+EV 113 converged λ = -2.4012149415, ‖r‖ = 5.04e-05, stable for 3 iters
+EV 114 converged λ = -2.4008392650, ‖r‖ = 4.93e-05, stable for 3 iters
+EV 115 converged λ = -2.4008386048, ‖r‖ = 9.15e-05, stable for 3 iters
+EV 116 converged λ = -2.4008385573, ‖r‖ = 1.07e-04, stable for 3 iters
+Iter 14: V_size = 488, Converged = 116, Min ‖r‖ = 1.3695835940867847e-11
+Iter 15: V_size = 488, Converged = 116, Min ‖r‖ = 1.726859840769821e-8
+Iter 16: V_size = 488, Converged = 116, Min ‖r‖ = 4.777994948959169e-9
+EV 117 converged λ = -7.7388205933, ‖r‖ = 7.20e-08, stable for 3 iters
+EV 118 converged λ = -7.7370665124, ‖r‖ = 6.85e-08, stable for 3 iters
+EV 119 converged λ = -7.1807357854, ‖r‖ = 5.96e-07, stable for 3 iters
+EV 120 converged λ = -6.9001534630, ‖r‖ = 1.11e-07, stable for 3 iters
+EV 121 converged λ = -6.2736986348, ‖r‖ = 1.72e-06, stable for 3 iters
+EV 122 converged λ = -5.7036900887, ‖r‖ = 1.31e-06, stable for 3 iters
+EV 123 converged λ = -5.7030070514, ‖r‖ = 1.40e-06, stable for 3 iters
+EV 124 converged λ = -4.6928217792, ‖r‖ = 4.14e-06, stable for 3 iters
+EV 125 converged λ = -4.2978384957, ‖r‖ = 7.18e-05, stable for 3 iters
+EV 126 converged λ = -4.2978307188, ‖r‖ = 1.82e-07, stable for 3 iters
+EV 127 converged λ = -3.9896307137, ‖r‖ = 5.97e-05, stable for 3 iters
+EV 128 converged λ = -3.9895501568, ‖r‖ = 2.20e-07, stable for 3 iters
+EV 129 converged λ = -3.9893484048, ‖r‖ = 8.61e-08, stable for 3 iters
+EV 130 converged λ = -3.9892711923, ‖r‖ = 4.90e-05, stable for 3 iters
+EV 131 converged λ = -3.7033049023, ‖r‖ = 7.20e-09, stable for 3 iters
+EV 132 converged λ = -3.7032931527, ‖r‖ = 5.19e-09, stable for 3 iters
+EV 133 converged λ = -3.7031726664, ‖r‖ = 2.07e-08, stable for 3 iters
+EV 134 converged λ = -3.7031526946, ‖r‖ = 1.95e-09, stable for 3 iters
+EV 135 converged λ = -3.7005170063, ‖r‖ = 5.63e-07, stable for 3 iters
+EV 136 converged λ = -3.6956496825, ‖r‖ = 8.77e-07, stable for 3 iters
+EV 137 converged λ = -3.6956389722, ‖r‖ = 1.00e-04, stable for 3 iters
+EV 138 converged λ = -3.6666888393, ‖r‖ = 2.58e-06, stable for 3 iters
+EV 139 converged λ = -3.6666886820, ‖r‖ = 3.14e-06, stable for 3 iters
+EV 140 converged λ = -3.6015686194, ‖r‖ = 2.34e-07, stable for 3 iters
+EV 141 converged λ = -3.5844508214, ‖r‖ = 1.52e-08, stable for 3 iters
+EV 142 converged λ = -3.5842292689, ‖r‖ = 3.30e-08, stable for 3 iters
+EV 143 converged λ = -3.5839750911, ‖r‖ = 2.64e-08, stable for 3 iters
+EV 144 converged λ = -3.5837273102, ‖r‖ = 1.26e-08, stable for 3 iters
+EV 145 converged λ = -3.5274517353, ‖r‖ = 1.11e-06, stable for 3 iters
+EV 146 converged λ = -3.5274516053, ‖r‖ = 1.63e-06, stable for 3 iters
+EV 147 converged λ = -3.5273520996, ‖r‖ = 1.16e-06, stable for 3 iters
+EV 148 converged λ = -3.5273520438, ‖r‖ = 2.02e-06, stable for 3 iters
+EV 149 converged λ = -3.4983582737, ‖r‖ = 6.23e-06, stable for 3 iters
+EV 150 converged λ = -3.4983581980, ‖r‖ = 5.30e-06, stable for 3 iters
+EV 151 converged λ = -3.4750140838, ‖r‖ = 2.44e-04, stable for 3 iters
+EV 152 converged λ = -3.4664554360, ‖r‖ = 2.60e-06, stable for 3 iters
+EV 153 converged λ = -3.4664552961, ‖r‖ = 7.92e-07, stable for 3 iters
+EV 154 converged λ = -3.4561700349, ‖r‖ = 1.68e-08, stable for 3 iters
+EV 155 converged λ = -3.4561687750, ‖r‖ = 1.39e-08, stable for 3 iters
+EV 156 converged λ = -3.4561467957, ‖r‖ = 1.18e-08, stable for 3 iters
+EV 157 converged λ = -3.4561424275, ‖r‖ = 9.02e-09, stable for 3 iters
+EV 158 converged λ = -3.4521363722, ‖r‖ = 1.30e-09, stable for 3 iters
+EV 159 converged λ = -3.3933394485, ‖r‖ = 9.97e-07, stable for 3 iters
+EV 160 converged λ = -3.3933392225, ‖r‖ = 6.68e-07, stable for 3 iters
+EV 161 converged λ = -3.3932585600, ‖r‖ = 9.91e-07, stable for 3 iters
+EV 162 converged λ = -3.3932584356, ‖r‖ = 1.35e-06, stable for 3 iters
+EV 163 converged λ = -3.3387693352, ‖r‖ = 7.98e-08, stable for 3 iters
+EV 164 converged λ = -3.3385529321, ‖r‖ = 4.44e-08, stable for 3 iters
+EV 165 converged λ = -3.3383809574, ‖r‖ = 3.88e-08, stable for 3 iters
+EV 166 converged λ = -3.3381201417, ‖r‖ = 5.67e-08, stable for 3 iters
+EV 167 converged λ = -3.3028465835, ‖r‖ = 3.21e-06, stable for 3 iters
+EV 168 converged λ = -3.3028464483, ‖r‖ = 1.98e-06, stable for 3 iters
+EV 169 converged λ = -3.0619211187, ‖r‖ = 4.19e-08, stable for 3 iters
+EV 170 converged λ = -3.0619165790, ‖r‖ = 1.55e-08, stable for 3 iters
+EV 171 converged λ = -3.0617950002, ‖r‖ = 2.98e-08, stable for 3 iters
+EV 172 converged λ = -3.0617930911, ‖r‖ = 1.79e-08, stable for 3 iters
+EV 173 converged λ = -3.0382533169, ‖r‖ = 3.07e-06, stable for 3 iters
+EV 174 converged λ = -3.0382532354, ‖r‖ = 2.20e-06, stable for 3 iters
+EV 175 converged λ = -2.9815011160, ‖r‖ = 1.11e-08, stable for 3 iters
+EV 176 converged λ = -2.9491566868, ‖r‖ = 5.26e-08, stable for 3 iters
+EV 177 converged λ = -2.8874480216, ‖r‖ = 6.59e-06, stable for 3 iters
+EV 178 converged λ = -2.8874479587, ‖r‖ = 2.90e-06, stable for 3 iters
+EV 179 converged λ = -2.8872925421, ‖r‖ = 3.76e-06, stable for 3 iters
+EV 180 converged λ = -2.8872925387, ‖r‖ = 1.86e-06, stable for 3 iters
+EV 181 converged λ = -2.8657385274, ‖r‖ = 3.26e-05, stable for 3 iters
+EV 182 converged λ = -2.8657384834, ‖r‖ = 2.97e-05, stable for 3 iters
+EV 183 converged λ = -2.8545874909, ‖r‖ = 6.19e-06, stable for 3 iters
+EV 184 converged λ = -2.6503786420, ‖r‖ = 6.34e-08, stable for 3 iters
+EV 185 converged λ = -2.6014422436, ‖r‖ = 1.71e-07, stable for 3 iters
+EV 186 converged λ = -2.5801304369, ‖r‖ = 4.44e-05, stable for 3 iters
+EV 187 converged λ = -2.5801302501, ‖r‖ = 4.87e-05, stable for 3 iters
+EV 188 converged λ = -2.5800968044, ‖r‖ = 8.75e-05, stable for 3 iters
+EV 189 converged λ = -2.5800967539, ‖r‖ = 7.20e-05, stable for 3 iters
+EV 190 converged λ = -2.4216271497, ‖r‖ = 1.01e-04, stable for 3 iters
+EV 191 converged λ = -2.4216270971, ‖r‖ = 4.83e-05, stable for 3 iters
+EV 192 converged λ = -2.3691647603, ‖r‖ = 6.23e-05, stable for 3 iters
+EV 193 converged λ = -2.3691647291, ‖r‖ = 7.89e-05, stable for 3 iters
+EV 194 converged λ = -2.2821107816, ‖r‖ = 5.44e-05, stable for 3 iters
+EV 195 converged λ = -2.2821107441, ‖r‖ = 7.66e-05, stable for 3 iters
+EV 196 converged λ = -2.2716460416, ‖r‖ = 2.29e-04, stable for 3 iters
+EV 197 converged λ = -2.2601069674, ‖r‖ = 2.76e-06, stable for 3 iters
+EV 198 converged λ = -2.2600778763, ‖r‖ = 3.52e-06, stable for 3 iters
+EV 199 converged λ = -2.2600777424, ‖r‖ = 3.69e-06, stable for 3 iters
+EV 200 converged λ = -2.2599974182, ‖r‖ = 6.97e-06, stable for 3 iters
+EV 201 converged λ = -2.2599971037, ‖r‖ = 5.80e-06, stable for 3 iters
+EV 202 converged λ = -2.2599565733, ‖r‖ = 2.88e-06, stable for 3 iters
+EV 203 converged λ = -2.2487374955, ‖r‖ = 2.00e-04, stable for 3 iters
+EV 204 converged λ = -2.2487374796, ‖r‖ = 2.49e-04, stable for 3 iters
+EV 205 converged λ = -2.2151158171, ‖r‖ = 2.65e-04, stable for 3 iters
+EV 206 converged λ = -2.2061918101, ‖r‖ = 2.39e-04, stable for 3 iters
+EV 207 converged λ = -2.1403460168, ‖r‖ = 1.04e-06, stable for 3 iters
+EV 208 converged λ = -2.0769763322, ‖r‖ = 4.57e-05, stable for 3 iters
+EV 209 converged λ = -2.0764240762, ‖r‖ = 4.15e-05, stable for 3 iters
+EV 210 converged λ = -2.0751415556, ‖r‖ = 3.18e-05, stable for 3 iters
+EV 211 converged λ = -2.0751030073, ‖r‖ = 1.80e-05, stable for 3 iters
+EV 212 converged λ = -1.9435177225, ‖r‖ = 7.48e-05, stable for 3 iters
+EV 213 converged λ = -1.9435176529, ‖r‖ = 1.42e-04, stable for 3 iters
+EV 214 converged λ = -1.9434235518, ‖r‖ = 5.72e-05, stable for 3 iters
+EV 215 converged λ = -1.9432182683, ‖r‖ = 7.09e-05, stable for 3 iters
+EV 216 converged λ = -1.9431444306, ‖r‖ = 9.56e-05, stable for 3 iters
+EV 217 converged λ = -1.9431443630, ‖r‖ = 6.76e-05, stable for 3 iters
+EV 218 converged λ = -1.9059517963, ‖r‖ = 2.30e-05, stable for 3 iters
+EV 219 converged λ = -1.8926983825, ‖r‖ = 3.59e-05, stable for 3 iters
+EV 220 converged λ = -1.8926389839, ‖r‖ = 3.71e-05, stable for 3 iters
+Iter 17: V_size = 280, Converged = 220, Min ‖r‖ = 1.2975741460322913e-9
+Iter 18: V_size = 280, Converged = 220, Min ‖r‖ = 3.0875506876476865e-6
+Iter 19: V_size = 280, Converged = 220, Min ‖r‖ = 8.183085950523046e-7
+EV 221 converged λ = -3.7485342757, ‖r‖ = 3.59e-06, stable for 3 iters
+EV 222 converged λ = -3.5274855733, ‖r‖ = 4.13e-06, stable for 3 iters
+EV 223 converged λ = -3.5273257122, ‖r‖ = 3.23e-06, stable for 3 iters
+EV 224 converged λ = -3.4750132402, ‖r‖ = 2.27e-07, stable for 3 iters
+EV 225 converged λ = -3.3933878947, ‖r‖ = 5.67e-06, stable for 3 iters
+EV 226 converged λ = -3.3932204652, ‖r‖ = 9.71e-06, stable for 3 iters
+EV 227 converged λ = -2.8875535143, ‖r‖ = 2.65e-05, stable for 3 iters
+EV 228 converged λ = -2.8872417713, ‖r‖ = 2.80e-05, stable for 3 iters
+EV 229 converged λ = -2.6559845244, ‖r‖ = 1.90e-04, stable for 3 iters
+EV 230 converged λ = -2.6559677192, ‖r‖ = 1.27e-06, stable for 3 iters
+EV 231 converged λ = -2.3903595696, ‖r‖ = 3.03e-05, stable for 3 iters
+EV 232 converged λ = -2.3903594750, ‖r‖ = 2.87e-05, stable for 3 iters
+EV 233 converged λ = -2.2870196574, ‖r‖ = 1.84e-04, stable for 3 iters
+EV 234 converged λ = -2.2825270294, ‖r‖ = 5.29e-06, stable for 3 iters
+EV 235 converged λ = -2.2825270187, ‖r‖ = 6.56e-06, stable for 3 iters
+EV 236 converged λ = -2.2716461009, ‖r‖ = 4.26e-05, stable for 3 iters
+EV 237 converged λ = -2.2151158620, ‖r‖ = 5.90e-05, stable for 3 iters
+EV 238 converged λ = -2.1107343635, ‖r‖ = 2.71e-04, stable for 3 iters
+EV 239 converged λ = -2.1107158506, ‖r‖ = 2.47e-04, stable for 3 iters
+EV 240 converged λ = -2.1107157539, ‖r‖ = 2.65e-04, stable for 3 iters
+EV 241 converged λ = -2.0919021218, ‖r‖ = 9.67e-05, stable for 3 iters
+EV 242 converged λ = -2.0912514611, ‖r‖ = 7.34e-05, stable for 3 iters
+EV 243 converged λ = -2.0912514494, ‖r‖ = 3.94e-05, stable for 3 iters
+EV 244 converged λ = -2.0769762580, ‖r‖ = 5.49e-06, stable for 3 iters
+EV 245 converged λ = -2.0767988210, ‖r‖ = 3.35e-06, stable for 3 iters
+EV 246 converged λ = -2.0766661062, ‖r‖ = 4.39e-06, stable for 3 iters
+EV 247 converged λ = -2.0764240485, ‖r‖ = 7.53e-06, stable for 3 iters
+EV 248 converged λ = -2.0751500404, ‖r‖ = 1.52e-06, stable for 3 iters
+EV 249 converged λ = -2.0751415056, ‖r‖ = 4.74e-06, stable for 3 iters
+EV 250 converged λ = -2.0751128421, ‖r‖ = 1.50e-06, stable for 3 iters
+EV 251 converged λ = -2.0751029563, ‖r‖ = 7.13e-06, stable for 3 iters
+EV 252 converged λ = -1.9210804631, ‖r‖ = 1.60e-04, stable for 3 iters
+EV 253 converged λ = -1.9210804461, ‖r‖ = 2.04e-04, stable for 3 iters
+EV 254 converged λ = -1.9195689392, ‖r‖ = 2.76e-04, stable for 3 iters
+EV 255 converged λ = -1.9195688667, ‖r‖ = 3.07e-04, stable for 3 iters
+EV 256 converged λ = -1.9176343368, ‖r‖ = 1.31e-04, stable for 3 iters
+EV 257 converged λ = -1.9176342521, ‖r‖ = 2.77e-04, stable for 3 iters
+EV 258 converged λ = -1.9173767053, ‖r‖ = 1.08e-04, stable for 3 iters
+EV 259 converged λ = -1.9173766100, ‖r‖ = 3.30e-04, stable for 3 iters
+EV 260 converged λ = -1.8927207390, ‖r‖ = 2.90e-05, stable for 3 iters
+EV 261 converged λ = -1.8926983376, ‖r‖ = 5.34e-06, stable for 3 iters
+EV 262 converged λ = -1.8926388135, ‖r‖ = 1.18e-05, stable for 3 iters
+EV 263 converged λ = -1.8926219515, ‖r‖ = 2.76e-05, stable for 3 iters
+EV 264 converged λ = -1.8774721168, ‖r‖ = 6.37e-05, stable for 3 iters
+EV 265 converged λ = -1.6538221592, ‖r‖ = 9.39e-05, stable for 3 iters
+Iter 20: V_size = 190, Converged = 265, Min ‖r‖ = 2.2721929584926366e-7
+Iter 21: V_size = 190, Converged = 265, Min ‖r‖ = 1.7301888447388398e-5
+Iter 22: V_size = 190, Converged = 265, Min ‖r‖ = 1.8820642756635953e-6
+EV 266 converged λ = -2.5801033329, ‖r‖ = 1.92e-05, stable for 3 iters
+EV 267 converged λ = -2.5800864496, ‖r‖ = 2.21e-05, stable for 3 iters
+EV 268 converged λ = -2.2826196855, ‖r‖ = 7.39e-05, stable for 3 iters
+EV 269 converged λ = -2.2819937428, ‖r‖ = 1.08e-04, stable for 3 iters
+EV 270 converged λ = -2.0919021202, ‖r‖ = 1.70e-05, stable for 3 iters
+EV 271 converged λ = -1.9863011135, ‖r‖ = 4.41e-05, stable for 3 iters
+EV 272 converged λ = -1.9863010482, ‖r‖ = 5.36e-05, stable for 3 iters
+EV 273 converged λ = -1.9059517567, ‖r‖ = 1.03e-06, stable for 3 iters
+EV 274 converged λ = -1.8849303616, ‖r‖ = 2.73e-04, stable for 3 iters
+EV 275 converged λ = -1.8627131376, ‖r‖ = 2.05e-04, stable for 3 iters
+EV 276 converged λ = -1.8627129646, ‖r‖ = 4.82e-04, stable for 3 iters
+EV 277 converged λ = -1.8626541323, ‖r‖ = 5.09e-04, stable for 3 iters
+EV 278 converged λ = -1.8513796058, ‖r‖ = 1.64e-04, stable for 3 iters
+EV 279 converged λ = -1.8482430462, ‖r‖ = 1.87e-05, stable for 3 iters
+EV 280 converged λ = -1.8481936082, ‖r‖ = 1.10e-05, stable for 3 iters
+EV 281 converged λ = -1.8396185113, ‖r‖ = 1.99e-06, stable for 3 iters
+EV 282 converged λ = -1.7680321028, ‖r‖ = 4.85e-04, stable for 3 iters
+EV 283 converged λ = -1.7612205669, ‖r‖ = 3.40e-04, stable for 3 iters
+EV 284 converged λ = -1.7061493084, ‖r‖ = 2.25e-05, stable for 3 iters
+EV 285 converged λ = -1.7061299958, ‖r‖ = 3.52e-05, stable for 3 iters
+EV 286 converged λ = -1.6887437335, ‖r‖ = 2.46e-04, stable for 3 iters
+EV 287 converged λ = -1.6886221538, ‖r‖ = 1.59e-04, stable for 3 iters
+EV 288 converged λ = -1.6538220935, ‖r‖ = 2.35e-05, stable for 3 iters
+EV 289 converged λ = -1.5734754939, ‖r‖ = 3.68e-04, stable for 3 iters
+EV 290 converged λ = -1.5734753992, ‖r‖ = 4.18e-04, stable for 3 iters
+EV 291 converged λ = -1.5734219838, ‖r‖ = 6.80e-04, stable for 3 iters
+EV 292 converged λ = -1.5731843047, ‖r‖ = 4.54e-04, stable for 3 iters
+EV 293 converged λ = -1.5731337182, ‖r‖ = 9.96e-04, stable for 3 iters
+EV 294 converged λ = -1.5686275488, ‖r‖ = 3.05e-05, stable for 3 iters
+Iter 23: V_size = 132, Converged = 294, Min ‖r‖ = 1.0328493105973997e-6
+Iter 24: V_size = 198, Converged = 294, Min ‖r‖ = 6.561313522502517e-6
+Iter 25: V_size = 132, Converged = 294, Min ‖r‖ = 2.551512284121649e-6
+EV 295 converged λ = -2.2870178151, ‖r‖ = 9.02e-05, stable for 3 iters
+EV 296 converged λ = -2.2062094689, ‖r‖ = 9.40e-05, stable for 3 iters
+EV 297 converged λ = -2.1107411963, ‖r‖ = 1.51e-04, stable for 3 iters
+EV 298 converged λ = -2.1107343630, ‖r‖ = 1.43e-05, stable for 3 iters
+EV 299 converged λ = -2.1107111911, ‖r‖ = 2.31e-04, stable for 3 iters
+EV 300 converged λ = -2.0920229445, ‖r‖ = 2.07e-04, stable for 3 iters
+EV 301 converged λ = -2.0911634100, ‖r‖ = 6.98e-05, stable for 3 iters
+EV 302 converged λ = -2.0366965499, ‖r‖ = 1.02e-04, stable for 3 iters
+EV 303 converged λ = -1.8602700550, ‖r‖ = 5.91e-05, stable for 3 iters
+Iter 26: V_size = 114, Converged = 303, Min ‖r‖ = 1.4000667621945828e-6
+Iter 27: V_size = 171, Converged = 303, Min ‖r‖ = 9.811721643147312e-7
+Iter 28: V_size = 228, Converged = 303, Min ‖r‖ = 6.391946800304104e-7
+EV 304 converged λ = -2.0366959545, ‖r‖ = 1.12e-03, stable for 3 iters
+EV 305 converged λ = -1.9236000577, ‖r‖ = 2.05e-04, stable for 3 iters
+EV 306 converged λ = -1.9178053522, ‖r‖ = 5.90e-04, stable for 3 iters
+EV 307 converged λ = -1.9172302730, ‖r‖ = 4.56e-04, stable for 3 iters
+EV 308 converged λ = -1.8849305311, ‖r‖ = 2.89e-05, stable for 3 iters
+EV 309 converged λ = -1.8627434000, ‖r‖ = 3.15e-04, stable for 3 iters
+EV 310 converged λ = -1.8626543229, ‖r‖ = 4.91e-05, stable for 3 iters
+EV 311 converged λ = -1.8626264976, ‖r‖ = 9.66e-04, stable for 3 iters
+EV 312 converged λ = -1.8602699628, ‖r‖ = 4.65e-05, stable for 3 iters
+EV 313 converged λ = -1.8483490113, ‖r‖ = 6.54e-07, stable for 3 iters
+EV 314 converged λ = -1.8482429179, ‖r‖ = 1.43e-06, stable for 3 iters
+EV 315 converged λ = -1.8481934504, ‖r‖ = 1.18e-06, stable for 3 iters
+EV 316 converged λ = -1.8481137532, ‖r‖ = 4.88e-07, stable for 3 iters
+EV 317 converged λ = -1.8071690672, ‖r‖ = 7.36e-05, stable for 3 iters
+EV 318 converged λ = -1.8071689299, ‖r‖ = 1.10e-04, stable for 3 iters
+EV 319 converged λ = -1.7680323629, ‖r‖ = 4.39e-05, stable for 3 iters
+EV 320 converged λ = -1.7061491400, ‖r‖ = 8.30e-07, stable for 3 iters
+EV 321 converged λ = -1.7061459976, ‖r‖ = 1.56e-06, stable for 3 iters
+EV 322 converged λ = -1.7061299006, ‖r‖ = 9.36e-07, stable for 3 iters
+EV 323 converged λ = -1.7061027915, ‖r‖ = 2.77e-06, stable for 3 iters
+EV 324 converged λ = -1.6887598547, ‖r‖ = 9.33e-06, stable for 3 iters
+EV 325 converged λ = -1.6887437357, ‖r‖ = 1.32e-05, stable for 3 iters
+EV 326 converged λ = -1.6886221752, ‖r‖ = 8.44e-06, stable for 3 iters
+EV 327 converged λ = -1.6885991160, ‖r‖ = 3.38e-06, stable for 3 iters
+EV 328 converged λ = -1.6749604988, ‖r‖ = 9.32e-05, stable for 3 iters
+EV 329 converged λ = -1.6749604912, ‖r‖ = 1.10e-04, stable for 3 iters
+EV 330 converged λ = -1.6023717481, ‖r‖ = 2.57e-04, stable for 3 iters
+EV 331 converged λ = -1.5855099944, ‖r‖ = 1.93e-04, stable for 3 iters
+EV 332 converged λ = -1.5731342421, ‖r‖ = 7.00e-05, stable for 3 iters
+EV 333 converged λ = -1.4736483388, ‖r‖ = 5.90e-04, stable for 3 iters
+EV 334 converged λ = -1.4736479159, ‖r‖ = 3.54e-04, stable for 3 iters
+EV 335 converged λ = -1.4736180525, ‖r‖ = 3.76e-04, stable for 3 iters
+EV 336 converged λ = -1.4735762341, ‖r‖ = 3.83e-04, stable for 3 iters
+EV 337 converged λ = -1.4735527591, ‖r‖ = 7.89e-04, stable for 3 iters
+EV 338 converged λ = -1.4735525725, ‖r‖ = 2.59e-04, stable for 3 iters
+Iter 29: V_size = 44, Converged = 338, Min ‖r‖ = 4.875887030309281e-7
+Iter 30: V_size = 66, Converged = 338, Min ‖r‖ = 0.00020164767813542122
+Iter 31: V_size = 88, Converged = 338, Min ‖r‖ = 0.00016017566146292743
+EV 339 converged λ = -1.9236237752, ‖r‖ = 1.66e-03, stable for 3 iters
+EV 340 converged λ = -1.8513517121, ‖r‖ = 1.02e-03, stable for 3 iters
+EV 341 converged λ = -1.6023716890, ‖r‖ = 3.95e-04, stable for 3 iters
+EV 342 converged λ = -1.5857526049, ‖r‖ = 1.28e-04, stable for 3 iters
+EV 343 converged λ = -1.5857525653, ‖r‖ = 1.99e-04, stable for 3 iters
+EV 344 converged λ = -1.5855100233, ‖r‖ = 1.99e-04, stable for 3 iters
+Iter 32: V_size = 32, Converged = 344, Min ‖r‖ = 0.00012808156459517017
+EV 345 converged λ = -2.0102699044, ‖r‖ = 1.40e-03, stable for 3 iters
+Iter 33: V_size = 30, Converged = 345, Min ‖r‖ = 0.0005532637033418438
+Iter 34: V_size = 45, Converged = 345, Min ‖r‖ = 0.0004856292965336812
+Iter 35: V_size = 60, Converged = 345, Min ‖r‖ = 0.0004345951193504587
+EV 346 converged λ = -1.7612307033, ‖r‖ = 7.17e-04, stable for 3 iters
+EV 347 converged λ = -1.4906596806, ‖r‖ = 9.15e-04, stable for 3 iters
+EV 348 converged λ = -1.4906141306, ‖r‖ = 3.92e-04, stable for 3 iters
+EV 349 converged λ = -1.4216877067, ‖r‖ = 7.12e-04, stable for 3 iters
+EV 350 converged λ = -1.4214756029, ‖r‖ = 9.56e-04, stable for 3 iters
+Iter 36: V_size = 20, Converged = 350, Min ‖r‖ = 0.00039174702506171986
+Iter 37: V_size = 30, Converged = 350, Min ‖r‖ = 0.0012153452239063755
+EV 351 converged λ = -1.5105086056, ‖r‖ = 1.82e-03, stable for 3 iters
+Iter 38: V_size = 18, Converged = 351, Min ‖r‖ = 0.0010229347609241638
+EV 352 converged λ = -1.5859976085, ‖r‖ = 2.09e-03, stable for 3 iters
+EV 353 converged λ = -1.5853072776, ‖r‖ = 1.83e-03, stable for 3 iters
+EV 354 converged λ = -1.5105104462, ‖r‖ = 1.01e-03, stable for 3 iters
+Iter 39: V_size = 12, Converged = 354, Min ‖r‖ = 0.0009711714063141186
+Iter 40: V_size = 18, Converged = 354, Min ‖r‖ = 0.0009259572459780867
+Iter 41: V_size = 24, Converged = 354, Min ‖r‖ = 0.0009340960310523454
+EV 355 converged λ = -1.4906603793, ‖r‖ = 1.06e-03, stable for 3 iters
+EV 356 converged λ = -1.4906126607, ‖r‖ = 1.46e-03, stable for 3 iters
+Iter 42: V_size = 8, Converged = 356, Min ‖r‖ = 0.0010596763770723545
+Iter 43: V_size = 12, Converged = 356, Min ‖r‖ = 0.0045062324408144255
+Iter 44: V_size = 16, Converged = 356, Min ‖r‖ = 0.004338971947838082
+Iter 45: V_size = 20, Converged = 356, Min ‖r‖ = 0.004308332407943275
+Iter 46: V_size = 24, Converged = 356, Min ‖r‖ = 0.004269728255356146
+Iter 47: V_size = 28, Converged = 356, Min ‖r‖ = 0.004250237850712749
+EV 357 converged λ = -1.4906608845, ‖r‖ = 4.21e-03, stable for 3 iters
+Iter 48: V_size = 6, Converged = 357, Min ‖r‖ = 0.00421233711994371
+Iter 49: V_size = 9, Converged = 357, Min ‖r‖ = 0.011191557593519322
+Iter 50: V_size = 12, Converged = 357, Min ‖r‖ = 0.008595518966367873
+Iter 51: V_size = 15, Converged = 357, Min ‖r‖ = 0.007570397225381632
+Iter 52: V_size = 18, Converged = 357, Min ‖r‖ = 0.0073000220213547
+Iter 53: V_size = 21, Converged = 357, Min ‖r‖ = 0.010100938370079535
+Iter 54: V_size = 24, Converged = 357, Min ‖r‖ = 0.011356146446890182
+Iter 55: V_size = 27, Converged = 357, Min ‖r‖ = 0.012306966900646995
+Iter 56: V_size = 30, Converged = 357, Min ‖r‖ = 0.01218112694967593
+Iter 57: V_size = 33, Converged = 357, Min ‖r‖ = 0.01205925171096106
+Iter 58: V_size = 36, Converged = 357, Min ‖r‖ = 0.011901026258631068
+Iter 59: V_size = 39, Converged = 357, Min ‖r‖ = 0.011495553967430301
+Iter 60: V_size = 42, Converged = 357, Min ‖r‖ = 0.008847244958840527
+Iter 61: V_size = 45, Converged = 357, Min ‖r‖ = 0.006895279635160393
+Iter 62: V_size = 48, Converged = 357, Min ‖r‖ = 0.0051802490055947795
+Iter 63: V_size = 51, Converged = 357, Min ‖r‖ = 0.004198024238291795
+Iter 64: V_size = 54, Converged = 357, Min ‖r‖ = 0.0035216269341830997
+Iter 65: V_size = 57, Converged = 357, Min ‖r‖ = 0.0029411497931613392
+Iter 66: V_size = 60, Converged = 357, Min ‖r‖ = 0.0026831653683335437
+Iter 67: V_size = 63, Converged = 357, Min ‖r‖ = 0.0025760367483708825
+Iter 68: V_size = 66, Converged = 357, Min ‖r‖ = 0.002499339675207565
+EV 358 converged λ = -1.4304573528, ‖r‖ = 2.43e-03, stable for 3 iters
+Iter 69: V_size = 4, Converged = 358, Min ‖r‖ = 0.00242882932813127
+Iter 70: V_size = 6, Converged = 358, Min ‖r‖ = 0.0025486827725134473
+Iter 71: V_size = 8, Converged = 358, Min ‖r‖ = 0.0022054466432512017
+Iter 72: V_size = 10, Converged = 358, Min ‖r‖ = 0.00198696059406002
+Iter 73: V_size = 12, Converged = 358, Min ‖r‖ = 0.0018284453456505838
+Iter 74: V_size = 14, Converged = 358, Min ‖r‖ = 0.0016869325097621636
+Iter 75: V_size = 16, Converged = 358, Min ‖r‖ = 0.0016272157170256615
+Iter 76: V_size = 18, Converged = 358, Min ‖r‖ = 0.0016746183986556889
+Iter 77: V_size = 20, Converged = 358, Min ‖r‖ = 0.0017468325796018308
+Iter 78: V_size = 22, Converged = 358, Min ‖r‖ = 0.001843204441415568
+Iter 79: V_size = 24, Converged = 358, Min ‖r‖ = 0.001980342374281569
+Iter 80: V_size = 26, Converged = 358, Min ‖r‖ = 0.002116077513297572
+EV 359 converged λ = -1.4905822985, ‖r‖ = 6.41e-03, stable for 3 iters
+Iter 81: V_size = 2, Converged = 359, Min ‖r‖ = 0.0021648472794782007
+Iter 82: V_size = 3, Converged = 359, Min ‖r‖ = 0.0019168193875811858
+Iter 83: V_size = 4, Converged = 359, Min ‖r‖ = 0.001657890811376842
+Iter 84: V_size = 5, Converged = 359, Min ‖r‖ = 0.0014577079968425464
+Iter 85: V_size = 6, Converged = 359, Min ‖r‖ = 0.0013315223937405006
+EV 360 converged λ = -1.4304454539, ‖r‖ = 1.24e-03, stable for 3 iters
+Converged all eigenvalues.
+148.313715 seconds (49.40 M allocations: 852.621 GiB, 7.33% gc time)
+Full diagonalization
+ 51.178349 seconds (25 allocations: 1.055 GiB, 0.00% gc time)
+1×360 adjoint(::Vector{Float64}) with eltype Float64:
+ 7.63833e-14  7.90479e-13  2.80664e-13  7.22977e-13  1.44595e-12  1.56319e-13  3.55271e-15  1.77636e-15  3.37508e-14  -3.55271e-15  -8.88178e-15  9.70513e-12  1.64624e-11  1.77636e-15  2.22045e-14  1.05693e-13  3.10862e-14  8.88178e-15  -1.42109e-14  -1.06581e-14  8.88178e-15  -1.77636e-15  1.24345e-14  8.88178e-16  -4.44089e-15  -5.32907e-15  5.32907e-15  -3.55271e-15  5.32907e-15  2.30926e-14  -1.15463e-14  -3.55271e-15  2.66454e-15  -5.32907e-15  5.77316e-14  4.52971e-14  5.59552e-14  2.04281e-14  8.45288e-11  1.90958e-13  7.81597e-14  2.37144e-13  4.44089e-14  -8.88178e-16  2.22045e-13  3.9968e-14  -1.77636e-15  -1.59872e-14  -7.99361e-15  1.24345e-14  2.66454e-15  -1.15463e-14  -7.10543e-15  -2.66454e-15  -6.21725e-15  -1.77636e-15  8.88178e-15  4.08562e-14  5.60441e-13  4.44089e-15  -7.10543e-15  -1.15463e-14  -5.32907e-15  -8.88178e-16  -1.77636e-15  -8.88178e-15  -1.15463e-14  -9.76996e-15  -5.32907e-15  -2.66454e-15  -4.44089e-15  3.63265e-13  1.59872e-14  1.77636e-15  5.32907e-15  5.32907e-15  4.13003e-13  6.93134e-12  2.0278e-11  5.00943e-10  3.38218e-12  1.61437e-9  1.15463e-14  -1.77636e-15  1.21874e-9  3.73608e-11  1.06581e-14  1.30647e-11  -1.33227e-15  7.98591e-10  8.52651e-14  1.1533e-12  4.59188e-13  1.85008e-12  7.10099e-13  6.35048e-14  -6.66134e-15  8.88178e-16  4.53504e-12  4.84501e-13  4.44089e-16  -3.55271e-15  5.1692e-13  -8.88178e-16  0.0  1.53976e-10  -1.67422e-13  2.8022e-13  3.75373e-9  2.49845e-12  3.63976e-12  9.49933e-11  -3.9968e-15  -2.66454e-15  1.12621e-12  -3.9968e-15  5.03775e-12  -1.33227e-15  3.10862e-15  6.22391e-12  4.74287e-13  1.00187e-12  5.2891e-13  1.5441e-12  3.73479e-12  1.51092e-11  1.07852e-11  2.48754e-8  -4.22329e-13  2.61924e-12  2.39364e-13  -3.9968e-15  3.00204e-13  1.33227e-15  2.30482e-13  4.44089e-15  -4.44089e-16  -1.77636e-15  1.2736e-11  3.95683e-13  1.75415e-13  4.12559e-13  7.74492e-13  3.72382e-11  8.05844e-12  4.88498e-15  8.88178e-16  4.44089e-16  7.8586e-12  3.9968e-15  4.28502e-12  1.62048e-12  1.12887e-12  -2.22045e-15  -2.22045e-15  5.56444e-13  8.88178e-16  -8.88178e-16  4.39737e-12  2.2955e-12  1.47438e-13  1.33227e-15  1.19904e-14  3.60981e-10  2.25362e-11  4.68381e-12  7.21734e-12  1.86384e-12  3.86776e-10  5.68976e-10  4.65339e-10  1.909e-8  -3.28227e-9  6.35603e-11  2.30651e-10  1.31586e-9  1.09316e-9  6.67631e-10  6.88005e-11  2.17618e-8  9.27258e-13  3.9968e-15  1.15463e-14  1.3714e-9  1.6023e-9  3.43081e-9  4.25511e-9  1.33912e-9  -3.88088e-10  2.41759e-9  1.68466e-9  1.71613e-10  3.50794e-10  1.46288e-9  2.20936e-9  7.0087e-9  1.67525e-9  4.11464e-9  9.02223e-9  1.79695e-9  1.66756e-9  6.13937e-9  8.00475e-9  6.26827e-10  5.76222e-10  3.19403e-9  4.81654e-9  3.42484e-8  -2.76014e-9  3.87415e-9  2.11005e-11  3.26033e-11  2.572e-9  4.81751e-9  8.53068e-9  1.71659e-8  2.72071e-8  7.52864e-12  1.06555e-11  1.17071e-11  4.34182e-11  2.75517e-11  8.20588e-12  4.11798e-8  4.75795e-8  2.16307e-8  4.77773e-8  4.16639e-9  5.05285e-8  1.2097e-12  4.31743e-8  7.16338e-8  -1.32365e-9  4.81449e-8  5.08384e-8  2.81281e-8  2.2386e-8  1.25372e-8  -2.74418e-9  5.13644e-9  1.58284e-9  2.61196e-9  2.03109e-9  1.35643e-11  1.18816e-11  2.27041e-11  1.76343e-9  2.62323e-11  2.25375e-12  1.03586e-9  2.18283e-11  2.23421e-12  3.38755e-10  5.29998e-11  9.14969e-8  6.01174e-7  2.1335e-6  2.0971e-9  2.99585e-9  6.92176e-9  3.04562e-8  4.36019e-9  7.31916e-9  1.20063e-8  5.82524e-9  1.68024e-6  2.02243e-8  4.03268e-8  4.86797e-8  9.52893e-8  1.19548e-7  2.56557e-7  2.0384e-8  7.33821e-8  1.2842e-8  7.26234e-8  1.03073e-7  5.96912e-10  5.19584e-13  -5.64444e-10  1.22098e-9  3.54565e-11  5.21097e-10  5.36959e-11  -4.73758e-10  9.53624e-9  8.44779e-8  -2.612e-10  3.32466e-7  1.07627e-7  2.21088e-7  7.2736e-11  5.22435e-8  5.55603e-7  2.54142e-9  1.24302e-9  3.34259e-8  6.28558e-7  2.63123e-13  3.88866e-10  1.26854e-12  1.38432e-10  8.45546e-13  1.48992e-13  5.62972e-12  3.48793e-9  8.92375e-9  3.20803e-8  2.59042e-7  3.13533e-7  1.64543e-7  1.09275e-9  -1.74483e-12  1.76703e-12  2.06868e-9  -2.83107e-13  5.40301e-12  8.779e-11  1.02799e-7  -6.12317e-9  2.85646e-8  1.81814e-8  -4.16556e-12  9.67848e-9  5.53113e-9  1.49293e-8  1.11312e-9  8.53563e-8  1.15379e-7  2.94033e-6  1.85423e-8  4.32239e-8  4.80007e-8  3.46261e-8  2.32733e-6  5.25692e-7  5.44109e-7  5.90125e-7  1.24715e-7  3.67517e-9  4.60281e-7  2.2921e-9  7.16068e-7  2.52949e-6  2.24973e-5  3.80752e-8  6.85921e-7  1.31177e-7  1.52416e-6  2.2256e-5  -7.78404e-8  1.48419e-7  2.33527e-8  -2.17796e-8  -2.06067e-8  6.02038e-8  5.68943e-6  1.75818e-5  0.00593428  0.00614553
+Total estimated FLOPs: 8494447255580
