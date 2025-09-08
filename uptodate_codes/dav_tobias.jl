@@ -1,6 +1,7 @@
 using LinearAlgebra
 using Printf
 using JLD2
+using BenchmarkTools
 
 function load_matrix(system::String)
     if system == "He"
@@ -58,7 +59,7 @@ function main(system::String, Nlow::Int)
 
     # perform Davidson algorithm
     println("Davidson")
-    @time Σ, U = davidson(A, V, Naux, 1e-2, system)
+    @btime Σ, U = davidson(A, V, Naux, 1e-2, system)
 
     # perform exact diagonalization as a reference
     println("Full diagonalization")
