@@ -59,7 +59,7 @@ function main(system::String, Nlow::Int)
 
     # perform Davidson algorithm
     println("Davidson")
-    @btime Σ, U = davidson(A, V, Naux, 1e-2, system)
+    @time Σ, U = davidson(A, V, Naux, 1e-2, system)
 
     # perform exact diagonalization as a reference
     println("Full diagonalization")
@@ -138,6 +138,6 @@ molecules = ["He", "hBN", "Si"]
 for Nlow in N_lows
     println("Running for Nlow = $Nlow")
     for molecule in molecules
-        main(molecule, Nlow)
+        @btime main($molecule, $Nlow)
     end
 end
