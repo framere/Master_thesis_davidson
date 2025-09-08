@@ -58,8 +58,8 @@ function main(system::String, Nlow::Int)
     # V = rand(N,Nlow) .- 0.995
 
     # perform Davidson algorithm
-    println("Davidson")
-    @time Σ, U = davidson(A, V, Naux, 1e-2, system)
+    println("Benchmarking Davidson for $system, Nlow=$Nlow")
+    Σ, U = @btime davidson($A, $V, $Naux, 1e-2, $system)
 
     # perform exact diagonalization as a reference
     println("Full diagonalization")
@@ -135,9 +135,10 @@ end
 
 N_lows = [16, 30, 60, 90]
 molecules = ["He", "hBN", "Si"]
+
 for Nlow in N_lows
-    println("Running for Nlow = $Nlow")
+    println("==== Running for Nlow = $Nlow ====")
     for molecule in molecules
-        @btime main($molecule, $Nlow)
+        main(molecule, Nlow)
     end
 end
