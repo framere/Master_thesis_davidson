@@ -1,7 +1,7 @@
 using LinearAlgebra
 using Printf
 using JLD2
-using BenchmarkTools
+using PAPI
 
 function load_matrix(system::String)
     if system == "He"
@@ -15,8 +15,8 @@ function load_matrix(system::String)
     end
 
     # read the matrix
-    filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
-    # filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
+    # filename = "../Davidson_algorithm/m_pp_" * system * ".dat"
+    filename = "../../../../OneDrive - Students RWTH Aachen University/Master_arbeit/Davidson_algorithm/m_pp_" * system * ".dat" # personal
     println("read ", filename)
     file = open(filename, "r")
     A = Array{Float64}(undef, N * N)
@@ -37,12 +37,14 @@ function load_eigenresults(output_file="eigen_results.jld2")
 end
 
 
+using LinearAlgebra
+using Printf
+using JLD2
+using PAPI
+
 function main(system::String, Nlow::Int)
-    # the two test systems He and hBN are hardcoded
-    system = system
-    
-    # Nlow = 200 # we are interested in the first Nlow eigenvalues
-    Naux = Nlow * 7 # let our auxiliary space be larger (but not too large)
+    # Naux = factor for auxiliary space
+    Naux = Nlow * 7
 
     # read the matrix
     A = load_matrix(system)
@@ -51,25 +53,37 @@ function main(system::String, Nlow::Int)
     # initial guess vectors (naive guess)
     V = zeros(N, Nlow)
     for i = 1:Nlow
-       V[i,i] = 1.0
+        V[i, i] = 1.0
     end
 
-    # # initial guess vectors (stochastic guess)
-    # V = rand(N,Nlow) .- 0.995
+    println("Profiling Davidson with PAPI for $system, Nlow=$Nlow")
 
-    # perform Davidson algorithm
-    println("Benchmarking Davidson for $system, Nlow=$Nlow")
-    Σ, U = @btime davidson($A, $V, $Naux, 1e-2, $system)
+    # Select counters you want to measure (depends on your CPU/PAPI build!)
+    counters = [
+        PAPI_FP_OPS,   # floating point operations
+        PAPI_TOT_INS,  # total instructions
+        PAPI_L1_DCM,   # L1 data cache misses
+        PAPI_TOT_CYC   # total cycles
+    ]
 
-    # perform exact diagonalization as a reference
-    println("Full diagonalization")
-    Σexact, Uexact = load_eigenresults("../EV_calculation/eigen_results_"*system*".jld2") 
+    # Run Davidson inside PAPI measurement
+    values = PAPI.@count_counters counters begin
+        Σ, U = davidson(A, V, Naux, 1e-6, system)
+        Σ, U
+    end
 
-    #display("text/plain", Σexact[1:Nlow]')
+    # Print results
+    println("PAPI results for $system, Nlow=$Nlow:")
+    for (c, v) in zip(counters, values)
+        println("  $(c): $v")
+    end
+
+    # Load exact eigenvalues for comparison
+    Σexact, _ = load_eigenresults("../eigen_results_" * system * ".jld2")
     display("text/plain", Σ')
-    # display("text/plain", U)
-    display("text/plain", (Σ-Σexact[1:Nlow])')
+    display("text/plain", (Σ - Σexact[1:Nlow])')
 end
+
 
 
 # a simple implementation of the block Davidson method for a Hermitian matrix A
@@ -133,8 +147,8 @@ function davidson(
     end
 end
 
-N_lows = [16, 30, 60, 90]
-molecules = ["He", "hBN", "Si"]
+N_lows = [16] #, 30, 60, 90
+molecules = ["He"] # , "hBN", "Si"
 
 for Nlow in N_lows
     println("==== Running for Nlow = $Nlow ====")
